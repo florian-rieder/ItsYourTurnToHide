@@ -19,6 +19,9 @@ var _canMove = true
 var _old_visibility = 1.0
 
 
+func _ready():
+	$AnimationPlayer.play("village_ambiant_day") 
+
 func _physics_process(_delta):
 	var direction = get_direction()
 

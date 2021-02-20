@@ -1,28 +1,30 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
+[ext_resource path="res://audio/406949__kyles__village-small-crowd-morning-under-mango-trees-children-kids-and-nearby-and-distant-mellow-voices-and-activity-putti-uganda-africa-2016.wav" type="AudioStream" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://RockOrigin.gd" type="Script" id=3]
 [ext_resource path="res://assets/PlayerIdle-Sheet.png" type="Texture" id=4]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 4 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 4 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 4 )
-region = Rect2( 48, 0, 16, 16 )
+[ext_resource path="res://audio/413914__kyles__small-town-desert-oasis-distant-traffic-dune-buggys-bird-and-kids-playing-echo-huacachina-peru-south-america.wav" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -33,12 +35,39 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 2.52593
 height = 11.2413
 
-[sub_resource type="OccluderPolygon2D" id=7]
+[sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( -1.82361, -7.69069, 1.74802, -8.07994, 1.75424, 8.79547, -2.17438, 8.51486 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "village_ambiant_day"
+length = 332.0
+loop = true
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Ambiance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.2, 0.201, 237.7 )
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -46,7 +75,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.374577, 0 )
-frames = SubResource( 5 )
+frames = SubResource( 7 )
 animation = "idle"
 frame = 1
 speed_scale = 1.5
@@ -57,10 +86,10 @@ position = Vector2( 1.37458, 0 )
 script = ExtResource( 3 )
 
 [node name="RockCooldown" type="Timer" parent="AnimatedSprite/RockOrigin"]
+wait_time = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
-one_way_collision_margin = 2.0
+shape = SubResource( 1 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 enabled = true
@@ -73,6 +102,14 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 7 )
+occluder = SubResource( 2 )
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Ambiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -3.714
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 24.98
+anims/village_ambiant_day = SubResource( 8 )
+[connection signal="canInteract" from="." to="." method="_on_Player_canInteract"]
+[connection signal="resetInteract" from="." to="." method="_on_Player_resetInteract"]

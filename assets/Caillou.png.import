@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kid1.png-00227e063c3f8aa247f0dd041de1629a.stex"
+path="res://.import/Caillou.png-ed1863da579b5ac59b42d3ca11675984.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kid1.png"
-dest_files=[ "res://.import/Kid1.png-00227e063c3f8aa247f0dd041de1629a.stex" ]
+source_file="res://assets/Caillou.png"
+dest_files=[ "res://.import/Caillou.png-ed1863da579b5ac59b42d3ca11675984.stex" ]
 
 [params]
 
