@@ -48,6 +48,8 @@ cast_to = Vector2( 0, 5 )
 
 [node name="DistractedTime" type="Timer" parent="."]
 one_shot = true
+
+[node name="RandomTimer" type="Timer" parent="."]
 [connection signal="body_entered" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
 [connection signal="timeout" from="DistractedTime" to="." method="_on_DistractedTime_timeout"]

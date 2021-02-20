@@ -17,8 +17,6 @@ var _canInteract = false
 var _currentInteractor = null
 var _canMove = true
 
-func _ready():
-	pass
 
 func _physics_process(_delta):
 	var direction = get_direction()
@@ -32,7 +30,6 @@ func _physics_process(_delta):
 	)
 
 	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
-	# This will make Robi face left or right depending on the direction you move.
 	if direction.x != 0:
 		sprite.scale.x = 1 if direction.x > 0 else -1
 
@@ -43,7 +40,11 @@ func _process(delta):
 		# Flip if shooting behind
 		if projectile_direction.x * sprite.scale.x < 0:
 			sprite.scale.x *= -1
-		gun.shoot(projectile_direction)
+		# Add more force when lauching in the same direction of the movement
+		if abs(_velocity.x) > 0.1 and (projectile_direction.x * _velocity.x > 0):
+			gun.shoot(projectile_direction*1.5)
+		else:
+			gun.shoot(projectile_direction)
 	if Input.is_action_just_pressed("interact") and _canInteract:
 		match _currentInteractor:
 			"Cover":
@@ -53,6 +54,7 @@ func _process(delta):
 				else:
 					visibility_set(1)
 					_canMove = true
+			# Teleportation (doors)
 			var TPposition:
 				position = TPposition
 	
@@ -74,7 +76,6 @@ func get_direction():
 
 
 # This function calculates a new velocity whenever you need it.
-# It allows you to interrupt jumps.
 func calculate_move_velocity(
 		linear_velocity,
 		direction,
@@ -87,18 +88,19 @@ func calculate_move_velocity(
 
 	return velocity
 
+# Ajust alpha depending on the visibility, maybe not a good idea
 func visibility_set(newVisibility):
 	newVisibility = clamp(newVisibility,0.0,1.0)
 	visibility = newVisibility
 	sprite.modulate.a = visibility
 
-
+# Called by interactors
 func canInteract(message, interactor):
 	_canInteract = true
 	_currentInteractor = interactor
 	emit_signal("canInteract",message)
 
-
+# To reset the msg print on the HUD
 func resetInteract():
 	_canInteract = false
 	_currentInteractor = ""
