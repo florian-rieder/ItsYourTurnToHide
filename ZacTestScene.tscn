@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ZacTestScene.gd" type="Script" id=3]
+[ext_resource path="res://Cover.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.5522, 4.34943 )
+
+[node name="ZacTestScene" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Platform" type="KinematicBody2D" parent="."]
+position = Vector2( 258.166, 252.554 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platform"]
+position = Vector2( -0.235962, 0.707906 )
+scale = Vector2( 1, 0.188858 )
+texture = ExtResource( 1 )
+
+[node name="Platform2" type="KinematicBody2D" parent="."]
+position = Vector2( 319.678, 251.76 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platform2"]
+position = Vector2( 0.859024, 1.26564 )
+scale = Vector2( 1, 0.188858 )
+texture = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 289.234, 164.236 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -335.546, -310.085 )
+anchor_mode = 0
+
+[node name="UITest" type="RichTextLabel" parent="."]
+margin_left = 196.0
+margin_top = 124.0
+margin_right = 403.0
+margin_bottom = 185.0
+text = "www"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cover" parent="." instance=ExtResource( 4 )]
+position = Vector2( 346.794, 237.206 )
+msg = "Press e to do nothing"

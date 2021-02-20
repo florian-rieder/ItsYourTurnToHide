@@ -1,12 +1,19 @@
 class_name Player
 extends Actor
 
+signal canInteract(message)
+signal resetInteract
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
+var visibility = 1.0 setget visibility_set
 
 onready var platform_detector = $PlatformDetector
 onready var sprite = $Sprite
+
+var _canInteract = false
+var _currentInteractor = null
+var _canMove = true
 
 func _ready():
 	pass
@@ -27,13 +34,27 @@ func _physics_process(_delta):
 	if direction.x != 0:
 		sprite.scale.x = 1 if direction.x > 0 else -1
 
+func _process(delta):
+	if Input.is_action_just_pressed("interact") and _canInteract:
+		match _currentInteractor:
+			"Cover":
+				if _canMove:
+					visibility_set(0)
+					_canMove = false
+				else:
+					visibility_set(1)
+					_canMove = true
+
 
 
 func get_direction():
-	return Vector2(
-		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		0
-	)
+	if _canMove:
+		return Vector2(
+			Input.get_action_strength("right") - Input.get_action_strength("left"),
+			0
+		)
+	else:
+		return Vector2(0,0)
 
 
 # This function calculates a new velocity whenever you need it.
@@ -49,3 +70,20 @@ func calculate_move_velocity(
 		velocity.y = speed.y * direction.y
 
 	return velocity
+
+func visibility_set(newVisibility):
+	newVisibility = clamp(newVisibility,0.0,1.0)
+	visibility = newVisibility
+	sprite.modulate.a = visibility
+
+
+func canInteract(message, interactor):
+	_canInteract = true
+	_currentInteractor = interactor
+	emit_signal("canInteract",message)
+
+
+func resetInteract():
+	_canInteract = false
+	_currentInteractor = ""
+	emit_signal("resetInteract")
