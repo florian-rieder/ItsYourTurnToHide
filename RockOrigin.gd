@@ -3,7 +3,7 @@ extends Position2D
 const BULLET_VELOCITY = 300.0
 const Rock = preload("res://Rock.tscn")
 
-onready var cooldown = $Cooldown
+onready var cooldown = $RockCooldown
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

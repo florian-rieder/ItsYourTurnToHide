@@ -3,7 +3,7 @@ extends Control
 # the component is stored as a NodePath in the editor.
 # onready, we can cache the component by getting the node at the NodePath
 export(NodePath) onready var _dialog_text = get_node(_dialog_text) as Label
-export(NodePath) onready var _avatar = get_node(_avatar) as TextureRect
+#export(NodePath) onready var _avatar = get_node(_avatar) as TextureRect
 export(Resource) var _current_dialogue = _current_dialogue as Dialogue
 
 #export(Resource) var _runtime_data = _runtime_data as RuntimeData
@@ -11,7 +11,7 @@ export(Resource) var _current_dialogue = _current_dialogue as Dialogue
 var _current_slide_index = 0
 
 func _ready():
-	_avatar.texture = _current_dialogue.avatar_texture
+	#_avatar.texture = _current_dialogue.avatar_texture
 	show_slide()
 	
 	# listen to signals
@@ -37,7 +37,7 @@ func _on_dialog_initiated(dialogue : Dialogue) -> void:
 	
 	_current_dialogue = dialogue
 	_current_slide_index = 0
-	_avatar.texture = dialogue.avatar_texture
+	#_avatar.texture = dialogue.avatar_texture
 	
 	show_slide()
 	self.visible = true
