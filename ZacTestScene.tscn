@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,20 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.5522, 4.34943 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28.1476, 45.1003 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 55.5227, 23.8633 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 13.8591, 18.8989 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11.7173, 24.2358 )
 
 [node name="ZacTestScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -67,6 +81,18 @@ position = Vector2( -0.235962, 0.707906 )
 scale = Vector2( 1, 0.188858 )
 texture = ExtResource( 1 )
 
+[node name="Platform5" type="KinematicBody2D" parent="."]
+position = Vector2( 613.725, 567.715 )
+scale = Vector2( 11.68, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platform5"]
+position = Vector2( -0.235962, 0.707906 )
+scale = Vector2( 1, 0.188858 )
+texture = ExtResource( 1 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 289.234, 164.236 )
 
@@ -101,11 +127,22 @@ position = Vector2( 119.419, 289.919 )
 [node name="Door1" parent="Door" index="0"]
 position = Vector2( 3.17839, 54.6487 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Door1" index="0"]
+shape = SubResource( 2 )
+
 [node name="Door2" parent="Door" index="1"]
 position = Vector2( -219.288, 57.4341 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Door2" index="0"]
+shape = SubResource( 3 )
+
 [node name="Door2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 254.672, 343.574 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Door1" index="0"]
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/Door2" index="0"]
 
 [node name="SimpleEnnemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 182.097, 328.295 )
@@ -121,8 +158,30 @@ visibility = 2.0
 [node name="Pots" parent="." instance=ExtResource( 8 )]
 position = Vector2( 245.626, 233.164 )
 
+[node name="Test" type="TileMap" parent="."]
+format = 1
+
+[node name="Door3" parent="Test" instance=ExtResource( 5 )]
+position = Vector2( 392.613, 529.725 )
+
+[node name="Door1" parent="Test/Door3" index="0"]
+position = Vector2( -102.054, 12.5992 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test/Door3/Door1" index="0"]
+shape = SubResource( 5 )
+
+[node name="Door2" parent="Test/Door3" index="1"]
+position = Vector2( 312.712, 12.5992 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test/Door3/Door2" index="0"]
+shape = SubResource( 6 )
+
 [editable path="Door"]
+
+[editable path="Door2"]
 
 [editable path="VisibilityArea"]
 
 [editable path="VisibilityArea2"]
+
+[editable path="Test/Door3"]

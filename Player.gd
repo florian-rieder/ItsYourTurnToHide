@@ -52,7 +52,7 @@ func _process(delta):
 				if _canMove:
 					_old_visibility = visibility
 					visibility_set(0)
-					sprite.modulate.a = 0
+					sprite.modulate.a = 0.2
 					_canMove = false
 				else:
 					visibility_set(_old_visibility)
