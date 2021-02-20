@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ForegroundTilemap.png-e32008bd159cb82848cce6cd88e6ee45.stex"
+path="res://.import/FlowerPot.png-9e6b3a8e1f0913553d2917624879776e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ForegroundTilemap.png"
-dest_files=[ "res://.import/ForegroundTilemap.png-e32008bd159cb82848cce6cd88e6ee45.stex" ]
+source_file="res://assets/FlowerPot.png"
+dest_files=[ "res://.import/FlowerPot.png-9e6b3a8e1f0913553d2917624879776e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
