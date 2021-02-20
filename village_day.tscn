@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://parallax_background.gd" type="Script" id=1]
 [ext_resource path="res://assets/background1.png" type="Texture" id=2]
@@ -11,11 +11,12 @@
 [ext_resource path="res://assets/Retro Gaming.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Cover.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/TrashHide.png" type="Texture" id=11]
-[ext_resource path="res://assets/light.png" type="Texture" id=12]
+[ext_resource path="res://assets/Lightspixel1.png" type="Texture" id=12]
 [ext_resource path="res://tilesets/foreground.tres" type="TileSet" id=13]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/Lights2pixel.png" type="Texture" id=15]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 9 )
 
@@ -53,8 +54,25 @@ scale = Vector2( -0.388118, 0.678656 )
 [node name="Sprite" parent="Terrain/GameSpace/Door/Door2" index="0"]
 visible = false
 
+[node name="Door2" parent="Terrain/GameSpace" instance=ExtResource( 14 )]
+position = Vector2( 312.096, 111.14 )
+
+[node name="Door1" parent="Terrain/GameSpace/Door2" index="0"]
+position = Vector2( -0.210236, 2.17357 )
+scale = Vector2( 0.382436, 0.640428 )
+
+[node name="Sprite" parent="Terrain/GameSpace/Door2/Door1" index="0"]
+visible = false
+
+[node name="Door2" parent="Terrain/GameSpace/Door2" index="1"]
+position = Vector2( 0.222595, -59.6041 )
+scale = Vector2( -0.388118, 0.678656 )
+
+[node name="Sprite" parent="Terrain/GameSpace/Door2/Door2" index="0"]
+visible = false
+
 [node name="Player" parent="Terrain" instance=ExtResource( 3 )]
-position = Vector2( 165.72, 76.7526 )
+position = Vector2( 292.435, 56.4593 )
 speed = Vector2( 200, 350 )
 
 [node name="Foreground" type="TileMap" parent="Terrain"]
@@ -67,23 +85,32 @@ __meta__ = {
 }
 
 [node name="Cover" parent="Terrain" instance=ExtResource( 10 )]
-position = Vector2( 117.161, 112.06 )
+position = Vector2( 197.433, 111.763 )
 texture = ExtResource( 11 )
 msg = "Hide (E)"
 
 [node name="Cover2" parent="Terrain" instance=ExtResource( 10 )]
-position = Vector2( -194.589, 111.81 )
+position = Vector2( 338.7, 54.0533 )
 texture = ExtResource( 7 )
 msg = "Hide (E)"
 
 [node name="Light2D" type="Light2D" parent="Terrain"]
-visible = false
 position = Vector2( 57.0422, 135.393 )
 texture = ExtResource( 12 )
-texture_scale = 0.3
 color = Color( 0.960784, 0.592157, 0.235294, 1 )
+energy = 0.77
 shadow_enabled = true
 shadow_gradient_length = 15.0
+shadow_filter = 2
+shadow_filter_smooth = 18.6
+
+[node name="Light2D2" type="Light2D" parent="Terrain"]
+position = Vector2( 270.103, 61.9234 )
+texture = ExtResource( 15 )
+color = Color( 0.960784, 0.592157, 0.235294, 1 )
+energy = 0.77
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.47451 )
 shadow_filter = 2
 shadow_filter_smooth = 18.6
 
@@ -98,6 +125,7 @@ _background = NodePath("ParallaxLayer/Sprite")
 texture = ExtResource( 2 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.447059, 0.447059, 0.447059, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -135,10 +163,9 @@ margin_left = 20.0
 margin_top = 10.0
 margin_right = -20.0
 margin_bottom = -10.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Placeholder text"
 
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 1024, 680 )
-
 [editable path="Terrain/GameSpace/Door"]
+
+[editable path="Terrain/GameSpace/Door2"]
