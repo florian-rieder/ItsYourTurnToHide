@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://parallax_background.gd" type="Script" id=1]
 [ext_resource path="res://assets/background1.png" type="Texture" id=2]
@@ -17,8 +17,7 @@
 [ext_resource path="res://assets/Lights2pixel.png" type="Texture" id=15]
 [ext_resource path="res://assets/Picorage-Sheet.png" type="Texture" id=16]
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
-[ext_resource path="res://assets/Enfant.png" type="Texture" id=18]
-[ext_resource path="res://NPCDialog.gd" type="Script" id=19]
+[ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 16 )
@@ -83,9 +82,6 @@ animations = [ {
 "name": "picorage",
 "speed": 5.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 21.3403, 10 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
@@ -162,7 +158,7 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 7
+frame = 5
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -170,7 +166,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 7
+frame = 5
 playing = true
 flip_h = true
 
@@ -178,20 +174,7 @@ flip_h = true
 position = Vector2( 335.435, 53.7366 )
 speed = Vector2( 200, 350 )
 
-[node name="NPCDialog" type="Node2D" parent="Terrain/Entities"]
-position = Vector2( 22.181, 111.849 )
-script = ExtResource( 19 )
-_dialogue = ExtResource( 8 )
-
-[node name="NPC" type="Sprite" parent="Terrain/Entities/NPCDialog"]
-position = Vector2( -2.43419, -0.604347 )
-texture = ExtResource( 18 )
-
-[node name="Area2D" type="Area2D" parent="Terrain/Entities/NPCDialog"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Entities/NPCDialog/Area2D"]
-position = Vector2( 0.890892, 8.46355 )
-shape = SubResource( 22 )
+[node name="NPCDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
 
 [node name="Foreground" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 13 )
@@ -285,7 +268,6 @@ margin_right = -20.0
 margin_bottom = -10.0
 custom_fonts/font = SubResource( 6 )
 text = "Placeholder text"
-[connection signal="body_entered" from="Terrain/Entities/NPCDialog/Area2D" to="Terrain/Entities/NPCDialog" method="_on_Area2D_body_entered"]
 
 [editable path="Terrain/GameSpace/Door"]
 

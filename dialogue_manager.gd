@@ -25,7 +25,7 @@ func _input(event):
 			_current_slide_index += 1
 			show_slide()
 		else: #_runtime_data.current_gameplay_state == Enums.GameplayState.IN_DIALOG:
-			GameEvents.emit_dialog_finished()
+			GameEvents.emit_dialog_finished(_current_dialogue)
 
 
 func show_slide() -> void:
@@ -43,6 +43,6 @@ func _on_dialog_initiated(dialogue : Dialogue) -> void:
 	self.visible = true
 
 
-func _on_dialog_finished() -> void:
+func _on_dialog_finished(_dialogue) -> void:
 	#_runtime_data.current_gameplay_state = Enums.GameplayState.FREEWALK
 	self.visible = false
