@@ -12,7 +12,6 @@ onready var otherDoor = get_node("../Door" + other_suffix)
 
 func _on_Door_body_entered(body):
 	if body.name == "Player":
-		print(otherDoor.global_position)
 		body.canInteract(msg,otherDoor.global_position + offset)
 		
 func _on_Door_body_exited(body):
