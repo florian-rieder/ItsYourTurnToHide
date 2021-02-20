@@ -1,14 +1,12 @@
 extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export(Texture) var texture
 export(String) var msg
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Sprite.set_texture(texture)
 
 
 func _on_Cover_body_entered(body):
