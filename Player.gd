@@ -10,6 +10,7 @@ var visibility = 1.0 setget visibility_set
 
 onready var platform_detector = $PlatformDetector
 onready var sprite = $Sprite
+onready var gun = $Sprite/RockOrigin
 
 var _canInteract = false
 var _currentInteractor = null
@@ -35,6 +36,13 @@ func _physics_process(_delta):
 		sprite.scale.x = 1 if direction.x > 0 else -1
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_select") and _canMove:
+		var cursorPos = get_viewport().get_mouse_position()
+		var projectile_direction = -(position - cursorPos).normalized()
+		# Flip if shooting behind
+		if projectile_direction.x * sprite.scale.x < 0:
+			sprite.scale.x *= -1
+		gun.shoot(projectile_direction)
 	if Input.is_action_just_pressed("interact") and _canInteract:
 		match _currentInteractor:
 			"Cover":
@@ -44,6 +52,9 @@ func _process(delta):
 				else:
 					visibility_set(1)
 					_canMove = true
+			var TPposition:
+				position = TPposition
+				
 
 
 
