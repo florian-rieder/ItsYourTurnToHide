@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayerRun-Sheet.png-a378c1b05e4694b64f57c3e26a2848b1.stex"
+path="res://.import/BoxpileHide.png-960453d91ed85e0ca2aa420e8b8642e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PlayerRun-Sheet.png"
-dest_files=[ "res://.import/PlayerRun-Sheet.png-a378c1b05e4694b64f57c3e26a2848b1.stex" ]
+source_file="res://assets/BoxpileHide.png"
+dest_files=[ "res://.import/BoxpileHide.png-960453d91ed85e0ca2aa420e8b8642e5.stex" ]
 
 [params]
 
