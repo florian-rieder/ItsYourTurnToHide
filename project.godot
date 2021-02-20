@@ -48,6 +48,10 @@ config/name="lvlupgamejam2021"
 run/main_scene="res://village_day.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout="res://audio/default_bus_layout.tres"
+
 [autoload]
 
 GameEvents="*res://game_events.gd"
