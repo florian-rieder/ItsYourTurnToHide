@@ -9,8 +9,8 @@ const FLOOR_DETECT_DISTANCE = 20.0
 var visibility = 1.0 setget visibility_set
 
 onready var platform_detector = $PlatformDetector
-onready var sprite = $Sprite
-onready var gun = $Sprite/RockOrigin
+onready var sprite = $AnimatedSprite
+onready var gun = $AnimatedSprite/RockOrigin
 
 var _canInteract = false
 var _currentInteractor = null
