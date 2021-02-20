@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NPCDialog.gd" type="Script" id=1]
+[ext_resource path="res://dialogues/intro.tres" type="Resource" id=2]
+[ext_resource path="res://assets/Enfant.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 21.3403, 10 )
+
+[node name="NPCDialog" type="Node2D"]
+position = Vector2( 22.181, 111.849 )
+script = ExtResource( 1 )
+_dialogue = ExtResource( 2 )
+
+[node name="NPC" type="Sprite" parent="."]
+position = Vector2( -2.43419, -0.604347 )
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.890892, 8.46355 )
+shape = SubResource( 22 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
