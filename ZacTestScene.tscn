@@ -71,6 +71,10 @@ __meta__ = {
 position = Vector2( 346.794, 237.206 )
 msg = "Press e to do nothing"
 
+[node name="Cover2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 61.3665, 348.83 )
+msg = "Press e to do nothing"
+
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 500, 500 )
 

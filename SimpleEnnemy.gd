@@ -12,6 +12,7 @@ enum State {
 export(State) var state = State.WALKING
 export(float) var hearing_distance = 10.0
 export(float) var distracted_time = 2
+export(float) var min_detection_time = 0.5
 
 onready var platform_detector = $PlatformDetector
 onready var floor_detector_left = $FloorDetectorLeft
@@ -80,3 +81,18 @@ func _on_DistractedTime_timeout():
 	state = _old_state
 	if state == State.WALKING:
 		_velocity.x = speed.x if sprite.scale.x > 0 else -speed.x
+
+
+func _on_PlayerDetector_body_entered(body):
+	if body.name == "Player":
+		body.number_of_people_seeing_you += 1
+		
+
+
+func _on_PlayerDetector_body_exited(body):
+	if body.name == "Player":
+		body.number_of_people_seeing_you -= 1
+
+
+func _on_DetectionTimer_timeout():
+	print("Detected")

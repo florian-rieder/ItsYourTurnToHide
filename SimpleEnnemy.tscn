@@ -22,16 +22,23 @@ position = Vector2( 37, -10 )
 scale = Vector2( 0.246788, 0.263342 )
 texture = ExtResource( 2 )
 
+[node name="PlayerDetector" type="Area2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/PlayerDetector"]
+polygon = PoolVector2Array( 0, 0, 200, -40, 200, 40 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="FloorDetectorLeft" type="RayCast2D" parent="."]
 position = Vector2( -30.8677, 0.561234 )
 enabled = true
+cast_to = Vector2( 0, 35 )
 
 [node name="FloorDetectorRight" type="RayCast2D" parent="."]
 position = Vector2( 31.9902, 0.561234 )
 enabled = true
+cast_to = Vector2( 0, 35 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
 position = Vector2( 0, 32 )
@@ -40,4 +47,6 @@ cast_to = Vector2( 0, 5 )
 
 [node name="DistractedTime" type="Timer" parent="."]
 one_shot = true
+[connection signal="body_entered" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="body_exited" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
 [connection signal="timeout" from="DistractedTime" to="." method="_on_DistractedTime_timeout"]
