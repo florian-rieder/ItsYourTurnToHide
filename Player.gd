@@ -37,7 +37,7 @@ func _physics_process(_delta):
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_select") and _canMove:
-		var cursorPos = get_viewport().get_mouse_position()
+		var cursorPos = get_global_mouse_position()
 		var projectile_direction = -(position - cursorPos).normalized()
 		# Flip if shooting behind
 		if projectile_direction.x * sprite.scale.x < 0:

@@ -71,13 +71,7 @@ interact={
 
 [physics]
 
-<<<<<<< Updated upstream
 2d/default_gravity=588
-=======
-quality/intended_usage/framebuffer_allocation=0
-quality/2d/use_pixel_snap=true
-environment/default_environment="res://default_env.tres"
->>>>>>> Stashed changes
 
 [rendering]
 
