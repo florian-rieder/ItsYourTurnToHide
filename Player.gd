@@ -32,7 +32,7 @@ func _physics_process(_delta):
 	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
 	# This will make Robi face left or right depending on the direction you move.
 	if direction.x != 0:
-		sprite.scale.x = 1 if direction.x > 0 else -1
+		scale.x = 1 if direction.x > 0 else -1
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and _canInteract:
