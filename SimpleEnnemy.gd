@@ -60,10 +60,13 @@ func _physics_process(_delta):
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 
 	# We flip the Sprite depending on which way the enemy is moving.
-	sprite.scale.x = 1 if _velocity.x > 0 else -1
+	if _velocity.x > 0:
+		sprite.scale.x = 1
+	elif _velocity.x < 0:
+		sprite.scale.x = -1
 
 func distracted(pos: Vector2):
-	if global_position.distance_to(pos) < hearing_distance:
+	if global_position.distance_to(pos) < hearing_distance and distracted_timer.is_stopped():
 		distracted_timer.start()
 		_old_state = state
 		state = State.IDLE
@@ -92,7 +95,3 @@ func _on_PlayerDetector_body_entered(body):
 func _on_PlayerDetector_body_exited(body):
 	if body.name == "Player":
 		body.number_of_people_seeing_you -= 1
-
-
-func _on_DetectionTimer_timeout():
-	print("Detected")

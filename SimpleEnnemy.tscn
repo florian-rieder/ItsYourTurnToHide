@@ -12,6 +12,7 @@ height = 1.93964
 ]]
 collision_layer = 2
 script = ExtResource( 1 )
+speed = Vector2( 50, 350 )
 hearing_distance = 200.0
 
 [node name="Sprite" type="Sprite" parent="."]
