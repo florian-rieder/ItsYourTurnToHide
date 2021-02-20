@@ -9,7 +9,8 @@ const FLOOR_DETECT_DISTANCE = 20.0
 var visibility = 1.0 setget visibility_set
 
 onready var platform_detector = $PlatformDetector
-onready var sprite = $Sprite
+onready var sprite = $AnimatedSprite
+onready var gun = $AnimatedSprite/RockOrigin
 
 var _canInteract = false
 var _currentInteractor = null
@@ -32,9 +33,16 @@ func _physics_process(_delta):
 	# When the character’s direction changes, we want to to scale the Sprite accordingly to flip it.
 	# This will make Robi face left or right depending on the direction you move.
 	if direction.x != 0:
-		scale.x = 1 if direction.x > 0 else -1
+		sprite.scale.x = 1 if direction.x > 0 else -1
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_select") and _canMove:
+		var cursorPos = get_viewport().get_mouse_position()
+		var projectile_direction = -(position - cursorPos).normalized()
+		# Flip if shooting behind
+		if projectile_direction.x * sprite.scale.x < 0:
+			sprite.scale.x *= -1
+		gun.shoot(projectile_direction)
 	if Input.is_action_just_pressed("interact") and _canInteract:
 		match _currentInteractor:
 			"Cover":
@@ -44,6 +52,9 @@ func _process(delta):
 				else:
 					visibility_set(1)
 					_canMove = true
+			var TPposition:
+				position = TPposition
+				
 
 
 
