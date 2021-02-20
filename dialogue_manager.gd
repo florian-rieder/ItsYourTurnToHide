@@ -44,5 +44,5 @@ func _on_dialog_initiated(dialogue : Dialogue) -> void:
 
 
 func _on_dialog_finished(_dialogue) -> void:
-	_runtime_data.current_gamep_state = Enums.GameState.FREEWALK
+	_runtime_data.current_game_state = Enums.GameState.FREEWALK
 	self.visible = false

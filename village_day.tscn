@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://parallax_background.gd" type="Script" id=1]
-[ext_resource path="res://assets/background1.png" type="Texture" id=2]
+[ext_resource path="res://assets/BackGround.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tilesets/background.tres" type="TileSet" id=4]
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=5]
@@ -103,6 +103,7 @@ _background = NodePath("ParallaxLayer/Sprite")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Terrain/ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="Terrain/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 2 )
 
 [node name="Background" type="TileMap" parent="Terrain"]
@@ -162,7 +163,7 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 8
+frame = 9
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -170,7 +171,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 668.295, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 8
+frame = 9
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -178,7 +179,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 632.937, 120.867 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 11
+frame = 13
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -187,7 +188,7 @@ flip_h = true
 position = Vector2( 611.049, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -195,7 +196,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 649.774, 103.469 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 6
+frame = 7
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -204,7 +205,7 @@ flip_h = true
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 8
+frame = 9
 playing = true
 flip_h = true
 

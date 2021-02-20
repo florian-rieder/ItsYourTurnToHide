@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://audio/406949__kyles__village-small-crowd-morning-under-mango-trees-children-kids-and-nearby-and-distant-mellow-voices-and-activity-putti-uganda-africa-2016.wav" type="AudioStream" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://RockOrigin.gd" type="Script" id=3]
 [ext_resource path="res://assets/PlayerIdle-Sheet.png" type="Texture" id=4]
 [ext_resource path="res://audio/413914__kyles__small-town-desert-oasis-distant-traffic-dune-buggys-bird-and-kids-playing-echo-huacachina-peru-south-america.wav" type="AudioStream" id=5]
+[ext_resource path="res://runtime_data.tres" type="Resource" id=6]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
@@ -72,12 +73,12 @@ tracks/0/keys = {
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
+_runtime_data = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.374577, 0 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 1
 speed_scale = 1.5
 playing = true
 
