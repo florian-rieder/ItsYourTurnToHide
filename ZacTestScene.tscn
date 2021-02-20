@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://SimpleEnnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://VisibilityArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Pots.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.5522, 4.34943 )
@@ -110,11 +111,15 @@ position = Vector2( 254.672, 343.574 )
 position = Vector2( 182.097, 328.295 )
 
 [node name="VisibilityArea" parent="." instance=ExtResource( 7 )]
-position = Vector2( 253.694, 218.502 )
+position = Vector2( 184.772, 333.872 )
 visibility = 0.5
 
 [node name="VisibilityArea2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 308.382, 217.753 )
+position = Vector2( 328.609, 334.621 )
+visibility = 2.0
+
+[node name="Pots" parent="." instance=ExtResource( 8 )]
+position = Vector2( 245.626, 233.164 )
 
 [editable path="Door"]
 

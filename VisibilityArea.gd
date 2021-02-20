@@ -5,7 +5,8 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-export(float,0.0,1.0) var visibility = 1 
+export(float,0.0,2.0) var visibility = 1 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,3 +20,8 @@ func _ready():
 func _on_VisibilityArea_body_entered(body):
 	if body.name == "Player":
 		body.visibility_set(visibility)
+
+
+func _on_VisibilityArea_body_exited(body):
+	if body.name == "Player":
+		body.visibility_set()

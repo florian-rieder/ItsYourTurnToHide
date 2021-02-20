@@ -16,6 +16,7 @@ onready var gun = $AnimatedSprite/RockOrigin
 var _canInteract = false
 var _currentInteractor = null
 var _canMove = true
+var _old_visibility = 1.0
 
 
 func _physics_process(_delta):
@@ -49,11 +50,14 @@ func _process(delta):
 		match _currentInteractor:
 			"Cover":
 				if _canMove:
+					_old_visibility = visibility
 					visibility_set(0)
+					sprite.modulate.a = 0
 					_canMove = false
 				else:
-					visibility_set(1)
+					visibility_set(_old_visibility)
 					_canMove = true
+					sprite.modulate.a = 1
 			# Teleportation (doors)
 			var TPposition:
 				position = TPposition
@@ -85,10 +89,10 @@ func calculate_move_velocity(
 	return velocity
 
 # Ajust alpha depending on the visibility, maybe not a good idea
-func visibility_set(newVisibility):
-	newVisibility = clamp(newVisibility,0.0,1.0)
+func visibility_set(newVisibility = 1):
+	newVisibility = clamp(newVisibility,0.0,2.0)
 	visibility = newVisibility
-	sprite.modulate.a = visibility
+	#sprite.modulate.a = visibility
 
 # Called by interactors
 func canInteract(message, interactor):
@@ -103,5 +107,5 @@ func resetInteract():
 	emit_signal("resetInteract")
 	
 func isInSight(distance: float):
-	if distance < max_detect_distance:
+	if distance < max_detect_distance*visibility:
 		print("seen")
