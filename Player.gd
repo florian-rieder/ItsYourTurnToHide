@@ -40,7 +40,11 @@ func _process(delta):
 		# Flip if shooting behind
 		if projectile_direction.x * sprite.scale.x < 0:
 			sprite.scale.x *= -1
-		gun.shoot(projectile_direction)
+		# Add more force when lauching in the same direction of the movement
+		if abs(_velocity.x) > 0.1 and (projectile_direction.x * _velocity.x > 0):
+			gun.shoot(projectile_direction*1.5)
+		else:
+			gun.shoot(projectile_direction)
 	if Input.is_action_just_pressed("interact") and _canInteract:
 		match _currentInteractor:
 			"Cover":
