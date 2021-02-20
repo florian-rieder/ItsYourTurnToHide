@@ -47,7 +47,7 @@ func _physics_process(_delta):
 		_velocity.x *= -1
 
 	# In idle (or random) it stops
-	if state == State.IDLE or (not random_timer.is_stopped() and state == State.RANDOM):
+	if state == State.IDLE or state == State.DEAD:
 		_velocity.x = 0
 		
 	
@@ -101,3 +101,6 @@ func _on_PlayerDetector_body_entered(body):
 func _on_PlayerDetector_body_exited(body):
 	if body.name == "Player":
 		_player = null
+		
+func stun():
+	state = State.DEAD

@@ -15,4 +15,5 @@ func shoot(direction = Vector2(1,0)):
 
 	rock.set_as_toplevel(true)
 	add_child(rock)
+	cooldown.start()
 	return true
