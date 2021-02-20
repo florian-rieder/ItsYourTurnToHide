@@ -19,71 +19,85 @@
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
 [ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=18]
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 48, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 64, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 96, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 112, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 128, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 144, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 160, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 176, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 192, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
 atlas = ExtResource( 16 )
 region = Rect2( 208, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=21]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "picorage",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=16]
 size = 32
 font_data = ExtResource( 9 )
 
@@ -142,31 +156,25 @@ position = Vector2( 104.496, 50.4728 )
 [node name="Door1" parent="Terrain/GameSpace/Door3" index="0"]
 position = Vector2( -40.868, 59.2642 )
 
-[node name="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door1" index="0"]
-position = Vector2( 0, -0.280617 )
-
 [node name="Door2" parent="Terrain/GameSpace/Door3" index="1"]
 position = Vector2( 0.0123596, -16.8202 )
-
-[node name="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door2" index="0"]
-position = Vector2( -1.52588e-05, 0.840897 )
 
 [node name="Entities" type="YSort" parent="Terrain"]
 position = Vector2( -43, 2.5 )
 
 [node name="Chicken" type="AnimatedSprite" parent="Terrain/Entities"]
 position = Vector2( 218.267, 122.478 )
-frames = SubResource( 21 )
+frames = SubResource( 15 )
 animation = "picorage"
-frame = 5
+frame = 4
 playing = true
 offset = Vector2( 2, 0 )
 
 [node name="Chicken2" type="AnimatedSprite" parent="Terrain/Entities"]
 position = Vector2( 192.168, 118.637 )
-frames = SubResource( 21 )
+frames = SubResource( 15 )
 animation = "picorage"
-frame = 5
+frame = 4
 playing = true
 flip_h = true
 
@@ -266,7 +274,7 @@ margin_left = 20.0
 margin_top = 10.0
 margin_right = -20.0
 margin_bottom = -10.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 16 )
 text = "Placeholder text"
 
 [editable path="Terrain/GameSpace/Door"]

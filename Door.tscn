@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Door.gd" type="Script" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.9438, 14.0965 )
 
 [node name="Door" type="Position2D"]
 
@@ -13,17 +10,11 @@ suffix = "1"
 other_suffix = "2"
 msg = "press e to TP"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door1"]
-shape = SubResource( 1 )
-
 [node name="Door2" type="Area2D" parent="."]
 position = Vector2( 75.2173, 0.297302 )
 script = ExtResource( 2 )
 suffix = "2"
 msg = "Press e to TP"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
-shape = SubResource( 1 )
 [connection signal="body_entered" from="Door1" to="Door1" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Door1" to="Door1" method="_on_Door_body_exited"]
 [connection signal="body_entered" from="Door2" to="Door2" method="_on_Door_body_entered"]
