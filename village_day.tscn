@@ -15,7 +15,7 @@
 [ext_resource path="res://tilesets/foreground.tres" type="TileSet" id=13]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=14]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 9 )
 
@@ -135,7 +135,7 @@ margin_left = 20.0
 margin_top = 10.0
 margin_right = -20.0
 margin_bottom = -10.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
 text = "Placeholder text"
 
 [node name="Viewport" type="Viewport" parent="."]
