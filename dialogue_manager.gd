@@ -6,7 +6,7 @@ export(NodePath) onready var _dialog_text = get_node(_dialog_text) as Label
 #export(NodePath) onready var _avatar = get_node(_avatar) as TextureRect
 export(Resource) var _current_dialogue = _current_dialogue as Dialogue
 
-#export(Resource) var _runtime_data = _runtime_data as RuntimeData
+export(Resource) var _runtime_data = _runtime_data as RuntimeData
 
 var _current_slide_index = 0
 
@@ -24,7 +24,7 @@ func _input(event):
 		if _current_slide_index < _current_dialogue.dialog_slides.size() - 1:
 			_current_slide_index += 1
 			show_slide()
-		else: #_runtime_data.current_gameplay_state == Enums.GameplayState.IN_DIALOG:
+		elif _runtime_data.current_game_state == Enums.GameState.IN_DIALOG:
 			GameEvents.emit_dialog_finished(_current_dialogue)
 
 
@@ -33,7 +33,7 @@ func show_slide() -> void:
 
 
 func _on_dialog_initiated(dialogue : Dialogue) -> void:
-	#_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG
+	_runtime_data.current_game_state = Enums.GameState.IN_DIALOG
 	
 	_current_dialogue = dialogue
 	_current_slide_index = 0
@@ -44,5 +44,5 @@ func _on_dialog_initiated(dialogue : Dialogue) -> void:
 
 
 func _on_dialog_finished(_dialogue) -> void:
-	#_runtime_data.current_gameplay_state = Enums.GameplayState.FREEWALK
+	_runtime_data.current_gamep_state = Enums.GameState.FREEWALK
 	self.visible = false

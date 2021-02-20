@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=1]
+
+[node name="Intro" type="Node2D"]
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="GameSpace" type="TileMap" parent="Terrain"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+__meta__ = {
+"_editor_description_": ""
+}

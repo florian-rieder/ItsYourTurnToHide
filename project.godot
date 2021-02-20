@@ -24,10 +24,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://SimpleEnnemy.gd"
 }, {
+"base": "Node",
+"class": "Enums",
+"language": "GDScript",
+"path": "res://enums.gd"
+}, {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player.gd"
+}, {
+"base": "Resource",
+"class": "RuntimeData",
+"language": "GDScript",
+"path": "res://runtime_data.gd"
 }, {
 "base": "Camera2D",
 "class": "ShakeCamera2D",
@@ -38,7 +48,9 @@ _global_script_class_icons={
 "Actor": "",
 "Dialogue": "",
 "Enemy": "",
+"Enums": "",
 "Player": "",
+"RuntimeData": "",
 "ShakeCamera2D": ""
 }
 
