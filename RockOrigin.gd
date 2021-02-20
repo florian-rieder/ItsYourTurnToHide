@@ -4,12 +4,8 @@ const BULLET_VELOCITY = 300.0
 const Rock = preload("res://Rock.tscn")
 
 onready var cooldown = $RockCooldown
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-
-# This method is only called by Player.gd.
+# This method is only called by Player.gd
 func shoot(direction = Vector2(1,0)):
 	if not cooldown.is_stopped():
 		return false
