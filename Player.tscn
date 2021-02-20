@@ -48,7 +48,8 @@ script = ExtResource( 2 )
 position = Vector2( -0.374577, 0 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 1
+frame = 2
+speed_scale = 1.5
 playing = true
 
 [node name="RockOrigin" type="Position2D" parent="AnimatedSprite"]
@@ -72,3 +73,5 @@ smoothing_speed = 10.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )
+[connection signal="canInteract" from="." to="." method="_on_Player_canInteract"]
+[connection signal="resetInteract" from="." to="." method="_on_Player_resetInteract"]
