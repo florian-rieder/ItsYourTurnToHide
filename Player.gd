@@ -10,8 +10,8 @@ var visibility = 1.0 setget visibility_set
 var number_of_people_seeing_you = 0
 
 onready var platform_detector = $PlatformDetector
-onready var sprite = $Sprite
-onready var gun = $Sprite/RockOrigin
+onready var sprite = $AnimatedSprite
+onready var gun = $AnimatedSprite/RockOrigin
 
 var _canInteract = false
 var _currentInteractor = null
