@@ -7,6 +7,7 @@ signal resetInteract
 const FLOOR_DETECT_DISTANCE = 20.0
 
 var visibility = 1.0 setget visibility_set
+var number_of_people_seeing_you = 0
 
 onready var platform_detector = $PlatformDetector
 onready var sprite = $Sprite
@@ -54,7 +55,11 @@ func _process(delta):
 					_canMove = true
 			var TPposition:
 				position = TPposition
-				
+	
+	if number_of_people_seeing_you > 0:
+		# Threshold under which you are invisible
+		if visibility > 0.1:
+			print("Detected")
 
 
 
