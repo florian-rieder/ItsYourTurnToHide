@@ -25,6 +25,21 @@ position = Vector2( -0.235962, 0.707906 )
 scale = Vector2( 1, 0.188858 )
 texture = ExtResource( 1 )
 
+[node name="Platform4" type="KinematicBody2D" parent="."]
+position = Vector2( 129.312, 341.703 )
+rotation = 1.61858
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Platform4"]
+position = Vector2( -0.235962, 0.707906 )
+scale = Vector2( 1, 0.188858 )
+texture = ExtResource( 1 )
+
 [node name="Platform2" type="KinematicBody2D" parent="."]
 position = Vector2( 319.678, 251.76 )
 __meta__ = {

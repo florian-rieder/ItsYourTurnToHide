@@ -22,16 +22,19 @@ onready var floor_detector_right = $FloorDetectorRight
 onready var sprite = $Sprite
 onready var distracted_timer = $DistractedTime
 onready var random_timer = $RandomTimer
+onready var lineOfSight = $LineOfSight
 
 var _old_state
 var _initial_pos
+var _player = null #null if out of sight
+var _player_facing_dir: Vector2
 
 #Initial speed
 func _ready():
 	_velocity.x = speed.x if state == State.WALKING else 0
 	_initial_pos = global_position.x
 
-
+	
 func _physics_process(_delta):
 	
 	# If the enemy encounters a wall or an edge or at the max distance, the horizontal velocity is flipped.
@@ -57,6 +60,17 @@ func _physics_process(_delta):
 		sprite.scale.x = 1
 	elif _velocity.x < 0:
 		sprite.scale.x = -1
+		
+	# Player detection
+	if _player:
+		lineOfSight.enabled = true
+		_player_facing_dir = Vector2(_player.global_position.x - global_position.x, 0)
+		lineOfSight.cast_to = _player.global_position - global_position
+
+		if lineOfSight.is_colliding() and lineOfSight.get_collider() == _player:
+			if sprite.scale.dot(_player_facing_dir.normalized()) == 1:
+				_player.isInSight(global_position.distance_to(_player.global_position))
+	
 
 #Get called when a rock hit a surface, pos is the rock position
 func distracted(pos: Vector2):
@@ -82,8 +96,8 @@ func _on_DistractedTime_timeout():
 # The player remember the number of people seeing him, and reacts if his visible or not
 func _on_PlayerDetector_body_entered(body):
 	if body.name == "Player":
-		body.number_of_people_seeing_you += 1
+		_player = body
 
 func _on_PlayerDetector_body_exited(body):
 	if body.name == "Player":
-		body.number_of_people_seeing_you -= 1
+		_player = null

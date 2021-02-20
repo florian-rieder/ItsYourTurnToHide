@@ -7,7 +7,7 @@ signal resetInteract
 const FLOOR_DETECT_DISTANCE = 20.0
 
 var visibility = 1.0 setget visibility_set
-var number_of_people_seeing_you = 0
+export(float) var max_detect_distance = 70
 
 onready var platform_detector = $PlatformDetector
 onready var sprite = $AnimatedSprite
@@ -57,11 +57,7 @@ func _process(delta):
 			# Teleportation (doors)
 			var TPposition:
 				position = TPposition
-	
-	if number_of_people_seeing_you > 0:
-		# Threshold under which you are invisible
-		if visibility > 0.1:
-			print("Detected")
+
 
 
 
@@ -105,3 +101,7 @@ func resetInteract():
 	_canInteract = false
 	_currentInteractor = ""
 	emit_signal("resetInteract")
+	
+func isInSight(distance: float):
+	if distance < max_detect_distance:
+		print("seen")

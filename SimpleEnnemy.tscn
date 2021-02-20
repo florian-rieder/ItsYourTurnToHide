@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://SimpleEnnemy.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 127.093
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 29.887
@@ -25,8 +28,8 @@ texture = ExtResource( 2 )
 
 [node name="PlayerDetector" type="Area2D" parent="Sprite"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/PlayerDetector"]
-polygon = PoolVector2Array( 0, 0, 200, -40, 200, 40 )
+[node name="DetectionCollider" type="CollisionShape2D" parent="Sprite/PlayerDetector"]
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -50,6 +53,10 @@ cast_to = Vector2( 0, 5 )
 one_shot = true
 
 [node name="RandomTimer" type="Timer" parent="."]
+
+[node name="LineOfSight" type="RayCast2D" parent="."]
+cast_to = Vector2( 0, 0 )
+collision_mask = 3
 [connection signal="body_entered" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
 [connection signal="timeout" from="DistractedTime" to="." method="_on_DistractedTime_timeout"]
