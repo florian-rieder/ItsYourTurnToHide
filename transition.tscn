@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://audio/232641__mensageirocs__environment-war-1.wav" type="AudioStream" id=1]
 [ext_resource path="res://audio/520935__ninebilly__ak-47-burst.wav" type="AudioStream" id=2]
 [ext_resource path="res://audio/160213__qubodup__kicking-forcing-breaking-wooden-door.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/333907__martian__squad-march.wav" type="AudioStream" id=4]
 [ext_resource path="res://transition_manager.gd" type="Script" id=5]
+[ext_resource path="res://audio/209769__johnnyfarmer__explosion-distant.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/256606__kodack__trying-to-open-a-locked-door.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/421710__superphat__semiautorifleshot.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "transition"
-length = 16.0
+length = 24.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("Ambience")
 tracks/0/interp = 1
@@ -21,7 +24,7 @@ tracks/0/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 1 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 9.1 )
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("Left far")
@@ -33,13 +36,17 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
 "stream": ExtResource( 2 )
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 2 )
 } ],
-"times": PoolRealArray( 3.1, 9.8 )
+"times": PoolRealArray( 1, 11.4, 15.7 )
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("Right far")
@@ -48,8 +55,12 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 12.9 )
 }
 tracks/3/type = "audio"
 tracks/3/path = NodePath("Left close")
@@ -65,9 +76,13 @@ tracks/3/keys = {
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
+"stream": ExtResource( 7 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 1.6, 15 )
+"times": PoolRealArray( -1.2, 16.9, 23.1 )
 }
 tracks/4/type = "audio"
 tracks/4/path = NodePath("Right close")
@@ -79,19 +94,17 @@ tracks/4/keys = {
 "clips": [  ],
 "times": PoolRealArray(  )
 }
-tracks/5/type = "method"
-tracks/5/path = NodePath(".")
+tracks/5/type = "value"
+tracks/5/path = NodePath("Left close:volume_db")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = false
+tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 16.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ null ],
-"method": "_on_AnimationPlayer_animation_finished"
-} ]
+"times": PoolRealArray( 0, 10.3, 17, 17.001, 23.1 ),
+"transitions": PoolRealArray( 4.14106, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -25.0, 0.0, 0.0, -16.0, -12.0 ]
 }
 
 [node name="Transition" type="Node2D"]
@@ -107,7 +120,7 @@ __meta__ = {
 }
 
 [node name="Right far" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 8 )
 attenuation = 1.62451
 bus = "SFX"
 __meta__ = {
@@ -116,6 +129,7 @@ __meta__ = {
 
 [node name="Left close" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -10.0
 bus = "SFX"
 __meta__ = {
 "_editor_description_": ""

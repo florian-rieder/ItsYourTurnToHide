@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://parallax_background.gd" type="Script" id=1]
 [ext_resource path="res://assets/background1.png" type="Texture" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
 [ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/Kid1.png" type="Texture" id=19]
+[ext_resource path="res://assets/Kid2.png" type="Texture" id=20]
+[ext_resource path="res://dialogues/Hello.tres" type="Resource" id=21]
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 16 )
@@ -159,26 +161,67 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 4
+frame = 11
 playing = true
 offset = Vector2( 2, 0 )
+
+[node name="Chicken3" type="AnimatedSprite" parent="Terrain/Entities"]
+position = Vector2( 668.295, 107.397 )
+frames = SubResource( 21 )
+animation = "picorage"
+frame = 11
+playing = true
+offset = Vector2( 2, 0 )
+
+[node name="Chicken4" type="AnimatedSprite" parent="Terrain/Entities"]
+position = Vector2( 632.937, 120.867 )
+frames = SubResource( 21 )
+animation = "picorage"
+frame = 9
+playing = true
+offset = Vector2( 2, 0 )
+flip_h = true
+
+[node name="Chicken5" type="AnimatedSprite" parent="Terrain/Entities"]
+position = Vector2( 611.049, 107.397 )
+frames = SubResource( 21 )
+animation = "picorage"
+frame = 9
+playing = true
+offset = Vector2( 2, 0 )
+
+[node name="Chicken6" type="AnimatedSprite" parent="Terrain/Entities"]
+position = Vector2( 649.774, 103.469 )
+frames = SubResource( 21 )
+animation = "picorage"
+frame = 9
+playing = true
+offset = Vector2( 2, 0 )
+flip_h = true
 
 [node name="Chicken2" type="AnimatedSprite" parent="Terrain/Entities"]
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 4
+frame = 11
 playing = true
 flip_h = true
 
 [node name="Player" parent="Terrain/Entities" instance=ExtResource( 3 )]
-position = Vector2( 708.496, 71.7179 )
+position = Vector2( 836.931, 52.096 )
 speed = Vector2( 200, 350 )
 
 [node name="NPCDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
 
 [node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
 texture = ExtResource( 19 )
+
+[node name="NPCDialog2" parent="Terrain/Entities" instance=ExtResource( 18 )]
+position = Vector2( 739.027, 115.744 )
+_dialogue = ExtResource( 21 )
+
+[node name="NPC" parent="Terrain/Entities/NPCDialog2" index="0"]
+texture = ExtResource( 20 )
 
 [node name="Foreground" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 13 )
@@ -195,7 +238,7 @@ texture = ExtResource( 11 )
 msg = "Hide (E)"
 
 [node name="Cover2" parent="Terrain" instance=ExtResource( 10 )]
-position = Vector2( 338.49, 58.2578 )
+position = Vector2( 334.485, 56.2555 )
 texture = ExtResource( 7 )
 msg = "Hide (E)"
 
@@ -280,3 +323,5 @@ text = "Placeholder text"
 [editable path="Terrain/GameSpace/Door3"]
 
 [editable path="Terrain/Entities/NPCDialog"]
+
+[editable path="Terrain/Entities/NPCDialog2"]
