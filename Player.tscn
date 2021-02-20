@@ -9,7 +9,7 @@ radius = 2.52593
 height = 11.2413
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -1.82361, -7.69069, 1.82439, -8.18177, 1.75424, 8.79547, -2.17438, 8.51486 )
+polygon = PoolVector2Array( -1.82361, -7.69069, 1.74802, -8.07994, 1.75424, 8.79547, -2.17438, 8.51486 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -28,7 +28,6 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="PlatformDetector" type="RayCast2D" parent="."]
-position = Vector2( 0, 31.3838 )
 enabled = true
 cast_to = Vector2( 0, 5 )
 
@@ -39,7 +38,6 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2( 0.0701523, -0.105114 )
 occluder = SubResource( 2 )
 [connection signal="canInteract" from="." to="." method="_on_Player_canInteract"]
 [connection signal="resetInteract" from="." to="." method="_on_Player_resetInteract"]
