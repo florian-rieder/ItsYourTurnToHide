@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://parallax_background.gd" type="Script" id=1]
 [ext_resource path="res://assets/background1.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://assets/Lights2pixel.png" type="Texture" id=15]
 [ext_resource path="res://assets/Picorage-Sheet.png" type="Texture" id=16]
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
+[ext_resource path="res://assets/Enfant.png" type="Texture" id=18]
+[ext_resource path="res://NPCDialog.gd" type="Script" id=19]
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 16 )
@@ -81,6 +83,9 @@ animations = [ {
 "name": "picorage",
 "speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 21.3403, 10 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
@@ -147,6 +152,9 @@ position = Vector2( 0, -0.280617 )
 [node name="Door2" parent="Terrain/GameSpace/Door3" index="1"]
 position = Vector2( 0.0123596, -16.8202 )
 
+[node name="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door2" index="0"]
+position = Vector2( -1.52588e-05, 0.840897 )
+
 [node name="Entities" type="YSort" parent="Terrain"]
 position = Vector2( -43, 2.5 )
 
@@ -154,7 +162,7 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 4
+frame = 7
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -162,7 +170,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 4
+frame = 7
 playing = true
 flip_h = true
 
@@ -172,14 +180,24 @@ speed = Vector2( 200, 350 )
 
 [node name="NPCDialog" type="Node2D" parent="Terrain/Entities"]
 position = Vector2( 22.181, 111.849 )
+script = ExtResource( 19 )
+_dialogue = ExtResource( 8 )
 
-[node name="Sprite" type="Sprite" parent="Terrain/Entities/NPCDialog"]
+[node name="NPC" type="Sprite" parent="Terrain/Entities/NPCDialog"]
+position = Vector2( -2.43419, -0.604347 )
+texture = ExtResource( 18 )
+
+[node name="Area2D" type="Area2D" parent="Terrain/Entities/NPCDialog"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Entities/NPCDialog/Area2D"]
+position = Vector2( 0.890892, 8.46355 )
+shape = SubResource( 22 )
 
 [node name="Foreground" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 262156, 0, 5, 262157, 0, 3, 262158, 0, 3, 262159, 0, 3, 262160, 0, 3, 262161, 0, 3, 262162, 0, 3, 262163, 0, 3, 262164, 0, 3, 262165, 0, 6 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 2, 65549, 1, 0, 65550, 1, 1, 65551, 1, 2, 65554, 1, 0, 65555, 1, 1, 65556, 1, 2, 196613, 0, 1, 196614, 0, 1, 196615, 0, 1, 196616, 0, 2, 262156, 1, 0, 262157, 1, 1, 262158, 1, 1, 262159, 1, 1, 262160, 1, 1, 262161, 1, 1, 262162, 1, 1, 262163, 1, 1, 262164, 1, 1, 262165, 1, 2 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -267,6 +285,7 @@ margin_right = -20.0
 margin_bottom = -10.0
 custom_fonts/font = SubResource( 6 )
 text = "Placeholder text"
+[connection signal="body_entered" from="Terrain/Entities/NPCDialog/Area2D" to="Terrain/Entities/NPCDialog" method="_on_Area2D_body_entered"]
 
 [editable path="Terrain/GameSpace/Door"]
 
