@@ -51,11 +51,6 @@ func _physics_process(_delta):
 		_velocity.x = 0
 		sprite.play("idle")
 	
-	
-	
-		
-	
-		
 	# We only update the y value of _velocity as the horizontal movement is handle in Actor.gd (only gravity).
 	# WTF j'ai fait n'imp mais ça marche
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y

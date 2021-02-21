@@ -69,7 +69,7 @@ flip_h = true
 _player = NodePath("../../Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 6
+frame = 0
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 position = Vector2( 0, -150 )

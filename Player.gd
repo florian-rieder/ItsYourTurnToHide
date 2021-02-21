@@ -25,7 +25,15 @@ var _interactorInstance = null
 
 
 func _ready():
-	$AnimationPlayer.play("village_ambiant_day") 
+	var current_scene = get_tree().get_current_scene().get_name()
+	print(current_scene)
+	if current_scene == "village_day":
+		print("freewalk")
+		$AnimationPlayer.play("village_ambiant_day")
+	elif current_scene == "village_night":
+		print("stealth")
+		$AnimationPlayer.play("village_ambiant_night")
+		
 
 func _physics_process(_delta):
 	if _runtime_data.current_game_state == Enums.GameState.FREEWALK \
@@ -72,7 +80,8 @@ func _process(delta):
 	
 	# Hide behind cover
 	if Input.is_action_just_pressed("interact") and _canInteract \
-		and _runtime_data.current_game_state == Enums.GameState.FREEWALK:
+		and (_runtime_data.current_game_state == Enums.GameState.FREEWALK \
+		or _runtime_data.current_game_state == Enums.GameState.STEALTH):
 		match _currentInteractor:
 			"Cover":
 				if _interactorInstance and _interactorInstance.has_method("try_to_trigger_dialog"):

@@ -7,7 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.09901, 7.97751 )
 
-[node name="Radio" type="Area2D"]
+[node name="Radio" type="Area2D" groups=[
+"Radios",
+]]
 script = ExtResource( 3 )
 message = "Turn on/off"
 
