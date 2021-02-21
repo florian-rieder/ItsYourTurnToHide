@@ -4,6 +4,7 @@ extends Actor
 signal canInteract(message)
 signal resetInteract
 signal seen(ennemyEntity)
+signal win
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -89,6 +90,9 @@ func _process(delta):
 			"Radio":
 				if _interactorInstance:
 					_interactorInstance.activate()
+					
+			"Exit":
+				emit_signal("win")
 			
 			# Teleportation (doors)
 			var TPposition:
