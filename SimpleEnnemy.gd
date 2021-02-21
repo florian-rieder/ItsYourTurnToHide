@@ -106,6 +106,9 @@ func _on_PlayerDetector_body_exited(body):
 	
 func stop():
 	state = State.IDLE
+	
+func turn_red():
+	get_node("Sprite/Light2D").energy = 1.5
 		
 func stun():
 	state = State.DEAD
