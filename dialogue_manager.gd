@@ -22,7 +22,7 @@ func _ready():
 
 
 func _input(event):
-	if Input.is_action_just_pressed("advance_slide"):
+	if Input.is_action_just_pressed("interact"):
 		if _current_slide_index < _current_dialogue.dialog_slides.size() - 1:
 			_current_slide_index += 1
 			show_slide()
