@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/parallax/2-DarkDunes-export.png" type="Texture" id=5]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( 0, -50 )
+transform = Transform2D( 1, 0, 0, 1, 0, -50 )
 script = ExtResource( 1 )
 player = NodePath("../Entities/Player")
 _mountains_layer = NodePath("Mountains")

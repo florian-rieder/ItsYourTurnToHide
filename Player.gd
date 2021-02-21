@@ -39,7 +39,10 @@ func _physics_process(_delta):
 			sprite.play("idle")
 		else:
 			_is_moving = true
-			sprite.play("run")
+			if _runtime_data.current_game_state == Enums.GameState.STEALTH:
+				sprite.play("stealth_walk")
+			else:
+				sprite.play("run")
 
 		var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
 		var is_on_platform = platform_detector.is_colliding()

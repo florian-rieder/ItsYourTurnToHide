@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://runtime_data.tres" type="Resource" id=1]
 [ext_resource path="res://dialogues/intro.tres" type="Resource" id=2]
@@ -7,38 +7,43 @@
 [ext_resource path="res://scene_transition_rect.gd" type="Script" id=5]
 [ext_resource path="res://interact_message.gd" type="Script" id=6]
 [ext_resource path="res://assets/E_del-Sheet.png" type="Texture" id=7]
+[ext_resource path="res://assets/Dialog box.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 7 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 16, 16 )
+region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 7 )
-region = Rect2( 48, 0, 16, 16 )
+region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 7 )
-region = Rect2( 64, 0, 16, 16 )
+region = Rect2( 128, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 7 )
-region = Rect2( 80, 0, 16, 16 )
+region = Rect2( 160, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 7 )
-region = Rect2( 96, 0, 16, 16 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 7 )
+region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -47,7 +52,6 @@ animations = [ {
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="DialogUI" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.625
@@ -58,11 +62,11 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_dialog_text = NodePath("DialogBox/DialogText")
+_dialog_text = NodePath("NinePatchRect/DialogText")
 _current_dialogue = ExtResource( 2 )
 _runtime_data = ExtResource( 1 )
 
-[node name="DialogBox" type="Panel" parent="DialogUI"]
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogUI"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -70,11 +74,20 @@ margin_left = 20.0
 margin_top = -120.0
 margin_right = -20.0
 margin_bottom = -20.0
+mouse_filter = 0
+texture = ExtResource( 8 )
+patch_margin_left = 9
+patch_margin_top = 10
+patch_margin_right = 9
+patch_margin_bottom = 10
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
-[node name="DialogText" type="Label" parent="DialogUI/DialogBox"]
+[node name="DialogText" type="Label" parent="DialogUI/NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -85,6 +98,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "Placeholder text"
 
 [node name="SceneTransitionRect" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -97,20 +111,30 @@ __meta__ = {
 
 [node name="FadeOutTween" type="Tween" parent="SceneTransitionRect"]
 
-[node name="InteractMessage" type="Control" parent="."]
+[node name="InteractMessage" type="HBoxContainer" parent="."]
+visible = false
 anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -528.0
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InteractButton" type="AnimatedSprite" parent="InteractMessage"]
+[node name="Control" type="Control" parent="InteractMessage"]
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0.5, 0.5 )
+
+[node name="InteractButton" type="AnimatedSprite" parent="InteractMessage/Control"]
+position = Vector2( 30.1606, 35.3197 )
 frames = SubResource( 8 )
+frame = 2
+playing = true
 
 [node name="Label" type="Label" parent="InteractMessage"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 75.0
+margin_top = 15.0
+margin_right = 392.0
+margin_bottom = 56.0
 custom_fonts/font = ExtResource( 3 )
 text = "Press E to interact"

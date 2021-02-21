@@ -12,7 +12,7 @@ var _current_slide_index = 0
 
 func _ready():
 	#_avatar.texture = _current_dialogue.avatar_texture
-	show_slide()
+	#show_slide()
 	
 	# listen to signals
 	GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")

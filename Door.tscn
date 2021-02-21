@@ -3,7 +3,7 @@
 [ext_resource path="res://Door.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.605, 14.0965 )
+extents = Vector2( 6.45898, 9.35445 )
 
 [node name="Door" type="Position2D"]
 

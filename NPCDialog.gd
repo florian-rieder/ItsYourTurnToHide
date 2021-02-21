@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name NPCDialog
+
 export(Resource) var _dialogue = _dialogue as Dialogue
 
 onready var collision = $Area2D/CollisionShape2D
