@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tilesets/background.tres" type="TileSet" id=4]
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=5]
@@ -87,8 +88,10 @@ animations = [ {
 [node name="Main" type="Node2D"]
 
 [node name="Terrain" type="Node2D" parent="."]
+position = Vector2( -1.25995, 39.0576 )
 
 [node name="ParallaxBackground" parent="Terrain" instance=ExtResource( 1 )]
+_dunes_foreground_motion_scale = Vector2( 0.45, 0.25 )
 
 [node name="Background" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 4 )
@@ -147,7 +150,6 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 10
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -155,7 +157,6 @@ offset = Vector2( 2, 0 )
 position = Vector2( 668.295, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 10
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -163,6 +164,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 632.937, 120.867 )
 frames = SubResource( 21 )
 animation = "picorage"
+frame = 4
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -171,7 +173,7 @@ flip_h = true
 position = Vector2( 611.049, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 3
+frame = 7
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -179,7 +181,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 649.774, 103.469 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 8
+frame = 12
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -188,7 +190,7 @@ flip_h = true
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 6
+frame = 10
 playing = true
 flip_h = true
 
@@ -268,9 +270,15 @@ shadow_filter_smooth = 18.6
 
 [node name="Intro" type="YSort" parent="Terrain"]
 
+[node name="Radio" parent="Terrain" instance=ExtResource( 2 )]
+position = Vector2( 272.667, 50.1101 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 6 )]
+
+[node name="SceneTransitionRect" parent="CanvasLayer" index="1"]
+visible = false
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
@@ -284,3 +292,5 @@ zoom = Vector2( 0.25, 0.25 )
 [editable path="Terrain/Entities/NPCDialog"]
 
 [editable path="Terrain/Entities/NPCDialog2"]
+
+[editable path="CanvasLayer"]

@@ -21,7 +21,6 @@ onready var floor_detector_left = $FloorDetectorLeft
 onready var floor_detector_right = $FloorDetectorRight
 onready var sprite = $Sprite
 onready var distracted_timer = $DistractedTime
-onready var random_timer = $RandomTimer
 onready var lineOfSight = $LineOfSight
 
 var _old_state

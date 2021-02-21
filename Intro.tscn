@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/fixed_background.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://parallax_background.gd" type="Script" id=4]
-[ext_resource path="res://assets/BackGround.png" type="Texture" id=5]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Kid1.png" type="Texture" id=6]
 [ext_resource path="res://assets/Kid2.png" type="Texture" id=7]
 [ext_resource path="res://assets/Kid4.png" type="Texture" id=8]
@@ -19,6 +18,7 @@ script = ExtResource( 10 )
 _intro_dialogue = ExtResource( 12 )
 
 [node name="Terrain" type="Node2D" parent="."]
+position = Vector2( 0, 160.327 )
 
 [node name="BackgroundFixed" type="Sprite" parent="Terrain"]
 visible = false
@@ -63,27 +63,18 @@ position = Vector2( 76.632, -37.0039 )
 texture = ExtResource( 8 )
 flip_h = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-script = ExtResource( 4 )
-player = NodePath("../Terrain/Entities/Player")
-_background = NodePath("ParallaxLayer/Sprite")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0.561218, -88.6745 )
-texture = ExtResource( 5 )
-
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
-position = Vector2( 0, -200 )
+position = Vector2( 0, -150 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 script = ExtResource( 14 )
 _player = NodePath("../Terrain/Entities/Player")
 
 [node name="Tween" type="Tween" parent="CutsceneCamera"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 [connection signal="tween_completed" from="CanvasLayer/SceneTransitionRect/FadeOutTween" to="." method="_on_FadeOutTween_completed"]
 [connection signal="tween_completed" from="CutsceneCamera/Tween" to="." method="_on_cutscene_camera_tween_completed"]
 

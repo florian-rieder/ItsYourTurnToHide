@@ -3,6 +3,7 @@ extends Actor
 
 signal canInteract(message)
 signal resetInteract
+signal seen
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -19,6 +20,7 @@ var _currentInteractor = null
 var _canMove = true
 var _old_visibility = 1.0
 var _is_moving = false
+var _interactorInstance = null
 
 
 func _ready():
@@ -78,6 +80,10 @@ func _process(delta):
 					visibility_set(_old_visibility)
 					_canMove = true
 					sprite.modulate.a = 1
+			"Radio":
+				if _interactorInstance:
+					_interactorInstance.activate()
+			
 			# Teleportation (doors)
 			var TPposition:
 				position = TPposition
@@ -115,9 +121,10 @@ func visibility_set(newVisibility = 1):
 
 
 # Called by interactors
-func canInteract(message, interactor):
+func canInteract(message, interactor, interactorInstance = null):
 	_canInteract = true
 	_currentInteractor = interactor
+	_interactorInstance = interactorInstance
 	emit_signal("canInteract",message)
 
 
@@ -125,9 +132,11 @@ func canInteract(message, interactor):
 func resetInteract():
 	_canInteract = false
 	_currentInteractor = ""
+	_interactorInstance = null
 	emit_signal("resetInteract")
 
 
 func isInSight(distance: float):
 	if distance < max_detect_distance*visibility:
 		print("seen")
+		emit_signal("seen")

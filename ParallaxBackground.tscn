@@ -1,15 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://parallax_background.gd" type="Script" id=1]
-[ext_resource path="res://assets/BackGround.png" type="Texture" id=2]
+[ext_resource path="res://assets/parallax/3-Dunes-export.png" type="Texture" id=2]
+[ext_resource path="res://assets/parallax/1-Mountain.png" type="Texture" id=3]
+[ext_resource path="res://assets/parallax/4-Dunes foreground-export.png" type="Texture" id=4]
+[ext_resource path="res://assets/parallax/2-DarkDunes-export.png" type="Texture" id=5]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )
 player = NodePath("../Entities/Player")
-_background = NodePath("ParallaxLayer/Sprite")
+_mountains_layer = NodePath("Mountains")
+_mountains_sprite = NodePath("Mountains/Sprite")
+_mountains_motion_scale = Vector2( 0.2, 0.1 )
+_dark_dunes_layer = NodePath("DarkDunes")
+_dark_dunes_sprite = NodePath("DarkDunes/Sprite")
+_dark_dunes_motion_scale = Vector2( 0.3, 0.15 )
+_dunes_layer = NodePath("Dunes")
+_dunes_sprite = NodePath("Dunes/Sprite")
+_dunes_motion_scale = Vector2( 0.4, 0.2 )
+_dunes_foreground_layer = NodePath("DunesForeground")
+_dunes_foreground_sprite = NodePath("DunesForeground/Sprite")
+_dunes_foreground_motion_scale = Vector2( 0.5, 0.25 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="Mountains" type="ParallaxLayer" parent="."]
 
-[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="Mountains"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 3 )
+
+[node name="DarkDunes" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="DarkDunes"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 5 )
+
+[node name="Dunes" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Dunes"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 2 )
+
+[node name="DunesForeground" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="DunesForeground"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 4 )
