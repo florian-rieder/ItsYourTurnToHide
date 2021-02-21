@@ -45,9 +45,14 @@ func _physics_process(_delta):
 	if is_on_wall() or (global_position.x - _initial_pos) < -max_left_distance or (global_position.x - _initial_pos) > max_right_distance:
 		_velocity.x *= -1
 
+	sprite.play("run")
 	# In idle (or random) it stops
 	if state == State.IDLE or state == State.DEAD:
 		_velocity.x = 0
+		sprite.play("idle")
+	
+	
+	
 		
 	
 		
