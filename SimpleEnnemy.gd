@@ -103,3 +103,4 @@ func _on_PlayerDetector_body_exited(body):
 		
 func stun():
 	state = State.DEAD
+	print("dead")

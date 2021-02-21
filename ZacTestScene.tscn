@@ -151,7 +151,8 @@ shape = SubResource( 4 )
 position = Vector2( 182.097, 328.295 )
 
 [node name="SimpleEnnemy2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 237.692, 340.782 )
+position = Vector2( 194.746, 345.973 )
+state = 1
 
 [node name="VisibilityArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 184.772, 333.872 )
@@ -163,7 +164,9 @@ visibility = 2.0
 
 [node name="Pots" parent="." instance=ExtResource( 8 )]
 position = Vector2( 245.626, 233.164 )
-mass = 0.168707
+collision_layer = 1
+mass = 48.98
+velocity_to_break = 10.0
 
 [node name="Test" type="TileMap" parent="."]
 format = 1
