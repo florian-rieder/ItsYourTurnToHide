@@ -1,9 +1,26 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=2]
+[gd_resource type="SpriteFrames" load_steps=26 format=2]
 
 [ext_resource path="res://assets/Kid2Idle-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/Kid4Idle-Sheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/Kid3Idle-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://assets/Kid1Idle-Sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/DaronneIdle-Sheet.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
@@ -71,6 +88,11 @@ region = Rect2( 48, 0, 16, 16 )
 
 [resource]
 animations = [ {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": true,
+"name": "mother",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "kid4",
