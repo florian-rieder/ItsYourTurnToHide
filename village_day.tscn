@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/PlantHide.png" type="Texture" id=7]
+[ext_resource path="res://dialogues/back_home.tres" type="Resource" id=8]
+[ext_resource path="res://village_day_manager.gd" type="Script" id=9]
 [ext_resource path="res://Cover.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/TrashHide.png" type="Texture" id=11]
 [ext_resource path="res://assets/Lightspixel1.png" type="Texture" id=12]
@@ -16,9 +18,6 @@
 [ext_resource path="res://assets/Picorage-Sheet.png" type="Texture" id=16]
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
 [ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/Kid1.png" type="Texture" id=19]
-[ext_resource path="res://assets/Kid2.png" type="Texture" id=20]
-[ext_resource path="res://dialogues/Hello.tres" type="Resource" id=21]
 [ext_resource path="res://assets/BoxpileHide.png" type="Texture" id=23]
 
 [sub_resource type="AtlasTexture" id=7]
@@ -86,9 +85,12 @@ animations = [ {
 } ]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 9 )
+_ending_dialogue = ExtResource( 8 )
+_scene_transition = NodePath("CanvasLayer/SceneTransitionRect")
 
 [node name="Terrain" type="Node2D" parent="."]
-position = Vector2( -1.25995, 39.0576 )
+position = Vector2( 45, 0 )
 
 [node name="ParallaxBackground" parent="Terrain" instance=ExtResource( 1 )]
 _dunes_foreground_motion_scale = Vector2( 0.45, 0.25 )
@@ -141,7 +143,7 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -149,7 +151,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 668.295, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -157,7 +159,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 632.937, 120.867 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 7
+frame = 5
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -166,7 +168,7 @@ flip_h = true
 position = Vector2( 611.049, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 10
+frame = 8
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -174,7 +176,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 649.774, 103.469 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 1
+frame = 13
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -183,26 +185,25 @@ flip_h = true
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 13
+frame = 11
 playing = true
 flip_h = true
 
 [node name="Player" parent="Terrain/Entities" instance=ExtResource( 3 )]
-position = Vector2( 836.931, 52.096 )
+position = Vector2( -785.879, 112.2 )
 speed = Vector2( 200, 350 )
 
 [node name="NPCDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
 position = Vector2( 206.829, 118.087 )
 
-[node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
-texture = ExtResource( 19 )
-
-[node name="NPCDialog2" parent="Terrain/Entities" instance=ExtResource( 18 )]
+[node name="PhaseEndingDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
 position = Vector2( 739.027, 115.744 )
-_dialogue = ExtResource( 21 )
+_dialogue = ExtResource( 8 )
 
-[node name="NPC" parent="Terrain/Entities/NPCDialog2" index="0"]
-texture = ExtResource( 20 )
+[node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
+position = Vector2( 16.8158, 1.14565 )
+animation = "kid2"
+flip_h = true
 
 [node name="Foreground" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 13 )
@@ -261,7 +262,7 @@ shadow_filter_smooth = 18.6
 [node name="Intro" type="YSort" parent="Terrain"]
 
 [node name="Radio" parent="Terrain" instance=ExtResource( 2 )]
-position = Vector2( 272.667, 50.1101 )
+position = Vector2( 294.53, 57.8884 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
@@ -275,6 +276,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
+[connection signal="tween_completed" from="CanvasLayer/SceneTransitionRect/FadeOutTween" to="." method="_on_FadeOutTween_completed"]
 
 [editable path="Terrain/GameSpace/Door"]
 
@@ -284,6 +286,6 @@ zoom = Vector2( 0.25, 0.25 )
 
 [editable path="Terrain/Entities/NPCDialog"]
 
-[editable path="Terrain/Entities/NPCDialog2"]
+[editable path="Terrain/Entities/PhaseEndingDialog"]
 
 [editable path="CanvasLayer"]

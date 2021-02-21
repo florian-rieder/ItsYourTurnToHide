@@ -4,6 +4,7 @@ onready var _fade_in_tween = $FadeInTween
 onready var _fade_out_tween = $FadeOutTween
 
 func _ready():
+	self.visible = true
 	fade_in()
 
 
