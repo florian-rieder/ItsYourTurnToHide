@@ -76,7 +76,7 @@ func _physics_process(_delta):
 			if sprite.scale.dot(_player_facing_dir.normalized()) == 1:
 				var _angle = rad2deg(_player_facing_dir.angle_to(_player.global_position - global_position))
 				if(_angle < vision_angle / 2 and _angle > -(vision_angle / 2)):
-					_player.isInSight(global_position.distance_to(_player.global_position))
+					_player.isInSight(global_position.distance_to(_player.global_position),self)
 	
 
 #Get called when a rock hit a surface, pos is the rock position
@@ -108,6 +108,9 @@ func _on_PlayerDetector_body_entered(body):
 func _on_PlayerDetector_body_exited(body):
 	if body.name == "Player":
 		_player = null
+	
+func stop():
+	state = State.IDLE
 		
 func stun():
 	state = State.DEAD

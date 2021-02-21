@@ -3,7 +3,7 @@ extends Actor
 
 signal canInteract(message)
 signal resetInteract
-signal seen
+signal seen(ennemyEntity)
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -142,7 +142,9 @@ func resetInteract():
 	emit_signal("resetInteract")
 
 
-func isInSight(distance: float):
+func isInSight(distance: float, ennemyEntity):
 	if distance < max_detect_distance*visibility:
 		print("seen")
-		emit_signal("seen")
+		_canMove = false
+		get_tree().call_group("Ennemies","stop")
+		emit_signal("seen",ennemyEntity)
