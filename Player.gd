@@ -34,6 +34,8 @@ func _ready():
 	elif current_scene == "VillageNight":
 		speed = Vector2(100, 0)
 		$AnimationPlayer.play("village_ambiant_night")
+	elif current_scene == "Outro":
+		$AnimationPlayer.play("credits_song")
 		
 
 func _physics_process(_delta):
