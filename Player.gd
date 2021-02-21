@@ -161,3 +161,4 @@ func isInSight(distance: float, ennemyEntity):
 		_canMove = false
 		get_tree().call_group("Ennemies","stop")
 		emit_signal("seen",ennemyEntity)
+		ennemyEntity.turn_red()
