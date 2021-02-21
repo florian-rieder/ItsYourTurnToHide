@@ -9,4 +9,4 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	get_tree().change_scene("res://village_day.tscn")
+	get_tree().change_scene("res://village_night.tscn")

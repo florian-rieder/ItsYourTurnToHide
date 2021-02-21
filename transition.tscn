@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://audio/232641__mensageirocs__environment-war-1.wav" type="AudioStream" id=1]
 [ext_resource path="res://audio/520935__ninebilly__ak-47-burst.wav" type="AudioStream" id=2]
@@ -8,10 +8,11 @@
 [ext_resource path="res://audio/209769__johnnyfarmer__explosion-distant.wav" type="AudioStream" id=6]
 [ext_resource path="res://audio/256606__kodack__trying-to-open-a-locked-door.wav" type="AudioStream" id=7]
 [ext_resource path="res://audio/421710__superphat__semiautorifleshot.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/391363__guamorims__cry-of-fear-female.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "transition"
-length = 24.0
+length = 26.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("Ambience")
 tracks/0/interp = 1
@@ -91,8 +92,12 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 23.8 )
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Left close:volume_db")
@@ -129,14 +134,14 @@ __meta__ = {
 
 [node name="Left close" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = -21.2843
+volume_db = -12.0
 bus = "SFX"
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="Right close" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 9 )
 bus = "SFX"
 __meta__ = {
 "_editor_description_": ""
