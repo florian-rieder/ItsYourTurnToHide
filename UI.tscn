@@ -9,41 +9,41 @@
 [ext_resource path="res://assets/E_del-Sheet.png" type="Texture" id=7]
 [ext_resource path="res://assets/Dialog box.png" type="Texture" id=8]
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 7 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 7 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 7 )
 region = Rect2( 160, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 7 )
 region = Rect2( 192, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 7 )
 region = Rect2( 224, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -52,6 +52,7 @@ animations = [ {
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="DialogUI" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.625
@@ -122,19 +123,21 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="InteractMessage"]
+margin_right = 72.0
 margin_bottom = 72.0
+rect_min_size = Vector2( 72, 72 )
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 
 [node name="InteractButton" type="AnimatedSprite" parent="InteractMessage/Control"]
 position = Vector2( 30.1606, 35.3197 )
-frames = SubResource( 8 )
-frame = 2
+frames = SubResource( 9 )
+frame = 7
 playing = true
 
 [node name="Label" type="Label" parent="InteractMessage"]
-margin_left = 75.0
+margin_left = 76.0
 margin_top = 15.0
-margin_right = 392.0
+margin_right = 464.0
 margin_bottom = 56.0
 custom_fonts/font = ExtResource( 3 )
 text = "Press E to interact"

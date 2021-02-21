@@ -27,11 +27,11 @@ var _interactorInstance = null
 func _ready():
 	var current_scene = get_tree().get_current_scene().get_name()
 	print(current_scene)
-	if current_scene == "village_day":
+	if current_scene == "Intro" or current_scene == "VillageDay":
 		print("freewalk")
 		$AnimationPlayer.play("village_ambiant_day")
-	elif current_scene == "village_night":
-		print("stealth")
+	elif current_scene == "VillageNight":
+		speed = Vector2(100, 0)
 		$AnimationPlayer.play("village_ambiant_night")
 		
 
@@ -161,3 +161,4 @@ func isInSight(distance: float, ennemyEntity):
 		_canMove = false
 		get_tree().call_group("Ennemies","stop")
 		emit_signal("seen",ennemyEntity)
+		ennemyEntity.turn_red()
