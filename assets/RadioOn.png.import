@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kid3Idle-Sheet.png-9ec51ff6e6541530179c987a4a13ed49.stex"
+path="res://.import/RadioOn.png-a168397c468a9c1ace68b263b5018ac1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kid3Idle-Sheet.png"
-dest_files=[ "res://.import/Kid3Idle-Sheet.png-9ec51ff6e6541530179c987a4a13ed49.stex" ]
+source_file="res://assets/RadioOn.png"
+dest_files=[ "res://.import/RadioOn.png-a168397c468a9c1ace68b263b5018ac1.stex" ]
 
 [params]
 
