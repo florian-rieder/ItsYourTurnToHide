@@ -7,6 +7,7 @@ enum State {
 	IDLE,
 	RANDOM,
 	DEAD,
+	END,
 }
 
 enum Orientation {
@@ -44,7 +45,8 @@ func _ready():
 
 	
 func _physics_process(_delta):
-	
+	if state == State.END:
+		return
 	# If the enemy encounters a wall or an edge or at the max distance, the horizontal velocity is flipped.
 	if not floor_detector_left.is_colliding():
 		_velocity.x = speed.x
@@ -85,6 +87,9 @@ func _physics_process(_delta):
 
 #Get called when a rock hit a surface, pos is the rock position
 func distracted(pos: Vector2):
+	if state == State.END:
+		return
+		
 	if global_position.distance_to(pos) < hearing_distance and distracted_timer.is_stopped():
 		distracted_timer.start()
 		_old_state = state
@@ -100,6 +105,8 @@ func destroy():
 
 # Get called at the end of the distracted timeout
 func _on_DistractedTime_timeout():
+	if state == State.END:
+		return
 	state = _old_state
 	if state == State.WALKING:
 		_velocity.x = speed.x if sprite.scale.x > 0 else -speed.x
@@ -114,7 +121,7 @@ func _on_PlayerDetector_body_exited(body):
 		_player = null
 	
 func stop():
-	state = State.IDLE
+	state = State.END
 	
 func turn_red():
 	get_node("Sprite/Light2D").energy = 1.5
