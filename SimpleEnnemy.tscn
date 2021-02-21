@@ -1,66 +1,55 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://SimpleEnnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/SoldatWalking-Sheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/SoldatIdle-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://assets/FOVEnnemy.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 80, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
-flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 112, 0, 16, 32 )
 
@@ -103,6 +92,10 @@ playing = true
 [node name="DetectionCollider" type="CollisionShape2D" parent="Sprite/PlayerDetector"]
 position = Vector2( -0.0834274, 0 )
 shape = SubResource( 14 )
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4.31087 )
