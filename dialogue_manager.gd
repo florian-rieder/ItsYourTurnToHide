@@ -3,6 +3,8 @@ extends Control
 # the component is stored as a NodePath in the editor.
 # onready, we can cache the component by getting the node at the NodePath
 export(NodePath) onready var _dialog_text = get_node(_dialog_text) as Label
+export(NodePath) onready var _player = get_node(_player) as Player
+export(NodePath) onready var _interaction_indicator = get_node(_interaction_indicator) as HBoxContainer
 #export(NodePath) onready var _avatar = get_node(_avatar) as TextureRect
 export(Resource) var _current_dialogue = _current_dialogue as Dialogue
 
@@ -41,6 +43,7 @@ func _on_dialog_initiated(dialogue : Dialogue) -> void:
 	
 	show_slide()
 	self.visible = true
+	_interaction_indicator.visible = false
 
 
 func _on_dialog_finished(_dialogue) -> void:

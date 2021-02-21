@@ -16,9 +16,12 @@ func activate():
 	if _on:
 		print("radio stopped")
 		sound.stop()
+		$Radio.frame = 0
+		$Radio.playing = false
 		_on = false
 	else:
 		sound.play()
+		$Radio.playing = true
 		_on = true
 
 

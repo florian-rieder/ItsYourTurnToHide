@@ -20,3 +20,6 @@ func fade_out(duration = 1) -> void:
 		0, 1, duration,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		_fade_out_tween.start()
+
+func cut_to_black() -> void:
+	color.a = 1

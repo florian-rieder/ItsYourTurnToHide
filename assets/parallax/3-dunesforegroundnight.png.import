@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RadioSon-Sheet.png-c36b525101a4287452cb5a85cb17dd71.stex"
+path="res://.import/3-dunesforegroundnight.png-3e2a6d918ba096a6117807f40b7e1f56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/RadioSon-Sheet.png"
-dest_files=[ "res://.import/RadioSon-Sheet.png-c36b525101a4287452cb5a85cb17dd71.stex" ]
+source_file="res://assets/parallax/3-dunesforegroundnight.png"
+dest_files=[ "res://.import/3-dunesforegroundnight.png-3e2a6d918ba096a6117807f40b7e1f56.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

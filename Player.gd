@@ -22,6 +22,7 @@ var _canMove = true
 var _old_visibility = 1.0
 var _is_moving = false
 var _interactorInstance = null
+var _has_been_seen = false
 
 
 func _ready():
@@ -156,8 +157,8 @@ func resetInteract():
 
 
 func isInSight(distance: float, ennemyEntity):
-	if distance < max_detect_distance*visibility:
-		print("seen")
+	if distance < max_detect_distance*visibility and not _has_been_seen:
+		_has_been_seen = true
 		_canMove = false
 		get_tree().call_group("Ennemies","stop")
 		emit_signal("seen",ennemyEntity)

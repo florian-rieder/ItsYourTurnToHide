@@ -64,6 +64,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 _dialog_text = NodePath("NinePatchRect/DialogText")
+_interaction_indicator = NodePath("../InteractMessage")
 _current_dialogue = ExtResource( 2 )
 _runtime_data = ExtResource( 1 )
 
@@ -114,9 +115,10 @@ __meta__ = {
 
 [node name="InteractMessage" type="HBoxContainer" parent="."]
 visible = false
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -528.0
+margin_top = -72.0
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -125,13 +127,15 @@ __meta__ = {
 [node name="Control" type="Control" parent="InteractMessage"]
 margin_right = 72.0
 margin_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
 rect_min_size = Vector2( 72, 72 )
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 
 [node name="InteractButton" type="AnimatedSprite" parent="InteractMessage/Control"]
 position = Vector2( 30.1606, 35.3197 )
 frames = SubResource( 9 )
-frame = 7
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="InteractMessage"]
