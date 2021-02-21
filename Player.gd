@@ -106,7 +106,7 @@ func _process(delta):
 			
 			# Teleportation (doors)
 			var TPposition:
-				position = TPposition
+				global_position = TPposition
 
 
 func get_direction():
