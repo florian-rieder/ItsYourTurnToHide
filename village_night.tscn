@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Cover/PlantHide.png" type="Texture" id=7]
+[ext_resource path="res://village_night_manager.gd" type="Script" id=8]
+[ext_resource path="res://runtime_data.tres" type="Resource" id=9]
 [ext_resource path="res://Cover.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Cover/TrashHide.png" type="Texture" id=11]
 [ext_resource path="res://assets/Lightspixel1.png" type="Texture" id=12]
@@ -16,13 +18,34 @@
 [ext_resource path="res://VisibilityArea.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
 [ext_resource path="res://SimpleEnnemy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://audio/320788__reznik-krkovicka__distant-explosions.wav" type="AudioStream" id=19]
 [ext_resource path="res://assets/Cover/BoxpileHide.png" type="Texture" id=23]
 [ext_resource path="res://props/AC_unit.tscn" type="PackedScene" id=24]
+
+[sub_resource type="Animation" id=2]
+resource_name = "village_ambiant_night"
+length = 65.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Ambiance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+} ],
+"times": PoolRealArray( 0.2 )
+}
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 48.3332
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 8 )
+_runtime_data = ExtResource( 9 )
 
 [node name="Terrain" type="Node2D" parent="."]
 position = Vector2( 45, 0 )
@@ -101,6 +124,13 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 894.246, 88.45 )
 speed = Vector2( 200, 350 )
 
+[node name="Ambiance" parent="Terrain/Entities/Player" index="4"]
+stream = ExtResource( 19 )
+volume_db = -3.555
+
+[node name="AnimationPlayer" parent="Terrain/Entities/Player" index="5"]
+anims/village_ambiant_night = SubResource( 2 )
+
 [node name="Cover" parent="Terrain/Entities" instance=ExtResource( 10 )]
 position = Vector2( 240.223, 111.155 )
 texture = ExtResource( 11 )
@@ -142,6 +172,15 @@ position = Vector2( 180.969, 116.976 )
 [node name="SimpleEnnemy" parent="Terrain/Entities" instance=ExtResource( 18 )]
 position = Vector2( 298.636, 114.216 )
 
+[node name="SimpleEnnemy2" parent="Terrain/Entities" instance=ExtResource( 18 )]
+position = Vector2( 915.237, 111.187 )
+state = 1
+
+[node name="GuardTemple1" parent="Terrain/Entities" instance=ExtResource( 18 )]
+position = Vector2( -357.476, 112.25 )
+max_left_distance = 150.0
+max_right_distance = 150.0
+
 [node name="Foreground" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 16, 16 )
@@ -152,7 +191,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
-frame = 3
+frame = 4
 
 [node name="Light2D" type="Light2D" parent="Terrain"]
 position = Vector2( 57.0422, 135.393 )
@@ -200,6 +239,9 @@ visible = false
 [node name="InteractMessage" parent="CanvasLayer" index="2"]
 _player = NodePath("../../Terrain/Entities/Player")
 
+[node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
+frame = 3
+
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
 [connection signal="tween_completed" from="CanvasLayer/SceneTransitionRect/FadeOutTween" to="." method="_on_FadeOutTween_completed"]
@@ -215,6 +257,8 @@ zoom = Vector2( 0.25, 0.25 )
 [editable path="Terrain/GameSpace/SewerDoor2"]
 
 [editable path="Terrain/GameSpace/Door3"]
+
+[editable path="Terrain/Entities/Player"]
 
 [editable path="Terrain/Light2D/VisibilityArea"]
 

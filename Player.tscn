@@ -104,7 +104,7 @@ radius = 2.52593
 height = 11.2413
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -1.82361, -7.69069, 1.74802, -8.07994, 1.75424, 8.79547, -2.17438, 8.51486 )
+polygon = PoolVector2Array( -4.94555, 0.300838, 2.61398, -2.14026, 1.75424, 8.79547, -2.17438, 8.51486 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "village_ambiant_day"
@@ -142,7 +142,7 @@ _runtime_data = ExtResource( 6 )
 position = Vector2( -0.374577, 0 )
 frames = SubResource( 7 )
 animation = "stealth_walk"
-frame = 3
+frame = 4
 playing = true
 
 [node name="RockOrigin" type="Position2D" parent="AnimatedSprite"]

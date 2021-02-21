@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Radio
+
 export(String) var message = ""
 
 onready var sound = $AudioStreamPlayer2D
@@ -12,6 +14,7 @@ func _process(delta):
 
 func activate():
 	if _on:
+		print("radio stopped")
 		sound.stop()
 		_on = false
 	else:
