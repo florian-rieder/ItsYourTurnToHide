@@ -3,7 +3,8 @@ extends Actor
 
 signal canInteract(message)
 signal resetInteract
-signal seen
+signal seen(ennemyEntity)
+signal win
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -89,6 +90,9 @@ func _process(delta):
 			"Radio":
 				if _interactorInstance:
 					_interactorInstance.activate()
+					
+			"Exit":
+				emit_signal("win")
 			
 			# Teleportation (doors)
 			var TPposition:
@@ -142,7 +146,9 @@ func resetInteract():
 	emit_signal("resetInteract")
 
 
-func isInSight(distance: float):
+func isInSight(distance: float, ennemyEntity):
 	if distance < max_detect_distance*visibility:
 		print("seen")
-		emit_signal("seen")
+		_canMove = false
+		get_tree().call_group("Ennemies","stop")
+		emit_signal("seen",ennemyEntity)
