@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://VisibilityArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Pots.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=9]
+[ext_resource path="res://CoverDialog.tscn" type="PackedScene" id=10]
+[ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.5522, 4.34943 )
@@ -179,7 +181,12 @@ shape = SubResource( 6 )
 
 [node name="Radio" parent="." instance=ExtResource( 9 )]
 position = Vector2( 450.127, 350.582 )
-message = "Dab"
+
+[node name="CoverDialog" parent="." instance=ExtResource( 10 )]
+position = Vector2( 798.411, 545.747 )
+
+[node name="NPCDialog" parent="." instance=ExtResource( 11 )]
+position = Vector2( 910.134, 547.869 )
 
 [editable path="Door"]
 
@@ -190,3 +197,5 @@ message = "Dab"
 [editable path="VisibilityArea2"]
 
 [editable path="Test/Door3"]
+
+[editable path="CoverDialog"]

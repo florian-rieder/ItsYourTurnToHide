@@ -4,19 +4,27 @@ extends Area2D
 export(Texture) var texture
 export(String) var msg
 
+var coverDialog
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	coverDialog = get_node("..")
 	$Sprite.set_texture(texture)
 	#generate_collision_polygon_2D(texture)
 
 
 func _on_Cover_body_entered(body):
 	if body.name == "Player":
-		body.canInteract(msg,"Cover")
+		body.canInteract(msg,"Cover",self)
 		
 func _on_Cover_body_exited(body):
 	if body.name == "Player":
 		body.resetInteract()
+		
+func try_to_trigger_dialog():
+	if coverDialog:
+		if coverDialog.has_method("triggerDialog"):
+			coverDialog.triggerDialog()
 
 # doesn't work :(
 func generate_collision_polygon_2D(texture : Texture):
