@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://SimpleEnnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://VisibilityArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Pots.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Radio.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.5522, 4.34943 )
@@ -101,10 +102,10 @@ position = Vector2( -335.546, -310.085 )
 anchor_mode = 0
 
 [node name="UITest" type="RichTextLabel" parent="."]
-margin_left = 196.0
-margin_top = 124.0
-margin_right = 403.0
-margin_bottom = 185.0
+margin_left = 481.088
+margin_top = 316.434
+margin_right = 688.088
+margin_bottom = 377.434
 text = "www"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -175,6 +176,10 @@ position = Vector2( 312.712, 12.5992 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test/Door3/Door2" index="0"]
 shape = SubResource( 6 )
+
+[node name="Radio" parent="." instance=ExtResource( 9 )]
+position = Vector2( 450.127, 350.582 )
+message = "Dab"
 
 [editable path="Door"]
 
