@@ -2,13 +2,10 @@
 
 [ext_resource path="res://runtime_data.tres" type="Resource" id=1]
 [ext_resource path="res://dialogues/intro.tres" type="Resource" id=2]
-[ext_resource path="res://assets/Retro Gaming.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/Retro_Gaming_Custom.tres" type="DynamicFont" id=3]
 [ext_resource path="res://dialogue_manager.gd" type="Script" id=4]
 [ext_resource path="res://scene_transition_rect.gd" type="Script" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-font_data = ExtResource( 3 )
+[ext_resource path="res://interact_message.gd" type="Script" id=6]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -47,7 +44,7 @@ margin_left = 20.0
 margin_top = 10.0
 margin_right = -20.0
 margin_bottom = -10.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Placeholder text"
 
 [node name="SceneTransitionRect" type="ColorRect" parent="."]
@@ -62,3 +59,21 @@ __meta__ = {
 [node name="FadeInTween" type="Tween" parent="SceneTransitionRect"]
 
 [node name="FadeOutTween" type="Tween" parent="SceneTransitionRect"]
+
+[node name="InteractMessage" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractButton" type="AnimatedSprite" parent="InteractMessage"]
+
+[node name="Label" type="Label" parent="InteractMessage"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+text = "Press E to interact"

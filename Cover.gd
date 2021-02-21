@@ -18,6 +18,7 @@ func _on_Cover_body_exited(body):
 	if body.name == "Player":
 		body.resetInteract()
 
+# doesn't work :(
 func generate_collision_polygon_2D(texture : Texture):
 	var bm = BitMap.new()
 	bm.create_from_image_alpha(texture.get_data())

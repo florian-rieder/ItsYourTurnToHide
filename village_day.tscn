@@ -128,20 +128,11 @@ scale = Vector2( 0.382436, 0.640428 )
 position = Vector2( 0.222595, -59.6041 )
 scale = Vector2( -0.388118, 0.678656 )
 
-[node name="Door3" parent="Terrain/GameSpace" instance=ExtResource( 14 )]
-position = Vector2( 104.496, 50.4728 )
+[node name="Door4" parent="Terrain/GameSpace" instance=ExtResource( 14 )]
+position = Vector2( 62.2865, 110.613 )
 
-[node name="Door1" parent="Terrain/GameSpace/Door3" index="0"]
-position = Vector2( -40.868, 59.2642 )
-
-[node name="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door1" index="0"]
-position = Vector2( 0, -0.280617 )
-
-[node name="Door2" parent="Terrain/GameSpace/Door3" index="1"]
-position = Vector2( 0.0123596, -16.8202 )
-
-[node name="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door2" index="0"]
-position = Vector2( -1.52588e-05, 0.840897 )
+[node name="Door2" parent="Terrain/GameSpace/Door4" index="1"]
+position = Vector2( 42.6995, -78.1018 )
 
 [node name="Entities" type="YSort" parent="Terrain"]
 position = Vector2( -43, 2.5 )
@@ -150,6 +141,7 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 21 )
 animation = "picorage"
+frame = 3
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -157,6 +149,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 668.295, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
+frame = 3
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -164,7 +157,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 632.937, 120.867 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 4
+frame = 7
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -173,7 +166,7 @@ flip_h = true
 position = Vector2( 611.049, 107.397 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 7
+frame = 10
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -181,7 +174,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 649.774, 103.469 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 12
+frame = 1
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -190,7 +183,7 @@ flip_h = true
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 21 )
 animation = "picorage"
-frame = 10
+frame = 13
 playing = true
 flip_h = true
 
@@ -223,17 +216,14 @@ __meta__ = {
 [node name="Cover" parent="Terrain" instance=ExtResource( 10 )]
 position = Vector2( 197.223, 113.655 )
 texture = ExtResource( 11 )
-msg = "Hide (E)"
 
 [node name="Cover3" parent="Terrain" instance=ExtResource( 10 )]
 position = Vector2( -75.8102, 115.243 )
 texture = ExtResource( 23 )
-msg = "Hide (E)"
 
 [node name="Cover2" parent="Terrain" instance=ExtResource( 10 )]
 position = Vector2( 334.485, 56.2555 )
 texture = ExtResource( 7 )
-msg = "Hide (E)"
 
 [node name="Light2D" type="Light2D" parent="Terrain"]
 visible = false
@@ -280,6 +270,9 @@ position = Vector2( 272.667, 50.1101 )
 [node name="SceneTransitionRect" parent="CanvasLayer" index="1"]
 visible = false
 
+[node name="InteractMessage" parent="CanvasLayer" index="2"]
+_player = NodePath("../../Terrain/Entities/Player")
+
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
 
@@ -287,7 +280,7 @@ zoom = Vector2( 0.25, 0.25 )
 
 [editable path="Terrain/GameSpace/Door2"]
 
-[editable path="Terrain/GameSpace/Door3"]
+[editable path="Terrain/GameSpace/Door4"]
 
 [editable path="Terrain/Entities/NPCDialog"]
 
