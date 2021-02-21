@@ -165,8 +165,12 @@ visibility = 2.0
 [node name="Pots" parent="." instance=ExtResource( 8 )]
 position = Vector2( 245.626, 233.164 )
 collision_layer = 1
-mass = 48.98
-velocity_to_break = 10.0
+collision_mask = 0
+velocity_to_break = 100.0
+
+[node name="Pots2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 240.703, 355.543 )
+velocity_to_break = 80.0
 
 [node name="Test" type="TileMap" parent="."]
 format = 1

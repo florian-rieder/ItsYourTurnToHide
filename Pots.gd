@@ -17,6 +17,7 @@ func destroy():
 
 
 func _on_Pots_body_entered(body):
+	print(linear_velocity.length())
 	if linear_velocity.length() > velocity_to_break:
 		if body.has_method("stun"):
 			body.stun()
