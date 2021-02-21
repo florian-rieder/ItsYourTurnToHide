@@ -71,14 +71,14 @@ func _process(delta):
 		and _runtime_data.current_game_state == Enums.GameState.FREEWALK:
 		match _currentInteractor:
 			"Cover":
-				if _canMove:
+				if _interactorInstance and _interactorInstance.has_method("try_to_trigger_dialog"):
+					_interactorInstance.try_to_trigger_dialog()
+				elif _canMove:
 					_old_visibility = visibility
 					visibility_set(0)
 					sprite.modulate.a = 0.2
 					_canMove = false
-					if _interactorInstance:
-						if _interactorInstance.has_method("try_to_trigger_dialog"):
-							_interactorInstance.try_to_trigger_dialog()
+					
 				else:
 					visibility_set(_old_visibility)
 					_canMove = true
