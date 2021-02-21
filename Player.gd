@@ -53,8 +53,8 @@ func _physics_process(_delta):
 
 func _process(delta):
 	# throwing rocks
-	if Input.is_action_just_pressed("ui_select") and _canMove \
-		and _runtime_data.current_game_state == Enums.GameState.STEALTH:
+	if Input.is_action_just_pressed("ui_select") and _canMove: #\
+		#and _runtime_data.current_game_state == Enums.GameState.STEALTH:
 		var cursorPos = get_global_mouse_position()
 		var projectile_direction = -(position - cursorPos).normalized()
 		# Flip if shooting behind

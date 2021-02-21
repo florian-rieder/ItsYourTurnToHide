@@ -1,8 +1,8 @@
-extends Area2D
+extends Node2D
 
 export(String) var message = ""
 
-onready var sound = $Radio/AudioStreamPlayer2D
+onready var sound = $AudioStreamPlayer2D
 
 var _on = true
 

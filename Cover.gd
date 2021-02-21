@@ -15,7 +15,10 @@ func _ready():
 
 func _on_Cover_body_entered(body):
 	if body.name == "Player":
-		body.canInteract(msg,"Cover",self)
+		if coverDialog and coverDialog.has_method("triggerDialog"):
+			body.canInteract(msg,"Cover",self)
+		else:
+			body.canInteract(msg,"Cover")
 		
 func _on_Cover_body_exited(body):
 	if body.name == "Player":
