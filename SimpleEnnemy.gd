@@ -9,7 +9,13 @@ enum State {
 	DEAD,
 }
 
+enum Orientation {
+	RIGHT,
+	LEFT,
+}
+
 export(State) var state = State.WALKING
+export(Orientation) var starting_orientation = Orientation.RIGHT
 export(float) var hearing_distance = 10.0
 export(float) var distracted_time = 2
 export(float) var vision_angle = 90
@@ -31,6 +37,9 @@ var _player_facing_dir: Vector2
 #Initial speed
 func _ready():
 	_velocity.x = speed.x if state == State.WALKING else 0
+	if starting_orientation == Orientation.LEFT:
+		_velocity.x *= -1
+		sprite.scale.x = -1
 	_initial_pos = global_position.x
 
 	
