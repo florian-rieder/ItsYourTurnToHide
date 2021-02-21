@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Austrian_Kangaroo.png-9785181bb0d9a3bba88dac52f7d79309.stex"
+path="res://.import/Kid3Idle-Sheet.png-9ec51ff6e6541530179c987a4a13ed49.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Austrian_Kangaroo.png"
-dest_files=[ "res://.import/Austrian_Kangaroo.png-9785181bb0d9a3bba88dac52f7d79309.stex" ]
+source_file="res://assets/Kid3Idle-Sheet.png"
+dest_files=[ "res://.import/Kid3Idle-Sheet.png-9ec51ff6e6541530179c987a4a13ed49.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -3,7 +3,7 @@
 [ext_resource path="res://Door.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10.9438, 14.0965 )
+extents = Vector2( 10.605, 14.0965 )
 
 [node name="Door" type="Position2D"]
 
@@ -11,7 +11,7 @@ extents = Vector2( 10.9438, 14.0965 )
 script = ExtResource( 2 )
 suffix = "1"
 other_suffix = "2"
-msg = "press e to TP"
+msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door1"]
 shape = SubResource( 1 )
@@ -20,7 +20,7 @@ shape = SubResource( 1 )
 position = Vector2( 75.2173, 0.297302 )
 script = ExtResource( 2 )
 suffix = "2"
-msg = "Press e to TP"
+msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 shape = SubResource( 1 )

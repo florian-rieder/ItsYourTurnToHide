@@ -65,6 +65,12 @@ flip_h = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
+[node name="SceneTransitionRect" parent="CanvasLayer" index="1"]
+visible = false
+
+[node name="InteractMessage" parent="CanvasLayer" index="2"]
+_player = NodePath("../../Terrain/Entities/Player")
+
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 position = Vector2( 0, -150 )
 current = true

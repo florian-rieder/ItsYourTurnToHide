@@ -5,6 +5,7 @@
 
 [node name="Cover" type="Area2D"]
 script = ExtResource( 2 )
+msg = "Hide"
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
