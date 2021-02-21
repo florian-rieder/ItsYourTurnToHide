@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=1]
+[ext_resource path="res://assets/Prop/prop6.png" type="Texture" id=2]
+
+[node name="WallLamp" type="Sprite"]
+position = Vector2( 232.94, 86.53 )
+texture = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 1 )
+energy = 0.66

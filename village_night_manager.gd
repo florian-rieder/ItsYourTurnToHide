@@ -51,8 +51,8 @@ func _init():
 
 func _timeout1():
 	_scene_transition.cut_to_black()
-	$AnimationPlayer.play("death_audio_animation")
+	$AudioStreamPlayer.play()
 
 
-func _on_death_audio_animation_finished(anim_name):
+func _on_AudioStreamPlayer_finished():
 	get_tree().reload_current_scene()
