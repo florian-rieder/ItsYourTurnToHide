@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="lvlupgamejam2021"
-run/main_scene="res://village_day.tscn"
+run/main_scene="res://Intro.tscn"
 boot_splash/image="res://Austrian_Kangaroo.png"
 boot_splash/bg_color=Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 config/icon="res://icon.png"

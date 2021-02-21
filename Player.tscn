@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://audio/406949__kyles__village-small-crowd-morning-under-mango-trees-children-kids-and-nearby-and-distant-mellow-voices-and-activity-putti-uganda-africa-2016.wav" type="AudioStream" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/PlayerIdle-Sheet.png" type="Texture" id=4]
 [ext_resource path="res://audio/413914__kyles__small-town-desert-oasis-distant-traffic-dune-buggys-bird-and-kids-playing-echo-huacachina-peru-south-america.wav" type="AudioStream" id=5]
 [ext_resource path="res://runtime_data.tres" type="Resource" id=6]
+[ext_resource path="res://assets/PlayerRun-Sheet.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
@@ -23,6 +24,30 @@ region = Rect2( 48, 0, 16, 16 )
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 7 )
+region = Rect2( 80, 0, 16, 16 )
+
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 3 ) ],
@@ -30,7 +55,7 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "run",
 "speed": 5.0
@@ -79,6 +104,7 @@ _runtime_data = ExtResource( 6 )
 position = Vector2( -0.374577, 0 )
 frames = SubResource( 7 )
 animation = "idle"
+frame = 2
 speed_scale = 1.5
 playing = true
 
@@ -101,6 +127,7 @@ current = true
 zoom = Vector2( 0.25, 0.25 )
 smoothing_enabled = true
 smoothing_speed = 10.0
+offset_v = -0.4
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )

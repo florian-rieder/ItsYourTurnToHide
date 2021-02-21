@@ -18,6 +18,7 @@ var _canInteract = false
 var _currentInteractor = null
 var _canMove = true
 var _old_visibility = 1.0
+var _is_moving = false
 
 
 func _ready():
@@ -29,6 +30,14 @@ func _physics_process(_delta):
 		var direction = get_direction()
 
 		_velocity = calculate_move_velocity(_velocity, direction, speed)
+		
+		# gestion des animations course/idle
+		if _velocity.x == 0:
+			_is_moving = false
+			sprite.play("idle")
+		else:
+			_is_moving = true
+			sprite.play("run")
 
 		var snap_vector = Vector2.DOWN * FLOOR_DETECT_DISTANCE if direction.y == 0.0 else Vector2.ZERO
 		var is_on_platform = platform_detector.is_colliding()
@@ -41,6 +50,7 @@ func _physics_process(_delta):
 			sprite.scale.x = 1 if direction.x > 0 else -1
 
 func _process(delta):
+	# throwing rocks
 	if Input.is_action_just_pressed("ui_select") and _canMove \
 		and _runtime_data.current_game_state == Enums.GameState.STEALTH:
 		var cursorPos = get_global_mouse_position()
@@ -53,6 +63,8 @@ func _process(delta):
 			gun.shoot(projectile_direction*1.5)
 		else:
 			gun.shoot(projectile_direction)
+	
+	# Hide behind cover
 	if Input.is_action_just_pressed("interact") and _canInteract \
 		and _runtime_data.current_game_state == Enums.GameState.FREEWALK:
 		match _currentInteractor:

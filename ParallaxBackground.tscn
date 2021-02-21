@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://parallax_background.gd" type="Script" id=1]
+[ext_resource path="res://assets/BackGround.png" type="Texture" id=2]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource( 1 )
+player = NodePath("../Entities/Player")
+_background = NodePath("ParallaxLayer/Sprite")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 2 )
