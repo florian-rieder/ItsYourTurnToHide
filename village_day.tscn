@@ -175,7 +175,7 @@ position = Vector2( -43, 2.5 )
 position = Vector2( 218.267, 122.478 )
 frames = SubResource( 15 )
 animation = "picorage"
-frame = 12
+frame = 13
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -183,7 +183,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 668.295, 107.397 )
 frames = SubResource( 15 )
 animation = "picorage"
-frame = 12
+frame = 13
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -191,7 +191,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 632.937, 120.867 )
 frames = SubResource( 15 )
 animation = "picorage"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -200,7 +200,7 @@ flip_h = true
 position = Vector2( 611.049, 107.397 )
 frames = SubResource( 15 )
 animation = "picorage"
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( 2, 0 )
 
@@ -208,7 +208,7 @@ offset = Vector2( 2, 0 )
 position = Vector2( 649.774, 103.469 )
 frames = SubResource( 15 )
 animation = "picorage"
-frame = 10
+frame = 11
 playing = true
 offset = Vector2( 2, 0 )
 flip_h = true
@@ -217,7 +217,7 @@ flip_h = true
 position = Vector2( 192.168, 118.637 )
 frames = SubResource( 15 )
 animation = "picorage"
-frame = 8
+frame = 9
 playing = true
 flip_h = true
 
@@ -228,9 +228,6 @@ speed = Vector2( 200, 350 )
 [node name="NPCDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
 position = Vector2( 206.829, 118.087 )
 
-[node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
-frame = 0
-
 [node name="PhaseEndingDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
 visible = false
 position = Vector2( 739.027, 115.744 )
@@ -239,7 +236,7 @@ _dialogue = ExtResource( 8 )
 [node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
 position = Vector2( 16.8158, 1.14565 )
 animation = "kid2"
-frame = 3
+frame = 0
 flip_h = true
 
 [node name="CollisionShape2D" parent="Terrain/Entities/PhaseEndingDialog/Area2D" index="0"]
@@ -293,6 +290,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
+frame = 2
 
 [node name="Light2D" type="Light2D" parent="Terrain"]
 visible = false
@@ -335,7 +333,7 @@ _dialogue = ExtResource( 20 )
 
 [node name="NPC" parent="Terrain/CoverDialog/NPCDialog" index="0"]
 position = Vector2( 1.74692, 3.68305 )
-frame = 2
+frame = 3
 
 [node name="Cover" parent="Terrain/CoverDialog" index="1"]
 texture = ExtResource( 7 )
@@ -349,7 +347,7 @@ _dialogue = ExtResource( 22 )
 
 [node name="NPC" parent="Terrain/CoverDialog2/NPCDialog" index="0"]
 animation = "kid2"
-frame = 2
+frame = 3
 
 [node name="Cover" parent="Terrain/CoverDialog2" index="1"]
 texture = ExtResource( 11 )
@@ -363,7 +361,6 @@ _dialogue = ExtResource( 25 )
 
 [node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
 animation = "kid4"
-frame = 3
 
 [node name="Cover" parent="Terrain/CoverDialog4" index="1"]
 texture = ExtResource( 23 )
@@ -377,7 +374,7 @@ _dialogue = ExtResource( 21 )
 
 [node name="NPC" parent="Terrain/CoverDialog3/NPCDialog" index="0"]
 animation = "kid3"
-frame = 2
+frame = 3
 
 [node name="Cover" parent="Terrain/CoverDialog3" index="1"]
 msg = ""
@@ -396,7 +393,7 @@ visible = false
 _player = NodePath("../../Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 3
+frame = 0
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
