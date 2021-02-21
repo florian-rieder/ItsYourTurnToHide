@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/byzantin_first_level_music_radio_version.wav-83c38d6623110ed36fc699cdb2a3adf7.sample"
+
+[deps]
+
+source_file="res://audio/music/byzantin_first_level_music_radio_version.wav"
+dest_files=[ "res://.import/byzantin_first_level_music_radio_version.wav-83c38d6623110ed36fc699cdb2a3adf7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

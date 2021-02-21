@@ -78,6 +78,11 @@ func _process(delta):
 					visibility_set(_old_visibility)
 					_canMove = true
 					sprite.modulate.a = 1
+		
+			# J'ai remarqué que c'est ici que tu fais l'interaction... je crois,
+			# mais je suis pas sûr d'avoir compris le système
+			# Tu arriverais à ajouter une interaction on/off sur les radios ?
+			
 			# Teleportation (doors)
 			var TPposition:
 				position = TPposition
