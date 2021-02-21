@@ -103,4 +103,5 @@ func _on_PlayerDetector_body_exited(body):
 		
 func stun():
 	state = State.DEAD
-	print("dead")
+	# A cahnger si on a des anims de stun, sinon juste jouer un son
+	queue_free()
