@@ -13,7 +13,7 @@ var timer
 func _ready():
 	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
 	GameEvents.connect("child_found", self, "_on_child_found")
-	_player.connect("win", self, "_on_escape")
+	
 
 
 func _on_child_found() -> void:
@@ -49,6 +49,4 @@ func _init():
 func _timeout():
 	if _runtime_data.current_game_state != Enums.GameState.IN_DIALOG:
 		GameEvents.emit_dialog_initiated(_mother_call)
-		
-func _on_escape() -> void:
-	get_tree().change_scene("res://Outro.tscn")
+

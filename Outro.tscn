@@ -272,7 +272,6 @@ position = Vector2( 776.309, 115.354 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 16 )
-frame = 2
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -428,6 +427,9 @@ _interaction_indicator = NodePath("../../../Outro/CanvasLayer/InteractMessage")
 
 [node name="InteractMessage" parent="CanvasLayer" index="2"]
 _player = NodePath("../../../Outro/Terrain/Entities/Player")
+
+[node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
+frame = 5
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 position = Vector2( -909.602, 95.4154 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://runtime_data.tres" type="Resource" id=9]
 [ext_resource path="res://Cover.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Cover/TrashHide.png" type="Texture" id=11]
-[ext_resource path="res://assets/Exittemp.png" type="Texture" id=12]
+[ext_resource path="res://assets/ExitAnim-Sheet.png" type="Texture" id=12]
 [ext_resource path="res://tilesets/foreground.tres" type="TileSet" id=13]
 [ext_resource path="res://assets/Prop/prop14.png" type="Texture" id=14]
 [ext_resource path="res://assets/Bush.png" type="Texture" id=15]
@@ -35,31 +35,51 @@
 [ext_resource path="res://assets/Prop/Prop9.png" type="Texture" id=35]
 [ext_resource path="res://assets/Prop/prop8.png" type="Texture" id=36]
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 6.45898, 9.35445 )
-
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 39.1129 )
+extents = Vector2( 6.45898, 9.35445 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.18689, 26.2668 )
+extents = Vector2( 10, 39.1129 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.81519, 35.3606 )
+extents = Vector2( 4.18689, 26.2668 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 31.5336, 7.9162 )
+extents = Vector2( 4.81519, 35.3606 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 6.45898, 9.35445 )
+extents = Vector2( 31.5336, 7.9162 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 6.45898, 9.35445 )
 
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 12 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 12 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 6.45898, 9.35445 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 6.45898, 9.35445 )
+
+[sub_resource type="Animation" id=9]
 length = 65.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("Ambiance")
@@ -76,7 +96,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.2 )
 }
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=10]
 radius = 48.3332
 
 [node name="VillageNight" type="Node2D"]
@@ -198,7 +218,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door"]
 position = Vector2( -0.7827, -60.7027 )
@@ -207,7 +227,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 312.096, 111.14 )
@@ -219,7 +239,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door2/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door2"]
 position = Vector2( 0.2173, -60.7027 )
@@ -228,7 +248,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door2/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door4" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 62.2865, 110.613 )
@@ -240,7 +260,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door4/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door4"]
 position = Vector2( 42.2173, -75.7027 )
@@ -249,7 +269,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door4/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="SewerDoor1" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 280.503, 128.002 )
@@ -261,7 +281,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/SewerDoor1/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/SewerDoor1"]
 position = Vector2( 2.2173, 46.2973 )
@@ -270,7 +290,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/SewerDoor1/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="SewerDoor2" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 407.54, 121.363 )
@@ -282,7 +302,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/SewerDoor2/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/SewerDoor2"]
 position = Vector2( -3.7827, 53.2973 )
@@ -291,7 +311,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/SewerDoor2/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door3" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( -399.968, 116.687 )
@@ -303,7 +323,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door3"]
 position = Vector2( -0.7827, -97.7027 )
@@ -312,48 +332,48 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door3/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="WorldBorder1" type="KinematicBody2D" parent="Terrain/GameSpace"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder1"]
 position = Vector2( 975.571, 118.745 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="WorldBorder3" type="KinematicBody2D" parent="Terrain/GameSpace"]
 position = Vector2( -905.258, -79.9784 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder3"]
 position = Vector2( 981.071, 117.745 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="WorldBorder2" type="KinematicBody2D" parent="Terrain/GameSpace"]
 position = Vector2( 75.5103, 37.5092 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder2"]
 position = Vector2( 975.571, 118.745 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="WorldBorder4" type="KinematicBody2D" parent="Terrain/GameSpace"]
 position = Vector2( -1009.55, 109.465 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder4"]
 position = Vector2( 6.85645, 4.79984 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="WorldBorder5" type="KinematicBody2D" parent="Terrain/GameSpace"]
 position = Vector2( -992.845, 145.546 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder5"]
 position = Vector2( 16.7827, -9.62138 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="WorldBorder6" type="KinematicBody2D" parent="Terrain/GameSpace"]
 position = Vector2( 926.395, 145.707 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder6"]
 position = Vector2( 16.7827, -9.62138 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Door5" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 776.309, 115.354 )
@@ -365,7 +385,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door5/Door1"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door5"]
 position = Vector2( -0.201157, -44.7535 )
@@ -374,11 +394,13 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door5/Door2"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
-[node name="Exittemp" type="Sprite" parent="Terrain/GameSpace"]
+[node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
-texture = ExtResource( 12 )
+frames = SubResource( 14 )
+frame = 2
+playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
 position = Vector2( -879.196, 108.446 )
@@ -460,7 +482,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door6/Door1"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door6"]
 position = Vector2( 2.37921, 59.6272 )
@@ -469,7 +491,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door6/Door2"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Door7" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 40.0784, 123.187 )
@@ -481,7 +503,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door7/Door1"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door7"]
 position = Vector2( -2.65323, 55.3894 )
@@ -490,7 +512,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door7/Door2"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Entities" type="YSort" parent="Terrain"]
 position = Vector2( -43, 2.5 )
@@ -500,14 +522,14 @@ position = Vector2( 894.246, 88.45 )
 speed = Vector2( 200, 350 )
 
 [node name="AnimatedSprite" parent="Terrain/Entities/Player" index="0"]
-frame = 7
+frame = 6
 
 [node name="Ambiance" parent="Terrain/Entities/Player" index="4"]
 stream = ExtResource( 19 )
 volume_db = -3.555
 
 [node name="AnimationPlayer" parent="Terrain/Entities/Player" index="5"]
-anims/village_ambiant_night = SubResource( 8 )
+anims/village_ambiant_night = SubResource( 9 )
 
 [node name="Cover" parent="Terrain/Entities" instance=ExtResource( 10 )]
 position = Vector2( 240.223, 111.155 )
@@ -616,7 +638,7 @@ shadow_filter_smooth = 18.6
 [node name="VisibilityArea" parent="Terrain/Light2D" instance=ExtResource( 16 )]
 
 [node name="CollisionShape2D" parent="Terrain/Light2D/VisibilityArea" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Light2D3" type="Light2D" parent="Terrain"]
 position = Vector2( 110.617, 31.4182 )
@@ -648,7 +670,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 24 )]
-frame = 2
+frame = 4
 
 [node name="Exit" parent="Terrain" instance=ExtResource( 21 )]
 position = Vector2( -908.828, 124.49 )
@@ -666,7 +688,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageNight/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 0
+frame = 7
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
@@ -674,6 +696,20 @@ zoom = Vector2( 0.25, 0.25 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 bus = "SFX"
+
+[node name="Light2D4" type="Light2D" parent="."]
+position = Vector2( -788.945, 77.165 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+color = Color( 0.764706, 0.211765, 0.858824, 1 )
+energy = 0.76
+
+[node name="Light2D5" type="Light2D" parent="."]
+position = Vector2( -754.297, 76.8114 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+color = Color( 0.211765, 0.235294, 0.858824, 1 )
+energy = 0.76
 [connection signal="body_entered" from="Terrain/GameSpace/Door/Door1" to="Terrain/GameSpace/Door/Door1" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Terrain/GameSpace/Door/Door1" to="Terrain/GameSpace/Door/Door1" method="_on_Door_body_exited"]
 [connection signal="body_entered" from="Terrain/GameSpace/Door/Door2" to="Terrain/GameSpace/Door/Door2" method="_on_Door_body_entered"]

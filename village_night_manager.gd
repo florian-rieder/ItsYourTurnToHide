@@ -19,7 +19,7 @@ func _ready():
 	
 	tween = Tween.new()
 	
-	
+	_player.connect("win", self, "_on_escape")
 	_player.connect("seen", self, "_on_player_seen")
 	_runtime_data.current_game_state = Enums.GameState.STEALTH
 	
@@ -56,3 +56,6 @@ func _timeout1():
 
 func _on_AudioStreamPlayer_finished():
 	get_tree().reload_current_scene()
+	
+func _on_escape() -> void:
+	get_tree().change_scene("res://Outro.tscn")
