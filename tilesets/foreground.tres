@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=2]
+[gd_resource type="TileSet" load_steps=6 format=2]
 
 [ext_resource path="res://assets/ForegroundTilemap.png" type="Texture" id=1]
 [ext_resource path="res://assets/Props.png" type="Texture" id=2]
+[ext_resource path="res://assets/Bigcoupole.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 63.9423, 16.0209, -0.175369, 16.0209, -0.175369, 9.23763, 63.9423, 9.23763 )
@@ -451,3 +452,17 @@ points = PoolVector2Array( 7.94506, 7.80359, 71.7809, 26.029, 77.8186, 30.2349, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 30/z_index = 0
+31/name = "Bigcoupole.png 31"
+31/texture = ExtResource( 3 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 128, 128 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape_one_way = false
+31/shape_one_way_margin = 0.0
+31/shapes = [  ]
+31/z_index = 0

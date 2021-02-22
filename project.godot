@@ -68,7 +68,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="lvlupgamejam2021"
+config/name="It's your turn to hide"
 run/main_scene="res://Intro.tscn"
 boot_splash/image="res://Austrian_Kangaroo.png"
 boot_splash/use_filter=false

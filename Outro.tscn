@@ -43,65 +43,65 @@ extents = Vector2( 4.81519, 35.3606 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 31.5336, 7.9162 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 6 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 6 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 6.45898, 9.35445 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 6.45898, 9.35445 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 24 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 24 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 24 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 24 )
-region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 24 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 24 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 24 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 24 )
 region = Rect2( 64, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=17]
 size = 10
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=18]
 size = 18
 font_data = ExtResource( 12 )
 
@@ -271,7 +271,8 @@ position = Vector2( 776.309, 115.354 )
 
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
-frames = SubResource( 16 )
+frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -354,7 +355,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door6/Door1"]
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door6"]
 position = Vector2( 2.37921, 59.6272 )
@@ -363,7 +364,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door6/Door2"]
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="Door7" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 40.0784, 123.187 )
@@ -375,7 +376,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door7/Door1"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door7"]
 position = Vector2( -2.65323, 55.3894 )
@@ -384,7 +385,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door7/Door2"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Light2D4" type="Light2D" parent="Terrain/GameSpace"]
 position = Vector2( -788.945, 77.165 )
@@ -410,13 +411,14 @@ position = Vector2( -96.7775, -35.6394 )
 tile_set = ExtResource( 25 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -262179, 5, 0, -262162, 5, 0, 2, 20, 0, 5, 28, 1, 6, 28, 1, 7, 28, 1, 8, 28, 2, 13, 4, 0, 18, 4, 0, 65536, 28, 0, 65537, 28, 1, 65538, 28, 1, 65539, 28, 1, 65540, 28, 1, 65583, 4, 0, 196572, 13, 0, 196573, 13, 0, 196574, 13, 0, 196575, 13, 0, 196576, 13, 0, 196577, 13, 0, 196578, 13, 0, 196579, 13, 0, 196580, 13, 0, 196581, 13, 0, 196582, 13, 0, 196583, 13, 0, 196584, 13, 0, 196585, 13, 0, 196586, 13, 0, 196587, 13, 0, 196588, 13, 0, 196589, 13, 0, 196590, 13, 0, 196591, 13, 0, 196592, 13, 0, 196593, 13, 0, 196599, 28, 0, 196600, 28, 1, 196601, 28, 1, 196602, 28, 1, 196603, 28, 1, 196604, 28, 1, 196605, 28, 1, 196606, 28, 1, 196607, 28, 2, 262108, 9, 0, 262109, 8, 0, 262111, 12, 0, 262112, 8, 0, 262114, 12, 0, 262115, 8, 0, 262117, 12, 0, 262118, 8, 0, 262120, 12, 0, 262121, 8, 0, 262123, 12, 0, 262124, 8, 0, 262126, 12, 0, 262127, 8, 0, 262129, 10, 0, 196613, 28, 1, 196614, 28, 1, 196615, 28, 1, 196616, 30, 0, 262156, 1, 0, 262157, 1, 1, 262158, 1, 1, 262159, 1, 1, 262160, 1, 1, 262161, 1, 1, 262162, 1, 1, 262163, 1, 1, 262164, 1, 1, 262165, 1, 2, 327721, 16, 0, 327732, 14, 0, 458716, 11, 0, 458719, 11, 0, 458722, 11, 0, 458725, 11, 0, 458728, 11, 0, 458731, 11, 0, 458734, 11, 0, 458737, 11, 0, 393286, 29, 0, 589816, 20, 0, 524339, 20, 0 )
+tile_data = PoolIntArray( -524317, 31, 0, -262179, 5, 0, -262162, 5, 0, 2, 20, 0, 5, 28, 1, 6, 28, 1, 7, 28, 1, 8, 28, 2, 13, 4, 0, 18, 4, 0, 65536, 28, 0, 65537, 28, 1, 65538, 28, 1, 65539, 28, 1, 65540, 28, 1, 65583, 4, 0, 196572, 13, 0, 196573, 13, 0, 196574, 13, 0, 196575, 13, 0, 196576, 13, 0, 196577, 13, 0, 196578, 13, 0, 196579, 13, 0, 196580, 13, 0, 196581, 13, 0, 196582, 13, 0, 196583, 13, 0, 196584, 13, 0, 196585, 13, 0, 196586, 13, 0, 196587, 13, 0, 196588, 13, 0, 196589, 13, 0, 196590, 13, 0, 196591, 13, 0, 196592, 13, 0, 196593, 13, 0, 196599, 28, 0, 196600, 28, 1, 196601, 28, 1, 196602, 28, 1, 196603, 28, 1, 196604, 28, 1, 196605, 28, 1, 196606, 28, 1, 196607, 28, 2, 262108, 9, 0, 262109, 8, 0, 262111, 12, 0, 262112, 8, 0, 262114, 12, 0, 262115, 8, 0, 262117, 12, 0, 262118, 8, 0, 262120, 12, 0, 262121, 8, 0, 262123, 12, 0, 262124, 8, 0, 262126, 12, 0, 262127, 8, 0, 262129, 10, 0, 196613, 28, 1, 196614, 28, 1, 196615, 28, 1, 196616, 30, 0, 262156, 1, 0, 262157, 1, 1, 262158, 1, 1, 262159, 1, 1, 262160, 1, 1, 262161, 1, 1, 262162, 1, 1, 262163, 1, 1, 262164, 1, 1, 262165, 1, 2, 327721, 16, 0, 327732, 14, 0, 458716, 11, 0, 458719, 11, 0, 458722, 11, 0, 458725, 11, 0, 458728, 11, 0, 458731, 11, 0, 458734, 11, 0, 458737, 11, 0, 393286, 29, 0, 589816, 20, 0, 524339, 20, 0 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 26 )]
-frames = SubResource( 12 )
+frames = SubResource( 16 )
+frame = 2
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
@@ -510,7 +512,7 @@ __meta__ = {
 [node name="rolenoe2" type="Label" parent="Credits/VBoxContainer"]
 margin_right = 324.0
 margin_bottom = 13.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Musics"
 align = 1
 __meta__ = {
@@ -521,7 +523,7 @@ __meta__ = {
 margin_top = 17.0
 margin_right = 324.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Sacha André"
 align = 1
@@ -534,7 +536,7 @@ __meta__ = {
 margin_top = 44.0
 margin_right = 324.0
 margin_bottom = 57.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Pixel Art"
 align = 1
 __meta__ = {
@@ -545,7 +547,7 @@ __meta__ = {
 margin_top = 61.0
 margin_right = 324.0
 margin_bottom = 84.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Noé Aubert"
 align = 1
@@ -559,7 +561,7 @@ __meta__ = {
 margin_top = 88.0
 margin_right = 324.0
 margin_bottom = 101.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Pixel Art"
 align = 1
 __meta__ = {
@@ -570,7 +572,7 @@ __meta__ = {
 margin_top = 105.0
 margin_right = 324.0
 margin_bottom = 128.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Sebastien Rieder"
 align = 1
@@ -583,7 +585,7 @@ __meta__ = {
 margin_top = 132.0
 margin_right = 324.0
 margin_bottom = 145.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Gameplay Programming"
 align = 1
 __meta__ = {
@@ -594,7 +596,7 @@ __meta__ = {
 margin_top = 149.0
 margin_right = 324.0
 margin_bottom = 172.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Zacharie Tevaearai"
 align = 1
@@ -606,7 +608,7 @@ __meta__ = {
 margin_top = 176.0
 margin_right = 324.0
 margin_bottom = 189.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Design, Programming, Writing, SFX"
 align = 1
 __meta__ = {
@@ -617,7 +619,7 @@ __meta__ = {
 margin_top = 193.0
 margin_right = 324.0
 margin_bottom = 216.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Florian Rieder"
 align = 1

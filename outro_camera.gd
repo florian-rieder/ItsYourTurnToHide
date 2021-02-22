@@ -1,6 +1,6 @@
 extends Camera2D
 
-export(float) var duration = 10
+export(float) var duration = 60
 
 export(NodePath) onready var _player = get_node(_player) as KinematicBody2D
 onready var _tween = $Tween

@@ -61,13 +61,13 @@ extents = Vector2( 4.18689, 26.2668 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.81519, 35.3606 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 31.5336, 7.9162 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 6.45898, 9.35445 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 6.45898, 9.35445 )
 
 [node name="VillageDay" type="Node2D"]
@@ -275,14 +275,14 @@ position = Vector2( -992.845, 145.546 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder5"]
 position = Vector2( 16.7827, -9.62138 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="WorldBorder6" type="KinematicBody2D" parent="Terrain/GameSpace"]
 position = Vector2( 926.395, 145.707 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/WorldBorder6"]
 position = Vector2( 16.7827, -9.62138 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="Door5" parent="Terrain/GameSpace" instance=ExtResource( 14 )]
 position = Vector2( 776.309, 115.354 )
@@ -386,7 +386,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door6/Door1"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door6"]
 position = Vector2( 2.37921, 59.6272 )
@@ -395,7 +395,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door6/Door2"]
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Door7" type="Position2D" parent="Terrain/GameSpace"]
 position = Vector2( 40.0784, 123.187 )
@@ -407,7 +407,7 @@ other_suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door7/Door1"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="Door2" type="Area2D" parent="Terrain/GameSpace/Door7"]
 position = Vector2( -2.65323, 55.3894 )
@@ -416,7 +416,7 @@ suffix = "2"
 msg = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/GameSpace/Door7/Door2"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="Entities" type="YSort" parent="Terrain"]
 position = Vector2( -43, 2.5 )
@@ -432,7 +432,7 @@ _dialogue = ExtResource( 29 )
 [node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
 position = Vector2( -9.90776, -11.3025 )
 animation = "male1"
-frame = 0
+frame = 3
 flip_h = true
 
 [node name="PhaseEndingDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
@@ -443,7 +443,7 @@ _dialogue = ExtResource( 8 )
 [node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
 position = Vector2( 23.8312, -3.48451 )
 animation = "mother"
-frame = 0
+frame = 3
 
 [node name="CollisionShape2D" parent="Terrain/Entities/PhaseEndingDialog/Area2D" index="0"]
 disabled = true
@@ -490,9 +490,6 @@ position = Vector2( 180.969, 116.976 )
 position = Vector2( 744.478, 114.947 )
 scale = Vector2( -1, 1 )
 
-[node name="Sprite" parent="Terrain/Entities/Chicken" index="0"]
-frame = 12
-
 [node name="Chicken2" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 637.632, 116.044 )
 
@@ -503,7 +500,7 @@ position = Vector2( 730.704, 115.971 )
 position = Vector2( 714.787, 115.943 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken4" index="0"]
-frame = 2
+frame = 9
 
 [node name="Chicken5" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 188.947, 185.84 )
@@ -521,7 +518,7 @@ position = Vector2( 655.461, 114.451 )
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -262179, 5, 0, -262162, 5, 0, 2, 20, 0, 5, 28, 1, 6, 28, 1, 7, 28, 1, 8, 28, 2, 13, 4, 0, 18, 4, 0, 65536, 28, 0, 65537, 28, 1, 65538, 28, 1, 65539, 28, 1, 65540, 28, 1, 65583, 4, 0, 196572, 13, 0, 196573, 13, 0, 196574, 13, 0, 196575, 13, 0, 196576, 13, 0, 196577, 13, 0, 196578, 13, 0, 196579, 13, 0, 196580, 13, 0, 196581, 13, 0, 196582, 13, 0, 196583, 13, 0, 196584, 13, 0, 196585, 13, 0, 196586, 13, 0, 196587, 13, 0, 196588, 13, 0, 196589, 13, 0, 196590, 13, 0, 196591, 13, 0, 196592, 13, 0, 196593, 13, 0, 196599, 28, 0, 196600, 28, 1, 196601, 28, 1, 196602, 28, 1, 196603, 28, 1, 196604, 28, 1, 196605, 28, 1, 196606, 28, 1, 196607, 28, 2, 262108, 9, 0, 262109, 8, 0, 262111, 12, 0, 262112, 8, 0, 262114, 12, 0, 262115, 8, 0, 262117, 12, 0, 262118, 8, 0, 262120, 12, 0, 262121, 8, 0, 262123, 12, 0, 262124, 8, 0, 262126, 12, 0, 262127, 8, 0, 262129, 10, 0, 196613, 28, 1, 196614, 28, 1, 196615, 28, 1, 196616, 30, 0, 262156, 1, 0, 262157, 1, 1, 262158, 1, 1, 262159, 1, 1, 262160, 1, 1, 262161, 1, 1, 262162, 1, 1, 262163, 1, 1, 262164, 1, 1, 262165, 1, 2, 327721, 16, 0, 327732, 14, 0, 458716, 11, 0, 458719, 11, 0, 458722, 11, 0, 458725, 11, 0, 458728, 11, 0, 458731, 11, 0, 458734, 11, 0, 458737, 11, 0, 393286, 29, 0, 589816, 20, 0, 524339, 20, 0 )
+tile_data = PoolIntArray( -524317, 31, 0, -262179, 5, 0, -262162, 5, 0, 2, 20, 0, 5, 28, 1, 6, 28, 1, 7, 28, 1, 8, 28, 2, 13, 4, 0, 18, 4, 0, 65536, 28, 0, 65537, 28, 1, 65538, 28, 1, 65539, 28, 1, 65540, 28, 1, 65583, 4, 0, 196572, 13, 0, 196573, 13, 0, 196574, 13, 0, 196575, 13, 0, 196576, 13, 0, 196577, 13, 0, 196578, 13, 0, 196579, 13, 0, 196580, 13, 0, 196581, 13, 0, 196582, 13, 0, 196583, 13, 0, 196584, 13, 0, 196585, 13, 0, 196586, 13, 0, 196587, 13, 0, 196588, 13, 0, 196589, 13, 0, 196590, 13, 0, 196591, 13, 0, 196592, 13, 0, 196593, 13, 0, 196599, 28, 0, 196600, 28, 1, 196601, 28, 1, 196602, 28, 1, 196603, 28, 1, 196604, 28, 1, 196605, 28, 1, 196606, 28, 1, 196607, 28, 2, 262108, 9, 0, 262109, 8, 0, 262111, 12, 0, 262112, 8, 0, 262114, 12, 0, 262115, 8, 0, 262117, 12, 0, 262118, 8, 0, 262120, 12, 0, 262121, 8, 0, 262123, 12, 0, 262124, 8, 0, 262126, 12, 0, 262127, 8, 0, 262129, 10, 0, 196613, 28, 1, 196614, 28, 1, 196615, 28, 1, 196616, 30, 0, 262156, 1, 0, 262157, 1, 1, 262158, 1, 1, 262159, 1, 1, 262160, 1, 1, 262161, 1, 1, 262162, 1, 1, 262163, 1, 1, 262164, 1, 1, 262165, 1, 2, 327721, 16, 0, 327732, 14, 0, 458716, 11, 0, 458719, 11, 0, 458722, 11, 0, 458725, 11, 0, 458728, 11, 0, 458731, 11, 0, 458734, 11, 0, 458737, 11, 0, 393286, 29, 0, 589816, 20, 0, 524339, 20, 0 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -570,7 +567,7 @@ _dialogue = ExtResource( 20 )
 
 [node name="NPC" parent="Terrain/CoverDialog/NPCDialog" index="0"]
 position = Vector2( 1.74692, 3.68305 )
-frame = 1
+frame = 0
 
 [node name="Cover" parent="Terrain/CoverDialog" index="1"]
 texture = ExtResource( 7 )
@@ -583,7 +580,7 @@ _dialogue = ExtResource( 27 )
 
 [node name="NPC" parent="Terrain/CoverDialog2/NPCDialog" index="0"]
 animation = "kid2"
-frame = 1
+frame = 0
 
 [node name="Cover" parent="Terrain/CoverDialog2" index="1"]
 texture = ExtResource( 11 )
@@ -596,7 +593,7 @@ _dialogue = ExtResource( 25 )
 
 [node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
 animation = "kid4"
-frame = 0
+frame = 3
 
 [node name="Cover" parent="Terrain/CoverDialog4" index="1"]
 texture = ExtResource( 23 )
@@ -609,7 +606,7 @@ _dialogue = ExtResource( 21 )
 
 [node name="NPC" parent="Terrain/CoverDialog3/NPCDialog" index="0"]
 animation = "kid3"
-frame = 1
+frame = 0
 
 [node name="Sprite" parent="Terrain/CoverDialog3/Cover" index="0"]
 visible = false
@@ -642,7 +639,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageDay/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 4
+frame = 7
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
