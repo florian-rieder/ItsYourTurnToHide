@@ -431,6 +431,7 @@ shape = SubResource( 6 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 10 )
+frame = 2
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -553,7 +554,7 @@ position = Vector2( 894.246, 88.45 )
 speed = Vector2( 200, 350 )
 
 [node name="AnimatedSprite" parent="Terrain/Entities/Player" index="0"]
-frame = 7
+frame = 4
 
 [node name="Ambiance" parent="Terrain/Entities/Player" index="4"]
 stream = ExtResource( 19 )
@@ -719,7 +720,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageNight/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 0
+frame = 5
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
