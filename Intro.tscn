@@ -1,7 +1,6 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=1]
-[ext_resource path="res://assets/fixed_background.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=5]
@@ -15,7 +14,7 @@
 [ext_resource path="res://intro_camera.gd" type="Script" id=14]
 [ext_resource path="res://tilesets/background.tres" type="TileSet" id=15]
 [ext_resource path="res://assets/Exittemp.png" type="Texture" id=16]
-[ext_resource path="res://assets/Bush.png" type="Texture" id=17]
+[ext_resource path="res://assets/Prop/Bush.png" type="Texture" id=17]
 [ext_resource path="res://assets/Prop/prop4.png" type="Texture" id=18]
 [ext_resource path="res://assets/Prop/Prop3.png" type="Texture" id=19]
 [ext_resource path="res://assets/Prop/prop5.png" type="Texture" id=20]
@@ -77,16 +76,6 @@ script = ExtResource( 10 )
 _intro_dialogue = ExtResource( 12 )
 
 [node name="Terrain" type="Node2D" parent="."]
-
-[node name="BackgroundFixed" type="Sprite" parent="Terrain"]
-visible = false
-position = Vector2( 208.502, -45.4613 )
-texture = ExtResource( 2 )
-
-[node name="BackgroundFixed2" type="Sprite" parent="Terrain"]
-visible = false
-position = Vector2( -46.8611, -44.4405 )
-texture = ExtResource( 2 )
 
 [node name="Background2" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 15 )
@@ -362,13 +351,13 @@ position = Vector2( 19.4502, -34.3795 )
 position = Vector2( -11.7558, -48.6458 )
 frames = ExtResource( 6 )
 animation = "kid1"
-frame = 1
 playing = true
 
 [node name="Child2" type="AnimatedSprite" parent="Terrain/Entities"]
 position = Vector2( 60.8263, -49.9275 )
 frames = ExtResource( 6 )
 animation = "kid2"
+frame = 3
 playing = true
 flip_h = true
 
@@ -376,14 +365,13 @@ flip_h = true
 position = Vector2( -34.6148, -36.3136 )
 frames = ExtResource( 6 )
 animation = "kid3"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Child4" type="AnimatedSprite" parent="Terrain/Entities"]
 position = Vector2( 76.632, -37.0039 )
 frames = ExtResource( 6 )
 animation = "kid4"
-frame = 1
 playing = true
 flip_h = true
 
@@ -398,7 +386,6 @@ __meta__ = {
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 26 )]
 frames = SubResource( 12 )
-frame = 4
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
@@ -409,7 +396,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 0
+frame = 3
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 position = Vector2( -791.59, -74.1759 )

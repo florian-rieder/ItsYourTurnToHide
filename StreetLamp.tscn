@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=1]
+[ext_resource path="res://VisibilityArea.gd" type="Script" id=2]
+[ext_resource path="res://VisibilityArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Prop/prop10.png" type="Texture" id=4]
+
+[node name="StreetLamp" type="Sprite"]
+position = Vector2( 103.718, 103.83 )
+texture = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -0.228111, -20.1282 )
+texture = ExtResource( 1 )
+color = Color( 0.960784, 0.592157, 0.235294, 1 )
+energy = 0.77
+shadow_enabled = true
+shadow_gradient_length = 15.0
+shadow_filter = 2
+shadow_filter_smooth = 18.6
+
+[node name="VisibilityArea" type="Area2D" parent="Light2D" instance=ExtResource( 3 )]
+script = ExtResource( 2 )
+visibility = 1.5
+[connection signal="body_entered" from="Light2D/VisibilityArea" to="Light2D/VisibilityArea" method="_on_VisibilityArea_body_entered"]
+[connection signal="body_exited" from="Light2D/VisibilityArea" to="Light2D/VisibilityArea" method="_on_VisibilityArea_body_exited"]
