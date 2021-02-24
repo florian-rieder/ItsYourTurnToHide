@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -11,12 +11,9 @@
 [ext_resource path="res://village_day_manager.gd" type="Script" id=9]
 [ext_resource path="res://Cover.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Cover/TrashHide.png" type="Texture" id=11]
-[ext_resource path="res://assets/Lightspixel1.png" type="Texture" id=12]
 [ext_resource path="res://tilesets/foreground.tres" type="TileSet" id=13]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/Lights2pixel.png" type="Texture" id=15]
 [ext_resource path="res://Chicken.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=17]
 [ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=18]
 [ext_resource path="res://CoverDialog.tscn" type="PackedScene" id=19]
 [ext_resource path="res://dialogues/found_kid1.tres" type="Resource" id=20]
@@ -430,7 +427,7 @@ _dialogue = ExtResource( 29 )
 [node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
 position = Vector2( -9.90776, -11.3025 )
 animation = "male1"
-frame = 3
+frame = 2
 flip_h = true
 
 [node name="PhaseEndingDialog" parent="Terrain/Entities" instance=ExtResource( 18 )]
@@ -441,7 +438,7 @@ _dialogue = ExtResource( 8 )
 [node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
 position = Vector2( 23.8312, -3.48451 )
 animation = "mother"
-frame = 3
+frame = 2
 
 [node name="CollisionShape2D" parent="Terrain/Entities/PhaseEndingDialog/Area2D" index="0"]
 disabled = true
@@ -489,7 +486,7 @@ position = Vector2( 744.478, 114.947 )
 scale = Vector2( -1, 1 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken" index="0"]
-frame = 3
+frame = 4
 
 [node name="Chicken2" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 637.632, 116.044 )
@@ -501,10 +498,10 @@ position = Vector2( 730.704, 115.971 )
 position = Vector2( 714.787, 115.943 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken4" index="0"]
-frame = 7
+frame = 8
 
 [node name="Chicken5" parent="Terrain/Entities" instance=ExtResource( 16 )]
-position = Vector2( 188.947, 185.84 )
+position = Vector2( 254.228, 118.179 )
 
 [node name="Chicken6" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 216.574, 115.516 )
@@ -529,45 +526,13 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
-frame = 0
-
-[node name="Light2D" type="Light2D" parent="Terrain"]
-visible = false
-position = Vector2( 57.0422, 135.393 )
-texture = ExtResource( 12 )
-color = Color( 0.960784, 0.592157, 0.235294, 1 )
-energy = 0.77
-shadow_enabled = true
-shadow_gradient_length = 15.0
-shadow_filter = 2
-shadow_filter_smooth = 18.6
-
-[node name="Light2D3" type="Light2D" parent="Terrain"]
-visible = false
-position = Vector2( 110.617, 31.4182 )
-texture = ExtResource( 17 )
-color = Color( 0.784314, 0.203922, 0.705882, 1 )
-energy = 0.7
-shadow_enabled = true
-shadow_gradient_length = 15.0
-shadow_filter = 2
-shadow_filter_smooth = 18.6
-
-[node name="Light2D2" type="Light2D" parent="Terrain"]
-visible = false
-position = Vector2( 270.103, 61.9234 )
-texture = ExtResource( 15 )
-color = Color( 0.960784, 0.592157, 0.235294, 1 )
-energy = 0.77
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0.47451 )
-shadow_filter = 2
-shadow_filter_smooth = 18.6
+frame = 2
 
 [node name="CoverDialog" parent="Terrain" instance=ExtResource( 19 )]
 position = Vector2( -543.751, 110.672 )
 
 [node name="NPCDialog" parent="Terrain/CoverDialog" index="0"]
+position = Vector2( 0.210205, 4.09937 )
 _dialogue = ExtResource( 20 )
 
 [node name="NPC" parent="Terrain/CoverDialog/NPCDialog" index="0"]
@@ -584,50 +549,37 @@ _dialogue = ExtResource( 27 )
 
 [node name="NPC" parent="Terrain/CoverDialog2/NPCDialog" index="0"]
 animation = "kid2"
+frame = 2
 
 [node name="Cover" parent="Terrain/CoverDialog2" index="1"]
 texture = ExtResource( 11 )
 
-[node name="CoverDialog4" parent="Terrain" instance=ExtResource( 19 )]
-position = Vector2( 538.005, 107.727 )
-
-[node name="NPCDialog" parent="Terrain/CoverDialog4" index="0"]
-_dialogue = ExtResource( 25 )
-
-[node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
-animation = "kid4"
-frame = 1
-
-[node name="Cover" parent="Terrain/CoverDialog4" index="1"]
-texture = ExtResource( 23 )
-
 [node name="CoverDialog3" parent="Terrain" instance=ExtResource( 19 )]
-position = Vector2( 365.004, 175.637 )
+position = Vector2( 369.646, 171.08 )
+move_on_found = false
 
 [node name="NPCDialog" parent="Terrain/CoverDialog3" index="0"]
 _dialogue = ExtResource( 21 )
 
 [node name="NPC" parent="Terrain/CoverDialog3/NPCDialog" index="0"]
 animation = "kid3"
+frame = 2
 
 [node name="Sprite" parent="Terrain/CoverDialog3/Cover" index="0"]
 visible = false
 
-[node name="Light2D4" type="Light2D" parent="Terrain"]
-visible = false
-position = Vector2( -788.945, 77.165 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 17 )
-color = Color( 0.764706, 0.211765, 0.858824, 1 )
-energy = 0.76
+[node name="CoverDialog4" parent="Terrain" instance=ExtResource( 19 )]
+position = Vector2( 535.862, 113.576 )
 
-[node name="Light2D5" type="Light2D" parent="Terrain"]
-visible = false
-position = Vector2( -754.297, 76.8114 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 17 )
-color = Color( 0.211765, 0.235294, 0.858824, 1 )
-energy = 0.76
+[node name="NPCDialog" parent="Terrain/CoverDialog4" index="0"]
+position = Vector2( 2.4809, -3.95409 )
+_dialogue = ExtResource( 25 )
+
+[node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
+animation = "kid4"
+
+[node name="Cover" parent="Terrain/CoverDialog4" index="1"]
+texture = ExtResource( 23 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
@@ -641,7 +593,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageDay/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 1
+frame = 5
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
@@ -693,14 +645,14 @@ zoom = Vector2( 0.25, 0.25 )
 
 [editable path="Terrain/CoverDialog2/NPCDialog"]
 
-[editable path="Terrain/CoverDialog4"]
-
-[editable path="Terrain/CoverDialog4/NPCDialog"]
-
 [editable path="Terrain/CoverDialog3"]
 
 [editable path="Terrain/CoverDialog3/NPCDialog"]
 
 [editable path="Terrain/CoverDialog3/Cover"]
+
+[editable path="Terrain/CoverDialog4"]
+
+[editable path="Terrain/CoverDialog4/NPCDialog"]
 
 [editable path="CanvasLayer"]

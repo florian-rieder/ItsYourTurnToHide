@@ -10,8 +10,7 @@ script = ExtResource( 3 )
 [node name="NPCDialog" parent="." instance=ExtResource( 1 )]
 
 [node name="NPC" parent="NPCDialog" index="0"]
-position = Vector2( 6.991, 2.37203 )
-frame = 2
+position = Vector2( 6.24185, 6.9606 )
 flip_h = true
 
 [node name="Cover" parent="." instance=ExtResource( 2 )]
