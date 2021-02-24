@@ -144,18 +144,19 @@ func visibility_set(newVisibility = 1):
 
 # Called by interactors
 func canInteract(message, interactor, interactorInstance = null):
-	_canInteract = true
-	_currentInteractor = interactor
-	_interactorInstance = interactorInstance
-	emit_signal("canInteract", message)
+	if not _has_been_seen:
+		_canInteract = true
+		_currentInteractor = interactor
+		_interactorInstance = interactorInstance
+		emit_signal("canInteract", message)
 
 
 # To reset the msg print on the HUD
 func resetInteract():
-	_canInteract = false
-	_currentInteractor = ""
-	_interactorInstance = null
-	emit_signal("resetInteract")
+		_canInteract = false
+		_currentInteractor = ""
+		_interactorInstance = null
+		emit_signal("resetInteract")
 
 
 func isInSight(distance: float, enemyEntity : Enemy):
@@ -163,5 +164,6 @@ func isInSight(distance: float, enemyEntity : Enemy):
 		_has_been_seen = true
 		_canMove = false
 		get_tree().call_group("Ennemies","stop")
+		emit_signal("resetInteract")
 		GameEvents.emit_signal("seen_by_enemy",enemyEntity)
 		enemyEntity.turn_red()

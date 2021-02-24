@@ -154,6 +154,12 @@ flip_h = true
 
 [node name="Lampions" parent="Terrain/Background/BackgroundProps" instance=ExtResource( 15 )]
 
+[node name="Light2D4" parent="Terrain/Background/BackgroundProps/Lampions" index="5"]
+visible = false
+
+[node name="Light2D5" parent="Terrain/Background/BackgroundProps/Lampions" index="6"]
+visible = false
+
 [node name="Prop9" type="Sprite" parent="Terrain/Background/BackgroundProps/Lampions"]
 position = Vector2( -804.241, 84.6715 )
 texture = ExtResource( 37 )
@@ -173,12 +179,6 @@ texture = ExtResource( 38 )
 [node name="prop9" type="Sprite" parent="Terrain/Background/BackgroundProps/Lampions"]
 position = Vector2( -756.264, 76.7377 )
 texture = ExtResource( 38 )
-
-[node name="Light2D4" parent="Terrain/Background/BackgroundProps/Lampions" index="10"]
-visible = false
-
-[node name="Light2D5" parent="Terrain/Background/BackgroundProps/Lampions" index="11"]
-visible = false
 
 [node name="Lampions2" parent="Terrain/Background/BackgroundProps" instance=ExtResource( 15 )]
 position = Vector2( 1256, 1 )
@@ -567,6 +567,7 @@ _dialogue = ExtResource( 29 )
 [node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
 position = Vector2( -7.40776, -8.8025 )
 animation = "male1"
+frame = 0
 
 [node name="Area2D" parent="Terrain/Entities/NPCDialog" index="1"]
 position = Vector2( -12.25, -4.5 )
@@ -579,6 +580,7 @@ _dialogue = ExtResource( 8 )
 [node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
 position = Vector2( 23.8312, -3.48451 )
 animation = "mother"
+frame = 0
 
 [node name="CollisionShape2D" parent="Terrain/Entities/PhaseEndingDialog/Area2D" index="0"]
 disabled = true
@@ -626,7 +628,7 @@ position = Vector2( 744.478, 114.947 )
 scale = Vector2( -1, 1 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken" index="0"]
-frame = 8
+frame = 10
 
 [node name="Chicken2" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 637.632, 116.044 )
@@ -638,7 +640,7 @@ position = Vector2( 730.704, 115.971 )
 position = Vector2( 714.787, 115.943 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken4" index="0"]
-frame = 12
+frame = 0
 
 [node name="Chicken5" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 254.228, 118.179 )
@@ -666,6 +668,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
+frame = 2
 
 [node name="CoverDialog" parent="Terrain" instance=ExtResource( 19 )]
 position = Vector2( -543.751, 110.672 )
@@ -688,6 +691,7 @@ _dialogue = ExtResource( 27 )
 
 [node name="NPC" parent="Terrain/CoverDialog2/NPCDialog" index="0"]
 animation = "kid2"
+frame = 0
 
 [node name="Cover" parent="Terrain/CoverDialog2" index="1"]
 texture = ExtResource( 11 )
@@ -701,6 +705,7 @@ _dialogue = ExtResource( 21 )
 
 [node name="NPC" parent="Terrain/CoverDialog3/NPCDialog" index="0"]
 animation = "kid3"
+frame = 0
 
 [node name="Sprite" parent="Terrain/CoverDialog3/Cover" index="0"]
 visible = false
@@ -714,7 +719,7 @@ _dialogue = ExtResource( 25 )
 
 [node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
 animation = "kid4"
-frame = 3
+frame = 2
 
 [node name="Cover" parent="Terrain/CoverDialog4" index="1"]
 texture = ExtResource( 23 )

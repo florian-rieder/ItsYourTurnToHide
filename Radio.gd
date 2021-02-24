@@ -14,7 +14,6 @@ func _process(delta):
 
 func activate():
 	if _on:
-		print("radio stopped")
 		sound.stop()
 		$Radio.frame = 0
 		$Radio.playing = false
