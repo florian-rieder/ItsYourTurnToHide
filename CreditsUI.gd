@@ -31,22 +31,24 @@ func _ready() -> void:
 	timer.start()
 
 func _timeout():
-	fade_in(10)
+	fade_in(10.0)
 
-func fade_in(duration) -> void:
+func fade_in(duration : float) -> void:
 	_tween.interpolate_property(self, "modulate:a",
-	self.modulate.a, 0, duration,
+	self.modulate.a, 255, duration,
 	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	_tween.start()
 
 func _on_tween_complete(object, key) -> void:
+	print(object)
+	print(key)
 	timer2.start()
 	
 func _timeout2() -> void:
-	fade_out(3)
+	fade_out(3.0)
 
-func fade_out(duration) -> void:
+func fade_out(duration : float) -> void:
 	_tween_out.interpolate_property(self, "modulate:a",
-	0, 255, duration,
+	255, 0, duration,
 	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	_tween_out.start()

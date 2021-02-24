@@ -36,7 +36,7 @@ func _ready():
 
 
 func _process(_delta):
-	var scroll = Vector2(0,3) #Some default scrolling so there's always movement.
+	var scroll = Vector2(0,0) #Some default scrolling so there's always movement.
 	if player: #and _runtime_data.current_game_state != Enums.GameState.IN_DIALOG:
 		scroll += player._velocity / 100
 	scroll_offset += scroll

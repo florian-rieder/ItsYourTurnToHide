@@ -3,8 +3,7 @@ extends Actor
 
 signal canInteract(message)
 signal resetInteract
-signal seen(ennemyEntity)
-signal win
+
 
 const FLOOR_DETECT_DISTANCE = 20.0
 
@@ -26,17 +25,18 @@ var _has_been_seen = false
 
 
 func _ready():
+	# this is actually really dumb.
+	# why have the ambience on the player and then change it in function of the
+	# level when you could have one ambiance on each level ? This is frustrating
 	var current_scene = get_tree().get_current_scene().get_name()
-	print(current_scene)
 	if current_scene == "Intro" or current_scene == "VillageDay":
-		print("freewalk")
 		$AnimationPlayer.play("village_ambiant_day")
 	elif current_scene == "VillageNight":
 		speed = Vector2(100, 0)
 		$AnimationPlayer.play("village_ambiant_night")
 	elif current_scene == "Outro":
 		$AnimationPlayer.play("credits_song")
-		
+
 
 func _physics_process(_delta):
 	if _runtime_data.current_game_state == Enums.GameState.FREEWALK \
@@ -104,7 +104,7 @@ func _process(delta):
 					_interactorInstance.activate()
 					
 			"Exit":
-				emit_signal("win")
+				GameEvents.emit_signal("win")
 			
 			# Teleportation (doors)
 			var TPposition:
@@ -147,7 +147,7 @@ func canInteract(message, interactor, interactorInstance = null):
 	_canInteract = true
 	_currentInteractor = interactor
 	_interactorInstance = interactorInstance
-	emit_signal("canInteract",message)
+	emit_signal("canInteract", message)
 
 
 # To reset the msg print on the HUD
@@ -158,10 +158,10 @@ func resetInteract():
 	emit_signal("resetInteract")
 
 
-func isInSight(distance: float, ennemyEntity):
+func isInSight(distance: float, enemyEntity : Enemy):
 	if distance < max_detect_distance*visibility and not _has_been_seen:
 		_has_been_seen = true
 		_canMove = false
 		get_tree().call_group("Ennemies","stop")
-		emit_signal("seen",ennemyEntity)
-		ennemyEntity.turn_red()
+		GameEvents.emit_signal("seen_by_enemy",enemyEntity)
+		enemyEntity.turn_red()

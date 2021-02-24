@@ -272,7 +272,7 @@ position = Vector2( 776.309, 115.354 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -418,6 +418,7 @@ __meta__ = {
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 26 )]
 frames = SubResource( 16 )
+frame = 3
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
@@ -581,10 +582,10 @@ _player = NodePath("../../Outro/Terrain/Entities/Player")
 [node name="Tween" type="Tween" parent="CutsceneCamera"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( 0, -50 )
-transform = Transform2D( 1, 0, 0, 1, 0, -50 )
+offset = Vector2( 0, -200 )
+transform = Transform2D( 1, 0, 0, 1, 0, -200 )
 script = ExtResource( 4 )
-player = NodePath("../Entities/Player")
+player = NodePath("../Terrain/Entities/Player")
 _mountains_layer = NodePath("../../Outro/ParallaxBackground/Mountains")
 _mountains_sprite = NodePath("../../Outro/ParallaxBackground/Mountains/Sprite")
 _mountains_motion_scale = Vector2( 0.2, 0.1 )
