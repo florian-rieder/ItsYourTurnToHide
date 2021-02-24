@@ -98,6 +98,7 @@ margin_right = -20.0
 margin_bottom = -10.0
 custom_fonts/font = ExtResource( 3 )
 text = "Placeholder text"
+autowrap = true
 
 [node name="SceneTransitionRect" type="ColorRect" parent="."]
 visible = false
@@ -135,7 +136,6 @@ rect_pivot_offset = Vector2( 0.5, 0.5 )
 [node name="InteractButton" type="AnimatedSprite" parent="InteractMessage/Control"]
 position = Vector2( 30.1606, 35.3197 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="InteractMessage"]

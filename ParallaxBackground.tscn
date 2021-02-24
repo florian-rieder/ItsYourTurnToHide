@@ -29,21 +29,29 @@ _dunes_foreground_motion_scale = Vector2( 0.5, 0.25 )
 [node name="Sprite" type="Sprite" parent="Mountains"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="DarkDunes" type="ParallaxLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="DarkDunes"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="Dunes" type="ParallaxLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Dunes"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="DunesForeground" type="ParallaxLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="DunesForeground"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )

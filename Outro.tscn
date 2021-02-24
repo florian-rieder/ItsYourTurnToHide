@@ -272,7 +272,6 @@ position = Vector2( 776.309, 115.354 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
-frame = 1
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -431,7 +430,7 @@ _interaction_indicator = NodePath("../../../Outro/CanvasLayer/InteractMessage")
 _player = NodePath("../../../Outro/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 3
+frame = 4
 
 [node name="Container" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -604,24 +603,32 @@ _dunes_foreground_motion_scale = Vector2( 0.5, 0.25 )
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountains"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 27 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="DarkDunes" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/DarkDunes"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 28 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="Dunes" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/Dunes"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 29 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="DunesForeground" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/DunesForeground"]
 position = Vector2( 3.05176e-05, 20.9763 )
 texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.321569, 0.337255, 0.482353, 1 )
