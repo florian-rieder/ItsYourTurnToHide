@@ -106,7 +106,6 @@ script = ExtResource( 8 )
 _runtime_data = ExtResource( 9 )
 _camera = NodePath("Terrain/Entities/Player/AnimatedSprite/CameraTarget/Camera2D")
 _scene_transition = NodePath("CanvasLayer/SceneTransitionRect")
-_interact_message = NodePath("CanvasLayer/InteractMessage")
 
 [node name="Terrain" type="Node2D" parent="."]
 
@@ -277,7 +276,7 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Props" type="Node2D" parent="Terrain/GameSpace"]
@@ -599,7 +598,7 @@ position = Vector2( 894.246, 88.45 )
 speed = Vector2( 200, 350 )
 
 [node name="AnimatedSprite" parent="Terrain/Entities/Player" index="0"]
-frame = 4
+frame = 1
 
 [node name="Ambiance" parent="Terrain/Entities/Player" index="4"]
 stream = ExtResource( 19 )
@@ -729,7 +728,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 24 )]
-frame = 3
+frame = 4
 
 [node name="Exit" parent="Terrain" instance=ExtResource( 21 )]
 position = Vector2( -908.828, 124.49 )
@@ -747,7 +746,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageNight/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 7
+frame = 4
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )

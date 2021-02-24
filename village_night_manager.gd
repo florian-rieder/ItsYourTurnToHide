@@ -8,6 +8,7 @@ var tween
 var death_camera
 var timer
 
+
 func _ready():
 	
 	death_camera = Camera2D.new()
@@ -27,6 +28,7 @@ func _ready():
 	for radio in radios:
 		radio.activate()
 
+
 func _on_player_seen(enemy : Enemy) -> void:
 	# death
 	death_camera.global_position = _camera.global_position
@@ -39,6 +41,7 @@ func _on_player_seen(enemy : Enemy) -> void:
 	tween.start()
 	
 	timer.start()
+
 
 func _init():
 	timer = Timer.new()
@@ -58,6 +61,7 @@ func _on_AudioStreamPlayer_finished():
 	# wait for the shot sound to end before respawning
 	# more dramatic death !
 	get_tree().reload_current_scene()
-	
+
+
 func _on_escape() -> void:
 	get_tree().change_scene("res://Outro.tscn")

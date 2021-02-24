@@ -31,7 +31,6 @@
 [ext_resource path="res://assets/parallax/3-dunesnight.png" type="Texture" id=29]
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=30]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 39.1129 )
 
@@ -98,11 +97,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=17]
 size = 32
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=18]
 size = 24
 font_data = ExtResource( 12 )
 
@@ -273,6 +272,7 @@ position = Vector2( 776.309, 115.354 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -418,7 +418,7 @@ __meta__ = {
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 26 )]
 frames = SubResource( 16 )
-frame = 3
+frame = 0
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
@@ -431,7 +431,7 @@ _interaction_indicator = NodePath("../../../Outro/CanvasLayer/InteractMessage")
 _player = NodePath("../../../Outro/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 4
+frame = 3
 
 [node name="Container" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -455,7 +455,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="CanvasLayer/Container/CreditsContainer"]
 margin_right = 637.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Sacha André"
 align = 1
@@ -468,7 +468,7 @@ __meta__ = {
 margin_top = 45.0
 margin_right = 637.0
 margin_bottom = 76.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Music"
 align = 1
 __meta__ = {
@@ -479,7 +479,7 @@ __meta__ = {
 margin_top = 80.0
 margin_right = 637.0
 margin_bottom = 121.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Noé Aubert"
 align = 1
@@ -493,7 +493,7 @@ __meta__ = {
 margin_top = 125.0
 margin_right = 637.0
 margin_bottom = 156.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Pixel Art"
 align = 1
 __meta__ = {
@@ -504,7 +504,7 @@ __meta__ = {
 margin_top = 160.0
 margin_right = 637.0
 margin_bottom = 201.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Sebastien Rieder"
 align = 1
@@ -517,7 +517,7 @@ __meta__ = {
 margin_top = 205.0
 margin_right = 637.0
 margin_bottom = 236.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Pixel Art"
 align = 1
 __meta__ = {
@@ -528,7 +528,7 @@ __meta__ = {
 margin_top = 240.0
 margin_right = 637.0
 margin_bottom = 281.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Zacharie Tevaearai"
 align = 1
@@ -540,7 +540,7 @@ __meta__ = {
 margin_top = 285.0
 margin_right = 637.0
 margin_bottom = 316.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Gameplay Programming"
 align = 1
 __meta__ = {
@@ -551,7 +551,7 @@ __meta__ = {
 margin_top = 320.0
 margin_right = 637.0
 margin_bottom = 361.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Florian Rieder"
 align = 1
@@ -563,7 +563,7 @@ __meta__ = {
 margin_top = 365.0
 margin_right = 637.0
 margin_bottom = 396.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Design, Additional Programming, Writing, SFX"
 align = 1
 __meta__ = {

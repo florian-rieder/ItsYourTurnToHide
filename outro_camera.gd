@@ -12,5 +12,3 @@ func _ready():
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	_tween.start()
 	
-
-	
