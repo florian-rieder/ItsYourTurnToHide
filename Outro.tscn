@@ -1,13 +1,12 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/fixed_background.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://parallax_background.gd" type="Script" id=4]
+[ext_resource path="res://ParallaxBackgroundNight.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/ExitAnim-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://Door.gd" type="Script" id=7]
-[ext_resource path="res://assets/parallax/3-dunesforegroundnight.png" type="Texture" id=8]
 [ext_resource path="res://assets/Prop/Prop1.png" type="Texture" id=9]
 [ext_resource path="res://Outro.gd" type="Script" id=10]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=11]
@@ -26,9 +25,6 @@
 [ext_resource path="res://assets/Aeration_lateral-Sheet.png" type="Texture" id=24]
 [ext_resource path="res://tilesets/foreground.tres" type="TileSet" id=25]
 [ext_resource path="res://props/AC_unit.tscn" type="PackedScene" id=26]
-[ext_resource path="res://assets/parallax/1-MountaiNight.png" type="Texture" id=27]
-[ext_resource path="res://assets/parallax/2-Darkdunesnight.png" type="Texture" id=28]
-[ext_resource path="res://assets/parallax/3-dunesnight.png" type="Texture" id=29]
 [ext_resource path="res://assets/Light3Pixel.png" type="Texture" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -418,7 +414,7 @@ __meta__ = {
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 26 )]
 frames = SubResource( 16 )
-frame = 0
+frame = 2
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
@@ -431,7 +427,7 @@ _interaction_indicator = NodePath("../../../Outro/CanvasLayer/InteractMessage")
 _player = NodePath("../../../Outro/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 3
+frame = 7
 
 [node name="Container" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -581,55 +577,10 @@ _player = NodePath("../../Outro/Terrain/Entities/Player")
 
 [node name="Tween" type="Tween" parent="CutsceneCamera"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( 0, -200 )
-transform = Transform2D( 1, 0, 0, 1, 0, -200 )
-script = ExtResource( 4 )
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 player = NodePath("../Terrain/Entities/Player")
-_mountains_layer = NodePath("../../Outro/ParallaxBackground/Mountains")
-_mountains_sprite = NodePath("../../Outro/ParallaxBackground/Mountains/Sprite")
+_sky_motion_scale = Vector2( 0.1, 0 )
 _mountains_motion_scale = Vector2( 0.2, 0.1 )
-_dark_dunes_layer = NodePath("../../Outro/ParallaxBackground/DarkDunes")
-_dark_dunes_sprite = NodePath("../../Outro/ParallaxBackground/DarkDunes/Sprite")
-_dark_dunes_motion_scale = Vector2( 0.3, 0.15 )
-_dunes_layer = NodePath("../../Outro/ParallaxBackground/Dunes")
-_dunes_sprite = NodePath("../../Outro/ParallaxBackground/Dunes/Sprite")
-_dunes_motion_scale = Vector2( 0.4, 0.2 )
-_dunes_foreground_layer = NodePath("../../Outro/ParallaxBackground/DunesForeground")
-_dunes_foreground_sprite = NodePath("../../Outro/ParallaxBackground/DunesForeground/Sprite")
-_dunes_foreground_motion_scale = Vector2( 0.5, 0.25 )
-
-[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Mountains"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 27 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
-
-[node name="DarkDunes" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/DarkDunes"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 28 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
-
-[node name="Dunes" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Dunes"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 29 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
-
-[node name="DunesForeground" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/DunesForeground"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 8 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.321569, 0.337255, 0.482353, 1 )

@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-dialog_slides = [ "No ! I was sure you wouldn't know about this one !" ]
+dialog_slides = [ "No ! I was sure you wouldn't know about this spot !" ]

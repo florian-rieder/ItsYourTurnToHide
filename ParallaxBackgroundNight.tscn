@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://parallax_background_night.gd" type="Script" id=1]
+[ext_resource path="res://assets/parallax/0-Starrynight.png" type="Texture" id=2]
+[ext_resource path="res://assets/parallax/2-Darkdunesnight.png" type="Texture" id=3]
+[ext_resource path="res://assets/parallax/3-dunesforegroundnight.png" type="Texture" id=4]
+[ext_resource path="res://assets/parallax/3-dunesnight.png" type="Texture" id=5]
+[ext_resource path="res://assets/parallax/1-MountaiNight.png" type="Texture" id=6]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+offset = Vector2( 0, -200 )
+transform = Transform2D( 1, 0, 0, 1, 0, -200 )
+script = ExtResource( 1 )
+_sky_layer = NodePath("Sky")
+_sky_sprite = NodePath("Sky/Sprite")
+_sky_motion_scale = Vector2( 0.1, 0.1 )
+_mountains_layer = NodePath("Mountains")
+_mountains_sprite = NodePath("Mountains/Sprite")
+_mountains_motion_scale = Vector2( 0.2, 0.2 )
+_dark_dunes_layer = NodePath("DarkDunes")
+_dark_dunes_sprite = NodePath("DarkDunes/Sprite")
+_dark_dunes_motion_scale = Vector2( 0.3, 0.3 )
+_dunes_layer = NodePath("Dunes")
+_dunes_sprite = NodePath("Dunes/Sprite")
+_dunes_motion_scale = Vector2( 0.4, 0.4 )
+_dunes_foreground_layer = NodePath("DunesForeground")
+_dunes_foreground_sprite = NodePath("DunesForeground/Sprite")
+_dunes_foreground_motion_scale = Vector2( 0.5, 0.5 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2500.0
+margin_top = -2500.0
+margin_right = 2500.0
+margin_bottom = 2500.0
+color = Color( 0.168627, 0.12549, 0.415686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Sky"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 512 )
+
+[node name="Mountains" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Mountains"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 512 )
+
+[node name="DarkDunes" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="DarkDunes"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 512 )
+
+[node name="Dunes" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Dunes"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 512 )
+
+[node name="DunesForeground" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="DunesForeground"]
+position = Vector2( 3.05176e-05, 20.9763 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 512 )

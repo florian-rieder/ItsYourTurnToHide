@@ -1,6 +1,6 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=49 format=2]
 
-[ext_resource path="res://parallax_background.gd" type="Script" id=1]
+[ext_resource path="res://ParallaxBackgroundNight.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tilesets/background.tres" type="TileSet" id=4]
@@ -26,18 +26,14 @@
 [ext_resource path="res://props/AC_unit.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Door.gd" type="Script" id=25]
 [ext_resource path="res://assets/Prop/Prop15.png" type="Texture" id=26]
-[ext_resource path="res://assets/parallax/3-dunesnight.png" type="Texture" id=27]
 [ext_resource path="res://assets/GenericmaleDed.png" type="Texture" id=28]
 [ext_resource path="res://assets/Prop/Prop1.png" type="Texture" id=29]
 [ext_resource path="res://assets/Prop/prop4.png" type="Texture" id=30]
 [ext_resource path="res://assets/Prop/Prop3.png" type="Texture" id=31]
 [ext_resource path="res://assets/Prop/prop5.png" type="Texture" id=32]
 [ext_resource path="res://WallLamp.tscn" type="PackedScene" id=33]
-[ext_resource path="res://assets/parallax/1-MountaiNight.png" type="Texture" id=34]
 [ext_resource path="res://Lampions.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/Prop/prop8.png" type="Texture" id=36]
-[ext_resource path="res://assets/parallax/3-dunesforegroundnight.png" type="Texture" id=37]
-[ext_resource path="res://assets/parallax/2-Darkdunesnight.png" type="Texture" id=38]
 [ext_resource path="res://assets/Prop/prop11.png" type="Texture" id=39]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -108,56 +104,6 @@ _camera = NodePath("Terrain/Entities/Player/AnimatedSprite/CameraTarget/Camera2D
 _scene_transition = NodePath("CanvasLayer/SceneTransitionRect")
 
 [node name="Terrain" type="Node2D" parent="."]
-
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="Terrain"]
-offset = Vector2( 0, -200 )
-transform = Transform2D( 1, 0, 0, 1, 0, -200 )
-script = ExtResource( 1 )
-player = NodePath("../Entities/Player")
-_mountains_layer = NodePath("Mountains")
-_mountains_sprite = NodePath("Mountains/Sprite")
-_mountains_motion_scale = Vector2( 0.2, 0.1 )
-_dark_dunes_layer = NodePath("DarkDunes")
-_dark_dunes_sprite = NodePath("DarkDunes/Sprite")
-_dark_dunes_motion_scale = Vector2( 0.3, 0.15 )
-_dunes_layer = NodePath("Dunes")
-_dunes_sprite = NodePath("Dunes/Sprite")
-_dunes_motion_scale = Vector2( 0.4, 0.2 )
-_dunes_foreground_layer = NodePath("DunesForeground")
-_dunes_foreground_sprite = NodePath("DunesForeground/Sprite")
-_dunes_foreground_motion_scale = Vector2( 0.5, 0.25 )
-
-[node name="Mountains" type="ParallaxLayer" parent="Terrain/ParallaxBackground2"]
-
-[node name="Sprite" type="Sprite" parent="Terrain/ParallaxBackground2/Mountains"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 34 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
-
-[node name="DarkDunes" type="ParallaxLayer" parent="Terrain/ParallaxBackground2"]
-
-[node name="Sprite" type="Sprite" parent="Terrain/ParallaxBackground2/DarkDunes"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 38 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
-
-[node name="Dunes" type="ParallaxLayer" parent="Terrain/ParallaxBackground2"]
-
-[node name="Sprite" type="Sprite" parent="Terrain/ParallaxBackground2/Dunes"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 27 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
-
-[node name="DunesForeground" type="ParallaxLayer" parent="Terrain/ParallaxBackground2"]
-
-[node name="Sprite" type="Sprite" parent="Terrain/ParallaxBackground2/DunesForeground"]
-position = Vector2( 3.05176e-05, 20.9763 )
-texture = ExtResource( 37 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 256 )
 
 [node name="Background2" type="TileMap" parent="Terrain"]
 tile_set = ExtResource( 4 )
@@ -276,7 +222,7 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Props" type="Node2D" parent="Terrain/GameSpace"]
@@ -598,7 +544,7 @@ position = Vector2( 894.246, 88.45 )
 speed = Vector2( 200, 350 )
 
 [node name="AnimatedSprite" parent="Terrain/Entities/Player" index="0"]
-frame = 1
+frame = 5
 
 [node name="Ambiance" parent="Terrain/Entities/Player" index="4"]
 stream = ExtResource( 19 )
@@ -733,6 +679,11 @@ frame = 4
 [node name="Exit" parent="Terrain" instance=ExtResource( 21 )]
 position = Vector2( -908.828, 124.49 )
 
+[node name="ParallaxBackground" parent="Terrain" instance=ExtResource( 1 )]
+player = NodePath("../Entities/Player")
+_sky_motion_scale = Vector2( 0.1, 0 )
+_mountains_motion_scale = Vector2( 0.2, 0.1 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.321569, 0.337255, 0.482353, 1 )
 
@@ -746,7 +697,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageNight/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 4
+frame = 0
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
