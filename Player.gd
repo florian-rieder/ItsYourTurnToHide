@@ -3,6 +3,7 @@ extends Actor
 
 signal canInteract(message)
 signal resetInteract
+signal credits_song_finished
 
 
 const FLOOR_DETECT_DISTANCE = 20.0
@@ -167,3 +168,6 @@ func isInSight(distance: float, enemyEntity : Enemy):
 		emit_signal("resetInteract")
 		GameEvents.emit_signal("seen_by_enemy",enemyEntity)
 		enemyEntity.turn_red()
+
+func emit_song_finished():
+	emit_signal("credits_song_finished")

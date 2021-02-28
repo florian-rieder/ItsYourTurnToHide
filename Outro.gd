@@ -8,3 +8,5 @@ func _on_scroll_tween_completed(object, key):
 	_scene_transition.fade_out()
 
 
+func _on_Player_credits_song_finished():
+	get_tree().quit()

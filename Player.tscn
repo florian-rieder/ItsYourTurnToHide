@@ -124,6 +124,20 @@ tracks/0/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 110 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "emit_song_finished"
+} ]
+}
 
 [sub_resource type="Animation" id=23]
 length = 332.0
@@ -160,7 +174,6 @@ _runtime_data = ExtResource( 6 )
 position = Vector2( -0.374577, 0 )
 frames = SubResource( 19 )
 animation = "stealth_walk"
-frame = 6
 playing = true
 
 [node name="RockOrigin" type="Position2D" parent="AnimatedSprite"]

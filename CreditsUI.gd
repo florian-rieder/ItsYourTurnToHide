@@ -20,7 +20,7 @@ func _init():
 	add_child(timer2)
 	timer2.autostart = false
 	timer2.one_shot = true
-	timer2.wait_time = 20
+	timer2.wait_time = 30
 	timer2.connect("timeout", self, "_timeout2")
 	
 	_tween = Tween.new()

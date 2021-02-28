@@ -1,6 +1,7 @@
 [gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://tilesets/game_space.tres" type="TileSet" id=1]
+[ext_resource path="res://exit_animation.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=5]
@@ -13,7 +14,6 @@
 [ext_resource path="res://assets/PalmTree.png" type="Texture" id=13]
 [ext_resource path="res://intro_camera.gd" type="Script" id=14]
 [ext_resource path="res://tilesets/background.tres" type="TileSet" id=15]
-[ext_resource path="res://assets/Exittemp.png" type="Texture" id=16]
 [ext_resource path="res://assets/Prop/Bush.png" type="Texture" id=17]
 [ext_resource path="res://assets/Prop/prop4.png" type="Texture" id=18]
 [ext_resource path="res://assets/Prop/Prop3.png" type="Texture" id=19]
@@ -225,9 +225,11 @@ shape = SubResource( 4 )
 [node name="Door5" parent="Terrain/GameSpace" instance=ExtResource( 5 )]
 position = Vector2( 776.309, 115.354 )
 
-[node name="Exittemp" type="Sprite" parent="Terrain/GameSpace"]
+[node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
-texture = ExtResource( 16 )
+frames = ExtResource( 2 )
+frame = 1
+playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
 position = Vector2( -879.196, 108.446 )
@@ -387,7 +389,7 @@ __meta__ = {
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 26 )]
 frames = SubResource( 12 )
-frame = 0
+frame = 4
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
 
@@ -398,7 +400,7 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 4
+frame = 0
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 position = Vector2( -791.59, -74.1759 )

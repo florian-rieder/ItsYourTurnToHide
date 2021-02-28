@@ -268,7 +268,7 @@ position = Vector2( 776.309, 115.354 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace"]
@@ -623,6 +623,8 @@ color = Color( 0.160784, 0.890196, 0.117647, 1 )
 [connection signal="body_exited" from="Terrain/GameSpace/Door7/Door1" to="Terrain/GameSpace/Door7/Door1" method="_on_Door_body_exited"]
 [connection signal="body_entered" from="Terrain/GameSpace/Door7/Door2" to="Terrain/GameSpace/Door7/Door2" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Terrain/GameSpace/Door7/Door2" to="Terrain/GameSpace/Door7/Door2" method="_on_Door_body_exited"]
+[connection signal="credits_song_finished" from="Terrain/Entities/Player" to="." method="_on_Player_credits_song_finished"]
+[connection signal="tween_completed" from="CanvasLayer/SceneTransitionRect/FadeOutTween" to="." method="_on_FadeOutTween_tween_completed"]
 [connection signal="tween_completed" from="CanvasLayer/SceneTransitionRect/FadeOutTween" to="." method="_on_FadeOutTween_completed"]
 [connection signal="tween_completed" from="CutsceneCamera/Tween" to="." method="_on_scroll_tween_completed"]
 

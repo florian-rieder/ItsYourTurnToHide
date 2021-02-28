@@ -1,4 +1,9 @@
-"""Automates exports of a godot project"""
+"""
+Automates exports of a godot project
+
+Dependencies:
+- zipfile
+"""
 
 import os, shutil
 from zipfile import ZipFile 
@@ -63,9 +68,9 @@ def make_zip(platform):
 
     file_paths = get_all_file_paths(platform_dir)
 
-    with ZipFile(archive_name,'w') as zip: 
+    with ZipFile(archive_name,'w') as zip_archive: 
         for file in file_paths: 
-            zip.write(file) 
+            zip_archive.write(file) 
     
 
 def get_all_file_paths(directory): 
