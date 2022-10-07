@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://audio/232641__mensageirocs__environment-war-1.wav" type="AudioStream" id=1]
 [ext_resource path="res://audio/520935__ninebilly__ak-47-burst.wav" type="AudioStream" id=2]
@@ -8,11 +8,10 @@
 [ext_resource path="res://audio/209769__johnnyfarmer__explosion-distant.wav" type="AudioStream" id=6]
 [ext_resource path="res://audio/256606__kodack__trying-to-open-a-locked-door.wav" type="AudioStream" id=7]
 [ext_resource path="res://audio/421710__superphat__semiautorifleshot.wav" type="AudioStream" id=8]
-[ext_resource path="res://audio/391363__guamorims__cry-of-fear-female.wav" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "transition"
-length = 26.0
+length = 30.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("Ambience")
 tracks/0/interp = 1
@@ -38,16 +37,8 @@ tracks/1/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 6 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 2 )
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 2 )
 } ],
-"times": PoolRealArray( 1, 11.4, 15.7 )
+"times": PoolRealArray( 0.9 )
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("Right far")
@@ -59,9 +50,17 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
+"stream": ExtResource( 2 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
 "stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
 } ],
-"times": PoolRealArray( 12.9 )
+"times": PoolRealArray( 11.3, 12.9, 15.6 )
 }
 tracks/3/type = "audio"
 tracks/3/path = NodePath("Left close")
@@ -83,7 +82,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( -1.2, 16.9, 23.1 )
+"times": PoolRealArray( -1.2, 16.9, 23.3 )
 }
 tracks/4/type = "audio"
 tracks/4/path = NodePath("Right close")
@@ -95,9 +94,9 @@ tracks/4/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 9 )
+"stream": ExtResource( 8 )
 } ],
-"times": PoolRealArray( 23.8 )
+"times": PoolRealArray( 25.1 )
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Left close:volume_db")
@@ -106,10 +105,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 10.3, 17, 17.001, 23.1 ),
+"times": PoolRealArray( 0, 16.9, 17, 17.001, 23.1 ),
 "transitions": PoolRealArray( 4.14106, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -25.0, 0.0, 0.0, -16.0, -12.0 ]
+"values": [ -20.0, 0.0, 0.0, -25.0, -25.0 ]
 }
 
 [node name="Transition" type="Node2D"]
@@ -117,26 +116,28 @@ script = ExtResource( 5 )
 _animation_player = NodePath("AnimationPlayer")
 
 [node name="Left far" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-volume_db = -8.0
+stream = ExtResource( 6 )
+volume_db = -20.0
 bus = "SFX"
 
 [node name="Right far" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = -4.0
+stream = ExtResource( 2 )
+volume_db = -25.0
 bus = "SFX"
 
 [node name="Left close" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -25.204
+volume_db = -25.0
 bus = "SFX"
 
 [node name="Right close" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
+volume_db = -10.0
 bus = "SFX"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -23.736
 bus = "SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -149,4 +150,5 @@ color = Color( 0, 0, 0, 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
 anims/transition = SubResource( 1 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

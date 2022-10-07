@@ -372,7 +372,7 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = ExtResource( 14 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Doors" type="Node2D" parent="Terrain/GameSpace"]
@@ -707,6 +707,7 @@ _dialogue = ExtResource( 29 )
 [node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
 position = Vector2( -7.40776, -8.8025 )
 animation = "male1"
+frame = 0
 
 [node name="Area2D" parent="Terrain/Entities/NPCDialog" index="1"]
 position = Vector2( -12.25, -4.5 )
@@ -719,6 +720,7 @@ _dialogue = ExtResource( 8 )
 [node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
 position = Vector2( 23.8312, -3.48451 )
 animation = "mother"
+frame = 0
 
 [node name="CollisionShape2D" parent="Terrain/Entities/PhaseEndingDialog/Area2D" index="0"]
 disabled = true
@@ -766,7 +768,7 @@ position = Vector2( 744.478, 114.947 )
 scale = Vector2( -1, 1 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken" index="0"]
-frame = 4
+frame = 1
 
 [node name="Chicken2" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 637.632, 116.044 )
@@ -776,9 +778,6 @@ position = Vector2( 730.704, 115.971 )
 
 [node name="Chicken4" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 714.787, 115.943 )
-
-[node name="Sprite" parent="Terrain/Entities/Chicken4" index="0"]
-frame = 8
 
 [node name="Chicken5" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 254.228, 118.179 )
@@ -806,7 +805,6 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
-frame = 0
 
 [node name="CoverDialog" parent="Terrain" instance=ExtResource( 19 )]
 position = Vector2( -543.751, 110.672 )
@@ -817,6 +815,7 @@ _dialogue = ExtResource( 20 )
 
 [node name="NPC" parent="Terrain/CoverDialog/NPCDialog" index="0"]
 position = Vector2( 1.74692, 3.68305 )
+frame = 2
 
 [node name="Cover" parent="Terrain/CoverDialog" index="1"]
 texture = ExtResource( 7 )
@@ -829,7 +828,7 @@ _dialogue = ExtResource( 27 )
 
 [node name="NPC" parent="Terrain/CoverDialog2/NPCDialog" index="0"]
 animation = "kid2"
-frame = 1
+frame = 0
 
 [node name="Cover" parent="Terrain/CoverDialog2" index="1"]
 texture = ExtResource( 11 )
@@ -843,7 +842,7 @@ _dialogue = ExtResource( 21 )
 
 [node name="NPC" parent="Terrain/CoverDialog3/NPCDialog" index="0"]
 animation = "kid3"
-frame = 1
+frame = 0
 
 [node name="Sprite" parent="Terrain/CoverDialog3/Cover" index="0"]
 visible = false
@@ -857,7 +856,7 @@ _dialogue = ExtResource( 25 )
 
 [node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
 animation = "kid4"
-frame = 1
+frame = 0
 
 [node name="Cover" parent="Terrain/CoverDialog4" index="1"]
 texture = ExtResource( 23 )
@@ -870,14 +869,11 @@ texture = ExtResource( 23 )
 _dialog_text = NodePath("../../../VillageDay/CanvasLayer/DialogUI/NinePatchRect/DialogText")
 _player = NodePath("../../Terrain/Entities/Player")
 
-[node name="PressE" parent="CanvasLayer/DialogUI/NinePatchRect/PressE" index="0"]
-frame = 6
-
 [node name="InteractMessage" parent="CanvasLayer" index="2"]
 _player = NodePath("../../../VillageDay/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 7
+frame = 2
 
 [node name="ControlsMessage" type="HBoxContainer" parent="CanvasLayer"]
 anchor_top = 1.0
@@ -897,14 +893,14 @@ size_flags_stretch_ratio = 0.1
 [node name="Left" type="AnimatedSprite" parent="CanvasLayer/ControlsMessage/Controls"]
 position = Vector2( 30, 20 )
 frames = SubResource( 21 )
-frame = 7
+frame = 2
 playing = true
 centered = false
 
 [node name="Right" type="AnimatedSprite" parent="CanvasLayer/ControlsMessage/Controls"]
 position = Vector2( 64, 20 )
 frames = SubResource( 30 )
-frame = 3
+frame = 6
 playing = true
 centered = false
 
