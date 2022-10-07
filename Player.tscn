@@ -178,7 +178,7 @@ _runtime_data = ExtResource( 6 )
 position = Vector2( -0.374577, 0 )
 frames = SubResource( 19 )
 animation = "stealth_walk"
-frame = 3
+frame = 2
 playing = true
 
 [node name="RockOrigin" type="Position2D" parent="AnimatedSprite"]

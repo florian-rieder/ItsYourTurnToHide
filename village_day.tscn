@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://dialogues/found_kid2.tres" type="Resource" id=27]
 [ext_resource path="res://assets/PalmTree.png" type="Texture" id=28]
 [ext_resource path="res://dialogues/chicken_man.tres" type="Resource" id=29]
+[ext_resource path="res://assets/D_del-Sheet.png" type="Texture" id=30]
 [ext_resource path="res://assets/Prop/Bush.png" type="Texture" id=31]
 [ext_resource path="res://assets/Prop/Prop1.png" type="Texture" id=32]
 [ext_resource path="res://assets/Prop/prop5.png" type="Texture" id=33]
@@ -38,7 +39,10 @@
 [ext_resource path="res://assets/Prop/Prop9.png" type="Texture" id=37]
 [ext_resource path="res://assets/Prop/prop8.png" type="Texture" id=38]
 [ext_resource path="res://Door.gd" type="Script" id=39]
+[ext_resource path="res://assets/A_del-Sheet.png" type="Texture" id=40]
 [ext_resource path="res://assets/Prop/prop11.png" type="Texture" id=41]
+[ext_resource path="res://assets/Retro_Gaming_Custom.tres" type="DynamicFont" id=42]
+[ext_resource path="res://ControlsMessage.gd" type="Script" id=43]
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 17 )
@@ -102,6 +106,86 @@ shader_param/detail = 1.0
 shader_param/distortion = null
 shader_param/heightOffset = null
 shader_param/offset = 0.0
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 40 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 40 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 40 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 40 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 40 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 40 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 40 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 40 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 30 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 30 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 30 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 30 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 30 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 30 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 30 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 30 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="VillageDay" type="Node2D"]
 script = ExtResource( 9 )
@@ -288,7 +372,6 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = ExtResource( 14 )
-frame = 1
 playing = true
 
 [node name="Doors" type="Node2D" parent="Terrain/GameSpace"]
@@ -623,7 +706,7 @@ _dialogue = ExtResource( 29 )
 [node name="NPC" parent="Terrain/Entities/NPCDialog" index="0"]
 position = Vector2( -7.40776, -8.8025 )
 animation = "male1"
-frame = 2
+frame = 3
 
 [node name="Area2D" parent="Terrain/Entities/NPCDialog" index="1"]
 position = Vector2( -12.25, -4.5 )
@@ -636,7 +719,7 @@ _dialogue = ExtResource( 8 )
 [node name="NPC" parent="Terrain/Entities/PhaseEndingDialog" index="0"]
 position = Vector2( 23.8312, -3.48451 )
 animation = "mother"
-frame = 2
+frame = 3
 
 [node name="CollisionShape2D" parent="Terrain/Entities/PhaseEndingDialog/Area2D" index="0"]
 disabled = true
@@ -684,7 +767,7 @@ position = Vector2( 744.478, 114.947 )
 scale = Vector2( -1, 1 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken" index="0"]
-frame = 13
+frame = 6
 
 [node name="Chicken2" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 637.632, 116.044 )
@@ -696,7 +779,7 @@ position = Vector2( 730.704, 115.971 )
 position = Vector2( 714.787, 115.943 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken4" index="0"]
-frame = 3
+frame = 10
 
 [node name="Chicken5" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 254.228, 118.179 )
@@ -724,7 +807,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
-frame = 2
+frame = 4
 
 [node name="CoverDialog" parent="Terrain" instance=ExtResource( 19 )]
 position = Vector2( -543.751, 110.672 )
@@ -735,7 +818,7 @@ _dialogue = ExtResource( 20 )
 
 [node name="NPC" parent="Terrain/CoverDialog/NPCDialog" index="0"]
 position = Vector2( 1.74692, 3.68305 )
-frame = 2
+frame = 1
 
 [node name="Cover" parent="Terrain/CoverDialog" index="1"]
 texture = ExtResource( 7 )
@@ -748,7 +831,6 @@ _dialogue = ExtResource( 27 )
 
 [node name="NPC" parent="Terrain/CoverDialog2/NPCDialog" index="0"]
 animation = "kid2"
-frame = 2
 
 [node name="Cover" parent="Terrain/CoverDialog2" index="1"]
 texture = ExtResource( 11 )
@@ -762,7 +844,6 @@ _dialogue = ExtResource( 21 )
 
 [node name="NPC" parent="Terrain/CoverDialog3/NPCDialog" index="0"]
 animation = "kid3"
-frame = 2
 
 [node name="Sprite" parent="Terrain/CoverDialog3/Cover" index="0"]
 visible = false
@@ -776,7 +857,6 @@ _dialogue = ExtResource( 25 )
 
 [node name="NPC" parent="Terrain/CoverDialog4/NPCDialog" index="0"]
 animation = "kid4"
-frame = 2
 
 [node name="Cover" parent="Terrain/CoverDialog4" index="1"]
 texture = ExtResource( 23 )
@@ -789,11 +869,54 @@ texture = ExtResource( 23 )
 _dialog_text = NodePath("../../../VillageDay/CanvasLayer/DialogUI/NinePatchRect/DialogText")
 _player = NodePath("../../Terrain/Entities/Player")
 
+[node name="PressE" parent="CanvasLayer/DialogUI/NinePatchRect/PressE" index="0"]
+frame = 6
+
 [node name="InteractMessage" parent="CanvasLayer" index="2"]
 _player = NodePath("../../../VillageDay/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 2
+frame = 1
+
+[node name="ControlsMessage" type="HBoxContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+custom_constants/separation = 32
+script = ExtResource( 43 )
+
+[node name="Controls" type="Control" parent="CanvasLayer/ControlsMessage"]
+margin_right = 90.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Left" type="AnimatedSprite" parent="CanvasLayer/ControlsMessage/Controls"]
+position = Vector2( 30, 20 )
+frames = SubResource( 21 )
+frame = 1
+playing = true
+centered = false
+
+[node name="Right" type="AnimatedSprite" parent="CanvasLayer/ControlsMessage/Controls"]
+position = Vector2( 64, 20 )
+frames = SubResource( 30 )
+frame = 5
+playing = true
+centered = false
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlsMessage"]
+margin_left = 122.0
+margin_top = 15.0
+margin_right = 1024.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 42 )
+text = "Move"
+valign = 1
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )

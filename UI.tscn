@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://runtime_data.tres" type="Resource" id=1]
 [ext_resource path="res://dialogues/intro.tres" type="Resource" id=2]
@@ -8,6 +8,46 @@
 [ext_resource path="res://interact_message.gd" type="Script" id=6]
 [ext_resource path="res://assets/E_del-Sheet.png" type="Texture" id=7]
 [ext_resource path="res://assets/Dialog box.png" type="Texture" id=8]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 7 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 7 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
@@ -100,6 +140,20 @@ custom_fonts/font = ExtResource( 3 )
 text = "Placeholder text"
 autowrap = true
 
+[node name="PressE" type="Control" parent="DialogUI/NinePatchRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="PressE" type="AnimatedSprite" parent="DialogUI/NinePatchRect/PressE"]
+frames = SubResource( 18 )
+frame = 1
+playing = true
+centered = false
+
 [node name="SceneTransitionRect" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
@@ -136,7 +190,7 @@ rect_pivot_offset = Vector2( 0.5, 0.5 )
 [node name="InteractButton" type="AnimatedSprite" parent="InteractMessage/Control"]
 position = Vector2( 30.1606, 35.3197 )
 frames = SubResource( 9 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="Label" type="Label" parent="InteractMessage"]
