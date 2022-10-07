@@ -73,18 +73,17 @@ radius = 127.093
 radius = 6.65864
 height = 11.4236
 
-[node name="SimpleEnnemy" type="KinematicBody2D" groups=[
-"Ennemies",
-]]
+[node name="SimpleEnnemy" type="KinematicBody2D" groups=["Ennemies"]]
 collision_layer = 2
 script = ExtResource( 1 )
 speed = Vector2( 50, 350 )
 hearing_distance = 200.0
+detected_light_color = Color( 1, 0.72549, 0.72549, 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="PlayerDetector" type="Area2D" parent="Sprite"]
@@ -122,6 +121,7 @@ one_shot = true
 [node name="LineOfSight" type="RayCast2D" parent="."]
 cast_to = Vector2( 0, 0 )
 collision_mask = 3
+
 [connection signal="body_entered" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="Sprite/PlayerDetector" to="." method="_on_PlayerDetector_body_exited"]
 [connection signal="timeout" from="DistractedTime" to="." method="_on_DistractedTime_timeout"]

@@ -22,21 +22,25 @@ export(Vector2) var _dunes_foreground_motion_scale
 #export(Resource) var _runtime_data = _runtime_data as RuntimeData
 
 func _ready():
-	_mountains_layer.motion_mirroring = _mountains_sprite.texture.get_size()#.rotated(_background.global_rotation)
-	_mountains_layer.motion_scale = _mountains_motion_scale
-	
-	_dark_dunes_layer.motion_mirroring = _dark_dunes_sprite.texture.get_size()#.rotated(_background.global_rotation)
-	_dark_dunes_layer.motion_scale = _dark_dunes_motion_scale
-	
-	_dunes_layer.motion_mirroring = _dunes_sprite.texture.get_size()#.rotated(_background.global_rotation)
-	_dunes_layer.motion_scale = _dunes_motion_scale
-	
-	_dunes_foreground_layer.motion_mirroring = _dunes_foreground_sprite.texture.get_size()#.rotated(_background.global_rotation)
-	_dunes_foreground_layer.motion_scale = _dunes_foreground_motion_scale
+    _mountains_layer.motion_mirroring = _mountains_sprite.texture.get_size()#.rotated(_background.global_rotation)
+    _mountains_layer.motion_mirroring.y = 0
+    _mountains_layer.motion_scale = _mountains_motion_scale
+    
+    _dark_dunes_layer.motion_mirroring = _dark_dunes_sprite.texture.get_size()#.rotated(_background.global_rotation)
+    _dark_dunes_layer.motion_mirroring.y = 0
+    _dark_dunes_layer.motion_scale = _dark_dunes_motion_scale
+    
+    _dunes_layer.motion_mirroring = _dunes_sprite.texture.get_size()#.rotated(_background.global_rotation)
+    _dunes_layer.motion_mirroring.y = 0
+    _dunes_layer.motion_scale = _dunes_motion_scale
+    
+    _dunes_foreground_layer.motion_mirroring = _dunes_foreground_sprite.texture.get_size()#.rotated(_background.global_rotation)
+    _dunes_foreground_layer.motion_mirroring.y = 0
+    _dunes_foreground_layer.motion_scale = _dunes_foreground_motion_scale
 
 
 func _process(_delta):
-	var scroll = Vector2(0,0) #Some default scrolling so there's always movement.
-	if player: #and _runtime_data.current_game_state != Enums.GameState.IN_DIALOG:
-		scroll += player._velocity / 100
-	scroll_offset += scroll
+    var scroll = Vector2(0,0) #Some default scrolling so there's always movement.
+    if player: #and _runtime_data.current_game_state != Enums.GameState.IN_DIALOG:
+        scroll += player._velocity / 100
+    scroll_offset += scroll

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://ParallaxBackgroundNight.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://props/AC_unit.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Door.gd" type="Script" id=25]
 [ext_resource path="res://assets/Prop/Prop15.png" type="Texture" id=26]
+[ext_resource path="res://assets/2D_wind_sway.gdshader" type="Shader" id=27]
 [ext_resource path="res://assets/GenericmaleDed.png" type="Texture" id=28]
 [ext_resource path="res://assets/Prop/Prop1.png" type="Texture" id=29]
 [ext_resource path="res://assets/Prop/prop4.png" type="Texture" id=30]
@@ -35,6 +36,18 @@
 [ext_resource path="res://Lampions.tscn" type="PackedScene" id=35]
 [ext_resource path="res://assets/Prop/prop8.png" type="Texture" id=36]
 [ext_resource path="res://assets/Prop/prop11.png" type="Texture" id=39]
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 27 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 39.1129 )
@@ -67,6 +80,42 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 27 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id=16]
+shader = ExtResource( 27 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = ExtResource( 27 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 6.45898, 9.35445 )
@@ -115,54 +164,66 @@ tile_data = PoolIntArray( 131039, 8, 0, 131040, 8, 0, 131041, 8, 0, 131046, 8, 0
 [node name="BackgroundProps" type="Node2D" parent="Terrain/Background2"]
 
 [node name="PalmTree" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( 367.181, 93.6189 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree2" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( 725.546, 75.9555 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree3" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( 946.568, 74.5381 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="PalmTree4" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( 1164.71, 105.651 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree5" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( 198.226, 69.7 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="PalmTree6" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -53, 12 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="PalmTree7" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -78, 29 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree8" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -611.029, 73.8622 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree9" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -890.482, 54.0352 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree12" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -875.135, 79.6826 )
 texture = ExtResource( 20 )
 
 [node name="PalmTree10" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -160, 77 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="PalmTree11" type="Sprite" parent="Terrain/Background2/BackgroundProps"]
+material = SubResource( 14 )
 position = Vector2( -933.63, 72.0144 )
 texture = ExtResource( 20 )
 flip_h = true
@@ -222,6 +283,7 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="Props" type="Node2D" parent="Terrain/GameSpace"]
@@ -229,14 +291,17 @@ playing = true
 [node name="StreetLamp" parent="Terrain/GameSpace/Props" instance=ExtResource( 16 )]
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 15 )
 position = Vector2( -879.196, 108.446 )
 texture = ExtResource( 15 )
 
 [node name="Bush2" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 15 )
 position = Vector2( -935.684, 105.176 )
 texture = ExtResource( 15 )
 
 [node name="Bush3" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 15 )
 position = Vector2( -928.642, 110.933 )
 texture = ExtResource( 15 )
 flip_h = true
@@ -287,6 +352,7 @@ position = Vector2( -303.178, 83.6427 )
 position = Vector2( -495.212, 85.1811 )
 
 [node name="PalmTree" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 16 )
 position = Vector2( -1163.83, 87.2852 )
 texture = ExtResource( 20 )
 
@@ -310,11 +376,13 @@ texture = ExtResource( 39 )
 position = Vector2( 584.839, 101.553 )
 
 [node name="Bush4" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 17 )
 position = Vector2( 613.515, 118.347 )
 texture = ExtResource( 15 )
 flip_h = true
 
 [node name="Bush5" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 17 )
 position = Vector2( 448, 93 )
 texture = ExtResource( 15 )
 
@@ -673,6 +741,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground2" instance=ExtResource( 24 )]
+frame = 4
 
 [node name="Exit" parent="Terrain" instance=ExtResource( 21 )]
 position = Vector2( -908.828, 124.49 )
@@ -700,6 +769,7 @@ zoom = Vector2( 0.25, 0.25 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 bus = "SFX"
+
 [connection signal="body_entered" from="Terrain/GameSpace/Doors/Door2/Door1" to="Terrain/GameSpace/Doors/Door2/Door1" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Terrain/GameSpace/Doors/Door2/Door1" to="Terrain/GameSpace/Doors/Door2/Door1" method="_on_Door_body_exited"]
 [connection signal="body_entered" from="Terrain/GameSpace/Doors/Door2/Door2" to="Terrain/GameSpace/Doors/Door2/Door2" method="_on_Door_body_entered"]
@@ -740,7 +810,5 @@ bus = "SFX"
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 
 [editable path="Terrain/Entities/Player"]
-
 [editable path="Terrain/Entities/Cover3"]
-
 [editable path="CanvasLayer"]

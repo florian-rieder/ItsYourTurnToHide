@@ -13,39 +13,39 @@ export(Resource) var _runtime_data = _runtime_data as RuntimeData
 var _current_slide_index = 0
 
 func _ready():
-	#_avatar.texture = _current_dialogue.avatar_texture
-	#show_slide()
-	
-	# listen to signals
-	GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")
-	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
+    #_avatar.texture = _current_dialogue.avatar_texture
+    #show_slide()
+    
+    # listen to signals
+    GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")
+    GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
 
 
 func _input(event):
-	if Input.is_action_just_pressed("interact"):
-		if _current_slide_index < _current_dialogue.dialog_slides.size() - 1:
-			_current_slide_index += 1
-			show_slide()
-		elif _runtime_data.current_game_state == Enums.GameState.IN_DIALOG:
-			GameEvents.emit_dialog_finished(_current_dialogue)
+    if Input.is_action_just_pressed("interact"):
+        if _current_slide_index < _current_dialogue.dialog_slides.size() - 1:
+            _current_slide_index += 1
+            show_slide()
+        elif _runtime_data.current_game_state == Enums.GameState.IN_DIALOG:
+            GameEvents.emit_dialog_finished(_current_dialogue)
 
 
 func show_slide() -> void:
-	_dialog_text.text = _current_dialogue.dialog_slides[_current_slide_index]
+    _dialog_text.text = _current_dialogue.dialog_slides[_current_slide_index]
 
 
 func _on_dialog_initiated(dialogue : Dialogue) -> void:
-	_runtime_data.current_game_state = Enums.GameState.IN_DIALOG
-	
-	_current_dialogue = dialogue
-	_current_slide_index = 0
-	#_avatar.texture = dialogue.avatar_texture
-	
-	show_slide()
-	self.visible = true
-	_interaction_indicator.visible = false
+    _runtime_data.current_game_state = Enums.GameState.IN_DIALOG
+    
+    _current_dialogue = dialogue
+    _current_slide_index = 0
+    #_avatar.texture = dialogue.avatar_texture
+    
+    show_slide()
+    self.visible = true
+    _interaction_indicator.visible = false
 
 
 func _on_dialog_finished(_dialogue) -> void:
-	_runtime_data.current_game_state = Enums.GameState.FREEWALK
-	self.visible = false
+    _runtime_data.current_game_state = Enums.GameState.FREEWALK
+    self.visible = false

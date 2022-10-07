@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Radio.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://exit_animation.tres" type="SpriteFrames" id=14]
 [ext_resource path="res://Lampions.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Chicken.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/2D_wind_sway.gdshader" type="Shader" id=17]
 [ext_resource path="res://NPCDialog.tscn" type="PackedScene" id=18]
 [ext_resource path="res://CoverDialog.tscn" type="PackedScene" id=19]
 [ext_resource path="res://dialogues/found_kid1.tres" type="Resource" id=20]
@@ -38,6 +39,18 @@
 [ext_resource path="res://assets/Prop/prop8.png" type="Texture" id=38]
 [ext_resource path="res://Door.gd" type="Script" id=39]
 [ext_resource path="res://assets/Prop/prop11.png" type="Texture" id=41]
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 17 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 39.1129 )
@@ -65,6 +78,30 @@ extents = Vector2( 6.45898, 9.35445 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 6.45898, 9.35445 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 17 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = 0.0
+shader_param/heightOffset = 0.324
+shader_param/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 17 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.05
+shader_param/maxStrength = 0.01
+shader_param/strengthScale = 100.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = null
+shader_param/heightOffset = null
+shader_param/offset = 0.0
 
 [node name="VillageDay" type="Node2D"]
 script = ExtResource( 9 )
@@ -100,54 +137,66 @@ tile_data = PoolIntArray( 131039, 8, 0, 131040, 8, 0, 131041, 8, 0, 131046, 8, 0
 [node name="BackgroundProps" type="Node2D" parent="Terrain/Background"]
 
 [node name="PalmTree" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( 367.181, 93.6189 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree2" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( 725.546, 75.9555 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree3" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( 946.568, 74.5381 )
 texture = ExtResource( 28 )
 flip_h = true
 
 [node name="PalmTree4" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( 1164.71, 105.651 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree5" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( 198.226, 69.7 )
 texture = ExtResource( 28 )
 flip_h = true
 
 [node name="PalmTree6" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -53, 12 )
 texture = ExtResource( 28 )
 flip_h = true
 
 [node name="PalmTree7" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -78, 29 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree8" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -611.029, 73.8622 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree9" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -890.482, 54.0352 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree12" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -875.135, 79.6826 )
 texture = ExtResource( 28 )
 
 [node name="PalmTree10" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -160, 77 )
 texture = ExtResource( 28 )
 flip_h = true
 
 [node name="PalmTree11" type="Sprite" parent="Terrain/Background/BackgroundProps"]
+material = SubResource( 10 )
 position = Vector2( -933.63, 72.0144 )
 texture = ExtResource( 28 )
 flip_h = true
@@ -239,7 +288,7 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = ExtResource( 14 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Doors" type="Node2D" parent="Terrain/GameSpace"]
@@ -447,14 +496,17 @@ shape = SubResource( 9 )
 visible = false
 
 [node name="Bush" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 12 )
 position = Vector2( -879.196, 108.446 )
 texture = ExtResource( 31 )
 
 [node name="Bush2" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 12 )
 position = Vector2( -935.684, 105.176 )
 texture = ExtResource( 31 )
 
 [node name="Bush3" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 12 )
 position = Vector2( -928.642, 110.933 )
 texture = ExtResource( 31 )
 flip_h = true
@@ -537,11 +589,13 @@ position = Vector2( 289.187, 58.9326 )
 texture = ExtResource( 41 )
 
 [node name="Bush4" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 11 )
 position = Vector2( 613.515, 118.347 )
 texture = ExtResource( 31 )
 flip_h = true
 
 [node name="Bush5" type="Sprite" parent="Terrain/GameSpace/Props"]
+material = SubResource( 11 )
 position = Vector2( 448, 93 )
 texture = ExtResource( 31 )
 
@@ -630,7 +684,7 @@ position = Vector2( 744.478, 114.947 )
 scale = Vector2( -1, 1 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken" index="0"]
-frame = 7
+frame = 13
 
 [node name="Chicken2" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 637.632, 116.044 )
@@ -642,7 +696,7 @@ position = Vector2( 730.704, 115.971 )
 position = Vector2( 714.787, 115.943 )
 
 [node name="Sprite" parent="Terrain/Entities/Chicken4" index="0"]
-frame = 11
+frame = 3
 
 [node name="Chicken5" parent="Terrain/Entities" instance=ExtResource( 16 )]
 position = Vector2( 254.228, 118.179 )
@@ -670,7 +724,7 @@ __meta__ = {
 }
 
 [node name="AC" parent="Terrain/Foreground" instance=ExtResource( 24 )]
-frame = 3
+frame = 2
 
 [node name="CoverDialog" parent="Terrain" instance=ExtResource( 19 )]
 position = Vector2( -543.751, 110.672 )
@@ -739,10 +793,11 @@ _player = NodePath("../../Terrain/Entities/Player")
 _player = NodePath("../../../VillageDay/Terrain/Entities/Player")
 
 [node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
-frame = 6
+frame = 2
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
+
 [connection signal="body_entered" from="Terrain/GameSpace/Doors/Door/Door1" to="Terrain/GameSpace/Doors/Door/Door1" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Terrain/GameSpace/Doors/Door/Door1" to="Terrain/GameSpace/Doors/Door/Door1" method="_on_Door_body_exited"]
 [connection signal="body_entered" from="Terrain/GameSpace/Doors/Door/Door2" to="Terrain/GameSpace/Doors/Door/Door2" method="_on_Door_body_entered"]
@@ -782,45 +837,24 @@ zoom = Vector2( 0.25, 0.25 )
 [connection signal="tween_completed" from="CanvasLayer/SceneTransitionRect/FadeOutTween" to="." method="_on_FadeOutTween_completed"]
 
 [editable path="Terrain/Background/BackgroundProps/Lampions"]
-
 [editable path="Terrain/Background/BackgroundProps/Lampions2"]
-
 [editable path="Terrain/GameSpace/Props/StreetLamp"]
-
 [editable path="Terrain/GameSpace/Props/WallLamp"]
-
 [editable path="Terrain/GameSpace/Props/WallLamp2"]
-
 [editable path="Terrain/GameSpace/Props/WallLamp3"]
-
 [editable path="Terrain/GameSpace/Props/WallLamp4"]
-
 [editable path="Terrain/GameSpace/Props/StreetLamp2"]
-
 [editable path="Terrain/Entities/NPCDialog"]
-
 [editable path="Terrain/Entities/PhaseEndingDialog"]
-
 [editable path="Terrain/Entities/Chicken"]
-
 [editable path="Terrain/Entities/Chicken4"]
-
 [editable path="Terrain/CoverDialog"]
-
 [editable path="Terrain/CoverDialog/NPCDialog"]
-
 [editable path="Terrain/CoverDialog2"]
-
 [editable path="Terrain/CoverDialog2/NPCDialog"]
-
 [editable path="Terrain/CoverDialog3"]
-
 [editable path="Terrain/CoverDialog3/NPCDialog"]
-
 [editable path="Terrain/CoverDialog3/Cover"]
-
 [editable path="Terrain/CoverDialog4"]
-
 [editable path="Terrain/CoverDialog4/NPCDialog"]
-
 [editable path="CanvasLayer"]

@@ -5,8 +5,12 @@ export(NodePath) onready var _scene_transition = get_node(_scene_transition) as 
 
 
 func _on_scroll_tween_completed(object, key):
-	_scene_transition.fade_out()
+    _scene_transition.fade_out()
 
 
 func _on_Player_credits_song_finished():
-	get_tree().quit()
+    get_tree().quit()
+
+
+func _on_Button_pressed():
+    get_tree().quit()

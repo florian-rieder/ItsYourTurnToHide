@@ -11,42 +11,42 @@ var _children_found = 0
 var timer
 
 func _ready():
-	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
-	GameEvents.connect("child_found", self, "_on_child_found")
-	
+    GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
+    GameEvents.connect("child_found", self, "_on_child_found")
+    
 
 
 func _on_child_found() -> void:
-	_children_found += 1
-	if _children_found == 4:
-		_on_all_children_found()
+    _children_found += 1
+    if _children_found == 4:
+        _on_all_children_found()
 
 
 func _on_all_children_found() -> void:
-	#_end_dialog._dialogue = _ending_dialogue
-	_end_dialog.visible = true
-	_end_dialog.get_node("Area2D/CollisionShape2D").disabled = false
-	timer.start()
+    #_end_dialog._dialogue = _ending_dialogue
+    _end_dialog.visible = true
+    _end_dialog.get_node("Area2D/CollisionShape2D").disabled = false
+    timer.start()
 
 func _on_dialog_finished(dialogue : Dialogue) -> void:
-	if dialogue == _ending_dialogue:
-		_scene_transition.fade_out()
+    if dialogue == _ending_dialogue:
+        _scene_transition.fade_out()
 
 
 func _on_FadeOutTween_completed(object, key) -> void:
-	get_tree().change_scene("res://transition.tscn")
+    get_tree().change_scene("res://transition.tscn")
 
 
 func _init():
-	timer = Timer.new()
-	add_child(timer)
-	timer.autostart = false
-	timer.one_shot = true
-	timer.wait_time = 5
-	timer.connect("timeout", self, "_timeout")
+    timer = Timer.new()
+    add_child(timer)
+    timer.autostart = false
+    timer.one_shot = true
+    timer.wait_time = 5
+    timer.connect("timeout", self, "_timeout")
 
 
 func _timeout():
-	if _runtime_data.current_game_state != Enums.GameState.IN_DIALOG:
-		GameEvents.emit_dialog_initiated(_mother_call)
+    if _runtime_data.current_game_state != Enums.GameState.IN_DIALOG:
+        GameEvents.emit_dialog_initiated(_mother_call)
 

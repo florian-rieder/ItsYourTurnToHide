@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/406949__kyles__village-small-crowd-morning-under-mango-trees-children-kids-and-nearby-and-distant-mellow-voices-and-activity-putti-uganda-africa-2016.mp3-e67ff73288edf7d81b815700e3ec332d.mp3str"
+
+[deps]
+
+source_file="res://audio/406949__kyles__village-small-crowd-morning-under-mango-trees-children-kids-and-nearby-and-distant-mellow-voices-and-activity-putti-uganda-africa-2016.mp3"
+dest_files=[ "res://.import/406949__kyles__village-small-crowd-morning-under-mango-trees-children-kids-and-nearby-and-distant-mellow-voices-and-activity-putti-uganda-africa-2016.mp3-e67ff73288edf7d81b815700e3ec332d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
