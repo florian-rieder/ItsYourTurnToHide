@@ -170,6 +170,7 @@ tracks/0/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 self_modulate = Color( 1, 1, 1, 0 )
+z_index = 20
 collision_layer = 2
 script = ExtResource( 2 )
 _runtime_data = ExtResource( 6 )

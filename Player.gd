@@ -93,12 +93,14 @@ func _process(delta):
                     _interactorInstance.try_to_trigger_dialog()
                 elif _canMove:
                     _old_visibility = visibility
+                    z_index = 9
                     visibility_set(0)
                     sprite.modulate.a = 0.2
                     _canMove = false
                     
                 else:
                     visibility_set(_old_visibility)
+                    z_index = 20
                     _canMove = true
                     sprite.modulate.a = 1
             "Radio":
