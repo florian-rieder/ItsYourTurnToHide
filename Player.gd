@@ -93,14 +93,14 @@ func _process(delta):
                     _interactorInstance.try_to_trigger_dialog()
                 elif _canMove:
                     _old_visibility = visibility
-                    z_index = 9
+                    z_index = 9 # get behind cover
                     visibility_set(0)
                     sprite.modulate.a = 0.2
                     _canMove = false
                     
                 else:
                     visibility_set(_old_visibility)
-                    z_index = 20
+                    z_index = 20 # get back to original z-index
                     _canMove = true
                     sprite.modulate.a = 1
             "Radio":
@@ -126,11 +126,7 @@ func get_direction():
 
 
 # This function calculates a new velocity whenever you need it.
-func calculate_move_velocity(
-        linear_velocity,
-        direction,
-        speed
-    ):
+func calculate_move_velocity(linear_velocity, direction, speed):
     var velocity = linear_velocity
     velocity.x = speed.x * direction.x
     if direction.y != 0.0:

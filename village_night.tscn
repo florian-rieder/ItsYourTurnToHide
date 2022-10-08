@@ -283,7 +283,6 @@ shape = SubResource( 4 )
 [node name="Exittemp" type="AnimatedSprite" parent="Terrain/GameSpace"]
 position = Vector2( -900.341, 93.5244 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 
 [node name="Props" type="Node2D" parent="Terrain/GameSpace"]
@@ -611,7 +610,7 @@ position = Vector2( 894.246, 88.45 )
 speed = Vector2( 200, 350 )
 
 [node name="AnimatedSprite" parent="Terrain/Entities/Player" index="0"]
-frame = 2
+frame = 6
 
 [node name="Ambiance" parent="Terrain/Entities/Player" index="4"]
 stream = ExtResource( 19 )
@@ -732,6 +731,7 @@ shadow_filter = 2
 shadow_filter_smooth = 18.6
 
 [node name="Foreground2" type="TileMap" parent="Terrain"]
+z_index = 30
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -760,8 +760,14 @@ color = Color( 0.321569, 0.337255, 0.482353, 1 )
 _dialog_text = NodePath("../../../VillageNight/CanvasLayer/DialogUI/NinePatchRect/DialogText")
 _player = NodePath("../../Terrain/Entities/Player")
 
+[node name="PressE" parent="CanvasLayer/DialogUI/NinePatchRect/PressE" index="0"]
+frame = 5
+
 [node name="InteractMessage" parent="CanvasLayer" index="2"]
 _player = NodePath("../../../VillageNight/Terrain/Entities/Player")
+
+[node name="InteractButton" parent="CanvasLayer/InteractMessage/Control" index="0"]
+frame = 2
 
 [node name="CutsceneCamera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
